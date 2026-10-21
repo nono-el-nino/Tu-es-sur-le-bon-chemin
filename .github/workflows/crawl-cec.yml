@@ -1,0 +1,23 @@
+name: Relevé temporaire des pages du Catéchisme
+on:
+  push:
+    branches: [ccc-links]
+    paths: [scripts/crawl-cec.mjs, .github/workflows/crawl-cec.yml]
+permissions:
+  contents: write
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/crawl-cec.mjs
+      - name: Enregistrer le relevé sur la branche
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898333+github-actions[bot]@users.noreply.github.com"
+          git add scripts/data/cec-pages.json
+          git commit -m "Relevé des pages du Catéchisme (vatican.va)" || echo "rien à enregistrer"
+          git push
