@@ -1,7 +1,7 @@
 // Relève, page par page, les numéros de paragraphes du Catéchisme (version française)
 // publiés sur vatican.va. Résultat : scripts/data/cec-pages.json
 // Usage (machine avec accès Internet) : node scripts/crawl-cec.mjs
-import { writeFileSync } from "node:fs";
+import { mkdirSync, writeFileSync } from "node:fs";
 
 const START = "https://www.vatican.va/archive/ccc/index_fr.htm";
 const MAX = 1500;
@@ -14,8 +14,9 @@ const decode = (buf) => {
   return utf8.includes("�") ? new TextDecoder("latin1").decode(buf) : utf8;
 };
 
+// Uniquement le Catéchisme en français : la page d'index et le dossier /archive/FRA0013/.
 const allowed = (u) =>
-  u.hostname === "www.vatican.va" && /^\/archive\//i.test(u.pathname) && /\.html?$/i.test(u.pathname) && /(FRA|ccc)/i.test(u.pathname);
+  /(^|\.)vatican\.va$/.test(u.hostname) && (/^\/archive\/FRA0013\//i.test(u.pathname) || /^\/archive\/ccc\/index_fr\.htm$/i.test(u.pathname)) && /\.html?$/i.test(u.pathname);
 
 while (queue.length && seen.size < MAX) {
   const url = queue.shift();
@@ -25,7 +26,7 @@ while (queue.length && seen.size < MAX) {
   try {
     const res = await fetch(url, { headers: { "user-agent": "bon-chemin-cec-index" } });
     if (!res.ok) {
-      console.log("HTTP", res.status, url);
+      if (seen.size < 30) console.log("HTTP", res.status, url);
       continue;
     }
     html = decode(new Uint8Array(await res.arrayBuffer()));
@@ -33,9 +34,13 @@ while (queue.length && seen.size < MAX) {
     console.log("ERR", url, e.message);
     continue;
   }
+  const base = html.match(/<base\s+href\s*=\s*"?([^"\s>]+)/i)?.[1];
+  if (pages.length < 4) console.log("BASE", url, base, "LINKS", [...html.matchAll(/href\s*=\s*"?([^"\s>]+)/gi)].slice(0, 15).map((m) => m[1]).join(" "));
   for (const m of html.matchAll(/href\s*=\s*"?([^"\s>]+)"?/gi)) {
     try {
-      const u = new URL(m[1], url);
+      const u = new URL(m[1], base ? new URL(base, url) : url);
+      u.protocol = "https:";
+      u.hostname = "www.vatican.va";
       u.hash = "";
       if (allowed(u) && !seen.has(u.href)) queue.push(u.href);
     } catch {}
@@ -57,4 +62,5 @@ const covered = new Set(withNums.flatMap((p) => p.nums));
 console.log(`\n${pages.length} pages lues, ${withNums.length} avec paragraphes, ${covered.size} numéros distincts couverts.`);
 const sample = withNums.slice(0, 5).map((p) => `${p.url} ${Math.min(...p.nums)}-${Math.max(...p.nums)} anchors:${p.anchors.slice(0, 5)}`);
 console.log(sample.join("\n"));
+mkdirSync("scripts/data", { recursive: true });
 writeFileSync("scripts/data/cec-pages.json", JSON.stringify(withNums.map(({ url, title, nums, anchors }) => ({ url, title, nums, anchors })), null, 1));
