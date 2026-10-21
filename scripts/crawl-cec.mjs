@@ -49,12 +49,16 @@ while (queue.length && seen.size < MAX) {
   // Numéros de paragraphes : en gras en début de paragraphe (« <b>1716</b> »).
   const nums = [...html.matchAll(/<b>\s*(?:<[^>]+>\s*)*(\d{1,4})\s*(?:<\/[^>]+>\s*)*<\/b>/gi)].map((m) => Number(m[1])).filter((n) => n >= 1 && n <= 2865);
   const anchors = [...html.matchAll(/<a\s+name\s*=\s*"?([^"\s>]+)"?/gi)].map((m) => m[1]).slice(0, 40);
+  if (process.env.SAVE_RAW) {
+    mkdirSync("raw", { recursive: true });
+    writeFileSync(`raw/${new URL(url).pathname.split("/").pop()}`, html);
+  }
   pages.push({ url, title, nums: [...new Set(nums)], anchors });
   if (pages.length <= 3 || (nums.length === 0 && pages.length < 15)) {
     console.log("---", url, "|", title, "| nums:", nums.length, "| anchors:", anchors.slice(0, 8).join(","));
     console.log(html.replace(/\s+/g, " ").slice(0, 1200));
   }
-  await new Promise((r) => setTimeout(r, 120));
+  await new Promise((r) => setTimeout(r, 60));
 }
 
 const withNums = pages.filter((p) => p.nums.length > 0);
