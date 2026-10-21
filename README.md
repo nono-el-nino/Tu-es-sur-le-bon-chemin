@@ -98,9 +98,15 @@ Sinon, corrige `chapter` et `sourceUrl` avec la numérotation hébraïque.
 
 ## Déploiement sur GitHub Pages
 
-1. Pousse sur `main` (ou `master`).
-2. Dans le dépôt : **Settings → Pages → Source : GitHub Actions**.
-3. Le workflow `.github/workflows/deploy.yml` lance les tests, construit l'app et la publie sur `https://<utilisateur>.github.io/<depot>/`.
+Site en ligne : https://nono-el-nino.github.io/Tu-es-sur-le-bon-chemin/
+
+À chaque push sur `main` ou `master`, le workflow `.github/workflows/deploy.yml` :
+
+1. lance les tests ;
+2. construit l'app ;
+3. publie `dist/` sur la branche `gh-pages`.
+
+GitHub Pages sert cette branche (Settings → Pages → *Deploy from a branch* → `gh-pages`).
 
 Choix techniques pour GitHub Pages :
 

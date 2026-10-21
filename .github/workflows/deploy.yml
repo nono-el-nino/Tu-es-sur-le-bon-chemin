@@ -7,9 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages
@@ -27,10 +25,13 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
+      # Publie dist/ sur la branche gh-pages, servie par GitHub Pages.
+      - uses: peaceiris/actions-gh-pages@v4
         if: github.event_name != 'pull_request'
         with:
-          path: dist
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
 
   links:
     # Vérification des liens de source : informative, ne bloque pas le déploiement.
@@ -42,14 +43,3 @@ jobs:
         with:
           node-version: 22
       - run: node scripts/check-links.mjs
-
-  deploy:
-    if: github.event_name != 'pull_request'
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
