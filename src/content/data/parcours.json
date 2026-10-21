@@ -1,0 +1,304 @@
+[
+  {
+    "id": "decouvrir-jesus",
+    "title": "Découvrir Jésus et son message",
+    "subtitle": "Cinq haltes dans les Évangiles",
+    "description": "Qui est Jésus, qu'a-t-il annoncé, comment a-t-il vécu ? Un premier itinéraire pour le rencontrer à travers les Évangiles.",
+    "illustration": "sunrise",
+    "tone": "terracotta",
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" },
+    "steps": [
+      {
+        "id": "annonce",
+        "title": "Une bonne nouvelle",
+        "objective": "Découvrir par quelle annonce Jésus commence sa mission.",
+        "passageId": "p-mc1-royaume",
+        "explanation": "Le mot « Évangile » vient du grec et signifie « bonne nouvelle ». Dès ses premières paroles, Jésus annonce que Dieu se fait proche et invite chacun à se tourner vers lui. Tout ce qu'il dira et fera ensuite développe cette annonce.",
+        "teaching": [
+          { "source": "CEC", "paragraphs": "541-546", "label": "Jésus annonce le Royaume de Dieu", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+        ],
+        "reflection": "Si tu devais résumer en une phrase ce qui est pour toi une bonne nouvelle aujourd'hui, que dirais-tu ?",
+        "quiz": {
+          "question": "Que signifie le mot « Évangile » ?",
+          "options": ["Bonne nouvelle", "Livre sacré", "Loi ancienne"],
+          "answerIndex": 0,
+          "feedback": "Évangile vient du grec euangelion : la bonne nouvelle."
+        },
+        "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+      },
+      {
+        "id": "beatitudes",
+        "title": "Le bonheur selon Jésus",
+        "objective": "Comprendre ce que les Béatitudes disent du bonheur.",
+        "passageId": "p-mt5-beatitudes",
+        "explanation": "Les Béatitudes ouvrent le Sermon sur la montagne. Elles ne décrivent pas des performances morales mais une manière d'être : la douceur, la soif de justice, la miséricorde, le désir de paix. Le Catéchisme y reconnaît le visage même de Jésus.",
+        "teaching": [
+          { "source": "CEC", "paragraphs": "1716-1729", "label": "Les Béatitudes et le désir de bonheur", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+        ],
+        "reflection": "Laquelle des béatitudes te parle le plus, ou te surprend le plus ?",
+        "quiz": {
+          "question": "Par quel mot commence chacune des Béatitudes ?",
+          "options": ["Malheur", "Heureux", "Souvenez-vous"],
+          "answerIndex": 1,
+          "feedback": "Chaque béatitude commence par « Heureux »."
+        },
+        "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+      },
+      {
+        "id": "misericorde",
+        "title": "Un Dieu qui accueille",
+        "objective": "Découvrir le visage de Dieu que Jésus révèle dans ses paraboles.",
+        "passageId": "p-lc15-pere-misericordieux",
+        "explanation": "Jésus parle souvent en paraboles, des histoires simples qui font réfléchir. Celle du père et de ses deux fils montre un Dieu qui n'attend pas que l'on soit parfait pour accueillir. La miséricorde est au cœur du message de Jésus.",
+        "teaching": [
+          { "source": "CEC", "paragraphs": "1439", "label": "La parabole du fils prodigue et la conversion", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+        ],
+        "reflection": "Te sens-tu plus proche du fils cadet, du fils aîné ou du père ? Pourquoi ?",
+        "quiz": {
+          "question": "Que fait le père en voyant son fils revenir de loin ?",
+          "options": ["Il attend qu'il s'excuse", "Il court à sa rencontre", "Il envoie un serviteur"],
+          "answerIndex": 1,
+          "feedback": "Le père court vers son fils et le serre dans ses bras, avant même qu'il ait fini de parler."
+        },
+        "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+      },
+      {
+        "id": "servir",
+        "title": "Aimer en servant",
+        "objective": "Voir comment Jésus montre l'amour par un geste concret.",
+        "passageId": "p-jn13-lavement-pieds",
+        "explanation": "Jésus n'enseigne pas seulement par des paroles. En lavant les pieds de ses disciples, il montre que l'amour se vit dans le service, sans souci de son rang. Il demande à ses disciples de faire de même.",
+        "teaching": [
+          { "source": "CEC", "paragraphs": "1337", "label": "Le dernier repas de Jésus et l'institution de l'Eucharistie", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+        ],
+        "reflection": "Quel petit geste de service pourrais-tu poser cette semaine ?",
+        "quiz": {
+          "question": "Quel disciple refuse d'abord que Jésus lui lave les pieds ?",
+          "options": ["Jean", "Thomas", "Pierre"],
+          "answerIndex": 2,
+          "feedback": "C'est Pierre qui proteste, avant d'accepter."
+        },
+        "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+      },
+      {
+        "id": "ressuscite",
+        "title": "Vivant pour toujours",
+        "objective": "Découvrir comment les disciples ont reconnu Jésus ressuscité.",
+        "passageId": "p-lc24-emmaus",
+        "explanation": "Pour les chrétiens, l'histoire de Jésus ne s'arrête pas à la croix : il est ressuscité. Les disciples d'Emmaüs le reconnaissent en chemin, à travers les Écritures et le pain partagé. Les chrétiens vivent encore aujourd'hui cette rencontre à la messe.",
+        "teaching": [
+          { "source": "CEC", "paragraphs": "638-658", "label": "La résurrection du Christ", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+        ],
+        "reflection": "Y a-t-il eu des moments où, après coup, tu as senti que tu n'étais pas seul·e sur la route ?",
+        "quiz": {
+          "question": "À quel moment les disciples reconnaissent-ils Jésus ?",
+          "options": ["Quand il rompt le pain", "Quand il entre dans le village", "Quand il dit son nom"],
+          "answerIndex": 0,
+          "feedback": "Ils le reconnaissent à la fraction du pain."
+        },
+        "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+      }
+    ]
+  },
+  {
+    "id": "apprendre-a-prier",
+    "title": "Apprendre à prier",
+    "subtitle": "Écouter, parler, persévérer",
+    "description": "Prier, c'est entrer en relation avec Dieu. Cinq étapes pour découvrir comment la Bible et l'Église en parlent, sans technique compliquée.",
+    "illustration": "constellation",
+    "tone": "turquoise",
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" },
+    "steps": [
+      {
+        "id": "ecouter",
+        "title": "D'abord écouter",
+        "objective": "Comprendre que la prière commence souvent par l'écoute.",
+        "passageId": "p-1s3-appel-samuel",
+        "explanation": "Le Catéchisme décrit la prière comme une rencontre : c'est Dieu qui cherche l'homme le premier. Comme le jeune Samuel, on peut commencer simplement par se rendre disponible et écouter.",
+        "teaching": [
+          { "source": "CEC", "paragraphs": "2559-2565", "label": "Qu'est-ce que la prière ?", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+        ],
+        "reflection": "Où et quand pourrais-tu trouver quelques minutes de silence ?",
+        "quiz": {
+          "question": "Qui aide Samuel à comprendre que c'est Dieu qui l'appelle ?",
+          "options": ["Sa mère Anne", "Le prêtre Éli", "Le roi David"],
+          "answerIndex": 1,
+          "feedback": "C'est le prêtre Éli qui comprend et guide l'enfant."
+        },
+        "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+      },
+      {
+        "id": "secret",
+        "title": "Dans le secret",
+        "objective": "Découvrir la prière personnelle, simple et confiante.",
+        "passageId": "p-mt6-prier-dans-le-secret",
+        "explanation": "Jésus invite à une prière discrète, sans chercher à impressionner, et sans multiplier les mots. Il n'est pas nécessaire de savoir « bien » prier : il suffit de s'adresser au Père avec confiance.",
+        "teaching": [
+          { "source": "CEC", "paragraphs": "2607-2615", "label": "Jésus enseigne à prier", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+        ],
+        "reflection": "Qu'aimerais-tu confier à Dieu aujourd'hui, avec tes propres mots ?",
+        "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+      },
+      {
+        "id": "notre-pere",
+        "title": "La prière de Jésus",
+        "objective": "Découvrir la structure du Notre Père.",
+        "passageId": "p-mt6-notre-pere",
+        "explanation": "Le Notre Père s'ouvre sur Dieu (son nom, son règne, sa volonté), puis présente nos besoins (le pain, le pardon, la protection face au mal). C'est un modèle pour toute prière chrétienne, que l'on peut dire lentement, phrase après phrase.",
+        "teaching": [
+          { "source": "CEC", "paragraphs": "2759-2865", "label": "La prière du Seigneur : le Notre Père", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+        ],
+        "reflection": "Quelle demande du Notre Père te semble la plus actuelle pour toi ?",
+        "quiz": {
+          "question": "Dans quel Évangile trouve-t-on aussi une version plus courte du Notre Père ?",
+          "options": ["Marc", "Luc", "Jean"],
+          "answerIndex": 1,
+          "feedback": "Luc en donne une version plus brève (Lc 11, 2-4)."
+        },
+        "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+      },
+      {
+        "id": "louange",
+        "title": "Louer et remercier",
+        "objective": "Découvrir la prière de louange avec Marie.",
+        "passageId": "p-lc1-magnificat",
+        "explanation": "Prier, ce n'est pas seulement demander. Le Magnificat est une prière de louange : Marie s'émerveille de ce que Dieu fait. L'Église le chante chaque soir, et chacun peut s'en inspirer pour dire merci.",
+        "teaching": [
+          { "source": "CEC", "paragraphs": "2619", "label": "Le cantique de Marie", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" },
+          { "source": "CEC", "paragraphs": "2626-2643", "label": "Les formes de la prière", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+        ],
+        "reflection": "Note trois choses pour lesquelles tu aimerais dire merci aujourd'hui.",
+        "quiz": {
+          "question": "À quel moment de la journée l'Église chante-t-elle le Magnificat ?",
+          "options": ["Le matin, aux laudes", "Le soir, aux vêpres", "À midi"],
+          "answerIndex": 1,
+          "feedback": "Le Magnificat est chanté chaque soir à l'office des vêpres."
+        },
+        "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+      },
+      {
+        "id": "perseverer",
+        "title": "Persévérer",
+        "objective": "Comprendre pourquoi Jésus invite à prier avec insistance.",
+        "passageId": "p-lc11-apprendre-a-prier",
+        "explanation": "Il arrive que la prière semble sèche ou sans réponse. Jésus encourage à continuer, avec la confiance d'un enfant envers son père. Le Catéchisme parle d'un « combat de la prière » : les distractions et la lassitude font partie du chemin.",
+        "teaching": [
+          { "source": "CEC", "paragraphs": "2613", "label": "Les paraboles de Jésus sur la prière", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" },
+          { "source": "CEC", "paragraphs": "2725-2745", "label": "Le combat de la prière", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+        ],
+        "reflection": "Quel petit rendez-vous régulier avec Dieu pourrait te convenir, sans pression ?",
+        "quiz": {
+          "question": "Quels trois verbes Jésus emploie-t-il pour encourager à prier ?",
+          "options": ["Demander, chercher, frapper", "Chanter, danser, jeûner", "Lire, écrire, méditer"],
+          "answerIndex": 0,
+          "feedback": "Demander, chercher, frapper : trois manières de dire la persévérance."
+        },
+        "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+      }
+    ]
+  },
+  {
+    "id": "fondamentaux",
+    "title": "Comprendre les fondamentaux de la foi catholique",
+    "subtitle": "Les grands repères du Credo",
+    "description": "Dieu qui aime, la Trinité, la résurrection, l'Église, l'Eucharistie : un itinéraire pour situer les grands repères de la foi catholique.",
+    "illustration": "path",
+    "tone": "bleu",
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" },
+    "steps": [
+      {
+        "id": "dieu-aime",
+        "title": "Dieu aime le premier",
+        "objective": "Comprendre que la foi commence par l'initiative de Dieu.",
+        "passageId": "p-jn3-amour-du-monde",
+        "explanation": "Le Catéchisme commence par une affirmation : le désir de Dieu est inscrit dans le cœur de l'homme, et Dieu ne cesse de l'attirer à lui. La foi chrétienne n'est pas d'abord un effort pour atteindre Dieu, mais une réponse à un amour qui nous précède.",
+        "teaching": [
+          { "source": "CEC", "paragraphs": "27-30", "label": "Le désir de Dieu", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" },
+          { "source": "CEC", "paragraphs": "456-460", "label": "Pourquoi le Fils de Dieu s'est fait homme", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+        ],
+        "reflection": "Qu'est-ce qui, dans ta vie, ressemble à une soif ou à une recherche ?",
+        "quiz": {
+          "question": "Avec qui Jésus s'entretient-il dans ce passage ?",
+          "options": ["Nicodème", "Zachée", "Pilate"],
+          "answerIndex": 0,
+          "feedback": "Ces versets concluent l'entretien de Jésus avec Nicodème."
+        },
+        "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+      },
+      {
+        "id": "trinite",
+        "title": "Père, Fils et Esprit Saint",
+        "objective": "Découvrir ce que les chrétiens appellent la Trinité.",
+        "passageId": "p-mt28-envoi",
+        "explanation": "Les chrétiens croient en un seul Dieu, en trois personnes : le Père, le Fils et le Saint-Esprit. Ce n'est pas une formule abstraite : c'est le nom dans lequel chacun est baptisé. Le Catéchisme présente la Trinité comme le mystère central de la foi.",
+        "teaching": [
+          { "source": "CEC", "paragraphs": "232-237", "label": "Au nom du Père, du Fils et du Saint-Esprit", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+        ],
+        "reflection": "Le signe de croix dit cette foi en un geste. L'as-tu déjà fait en pensant à ce qu'il signifie ?",
+        "quiz": {
+          "question": "Combien de personnes divines les chrétiens reconnaissent-ils en un seul Dieu ?",
+          "options": ["Deux", "Trois", "Sept"],
+          "answerIndex": 1,
+          "feedback": "Un seul Dieu en trois personnes : le Père, le Fils et le Saint-Esprit."
+        },
+        "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+      },
+      {
+        "id": "resurrection",
+        "title": "Mort et ressuscité",
+        "objective": "Comprendre pourquoi la résurrection est au centre de la foi.",
+        "passageId": "p-1co15-resurrection",
+        "explanation": "La mort et la résurrection de Jésus forment ce que l'Église appelle le mystère pascal. C'est l'annonce première des apôtres, et le cœur du Credo. Pâques est la plus grande fête de l'année chrétienne.",
+        "teaching": [
+          { "source": "CEC", "paragraphs": "638-658", "label": "La résurrection du Christ", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+        ],
+        "reflection": "Qu'est-ce que le mot « résurrection » évoque pour toi ?",
+        "quiz": {
+          "question": "Selon Paul, à qui le Christ ressuscité est-il apparu en premier dans sa liste ?",
+          "options": ["À Pierre (Céphas)", "À Paul", "À Jacques"],
+          "answerIndex": 0,
+          "feedback": "Paul nomme d'abord Céphas, c'est-à-dire Pierre, puis les Douze."
+        },
+        "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+      },
+      {
+        "id": "eglise",
+        "title": "Une communauté : l'Église",
+        "objective": "Découvrir ce qui fait vivre l'Église depuis les origines.",
+        "passageId": "p-ac2-premiere-communaute",
+        "explanation": "Le mot « Église » vient du grec ekklèsia, l'assemblée de ceux qui sont appelés. Dès les débuts, la foi se vit ensemble : écouter l'enseignement des apôtres, partager, célébrer, prier.",
+        "teaching": [
+          { "source": "CEC", "paragraphs": "751-752", "label": "Le sens du mot Église", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" },
+          { "source": "CEC", "paragraphs": "949", "label": "La communion dans la foi", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+        ],
+        "reflection": "Avec qui partages-tu, ou aimerais-tu partager, tes questions sur la foi ?",
+        "quiz": {
+          "question": "Que signifie le mot grec ekklèsia, qui a donné « Église » ?",
+          "options": ["Le temple", "L'assemblée", "La loi"],
+          "answerIndex": 1,
+          "feedback": "Ekklèsia désigne l'assemblée, la convocation."
+        },
+        "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+      },
+      {
+        "id": "eucharistie",
+        "title": "L'Eucharistie",
+        "objective": "Comprendre l'origine et le sens de la messe.",
+        "passageId": "p-lc22-dernier-repas",
+        "explanation": "L'Eucharistie est l'un des sept sacrements, des signes par lesquels les catholiques croient que le Christ agit aujourd'hui. Célébrée à chaque messe, elle fait mémoire du dernier repas, de la mort et de la résurrection de Jésus.",
+        "teaching": [
+          { "source": "CEC", "paragraphs": "1322-1327", "label": "L'Eucharistie, source et sommet de la vie de l'Église", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" },
+          { "source": "CEC", "paragraphs": "1113", "label": "Les sept sacrements", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+        ],
+        "reflection": "As-tu déjà assisté à une messe ? Qu'est-ce qui t'a frappé ou interrogé ?",
+        "quiz": {
+          "question": "Quelle fête juive Jésus célèbre-t-il lors de son dernier repas ?",
+          "options": ["La Pâque", "Les Tentes", "Le Nouvel An"],
+          "answerIndex": 0,
+          "feedback": "Jésus célèbre le repas de la Pâque, mémoire de la libération d'Égypte."
+        },
+        "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+      }
+    ]
+  }
+]

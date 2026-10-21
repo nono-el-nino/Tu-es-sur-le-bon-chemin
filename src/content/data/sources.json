@@ -1,0 +1,5 @@
+[
+  { "id": "aelf", "name": "AELF — Bible, traduction officielle liturgique", "url": "https://www.aelf.org/bible", "role": "Texte biblique de référence (Écriture).", "rights": "Texte protégé (© AELF). Il n'est pas reproduit dans l'application : seules la référence et un lien vers le chapitre sur aelf.org sont affichés. Toute reproduction nécessite une autorisation écrite de l'AELF." },
+  { "id": "cec", "name": "Catéchisme de l'Église catholique", "url": "https://www.vatican.va/archive/ccc/index_fr.htm", "role": "Enseignement officiel de l'Église.", "rights": "Texte protégé (© Libreria Editrice Vaticana). L'application cite uniquement les numéros de paragraphes et renvoie au site du Saint-Siège." },
+  { "id": "redaction", "name": "Explications pédagogiques de l'application", "url": "https://www.aelf.org/bible", "role": "Contextes et explications rédigés par l'équipe éditoriale.", "rights": "Ces textes ne sont pas un enseignement officiel de l'Église. Ils s'appuient sur les sources ci-dessus et portent un statut éditorial (brouillon, à vérifier, validé)." }
+]

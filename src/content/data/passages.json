@@ -1,0 +1,581 @@
+[
+  {
+    "id": "p-mc1-royaume",
+    "reference": { "bookCode": "Mc", "bookName": "Marc", "chapter": 1, "verses": "14-15" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Mc/1",
+    "title": "Les premiers mots de Jésus en Galilée",
+    "summary": "Jésus commence sa mission par une annonce et un appel à changer de vie.",
+    "context": "L'Évangile selon saint Marc, le plus bref des quatre, s'ouvre sur la prédication de Jean le Baptiste puis sur le baptême de Jésus. Ces deux versets résument le début de sa mission publique en Galilée, après l'arrestation de Jean.",
+    "explanation": "Marc résume tout le message de Jésus en quelques mots : le temps attendu est arrivé, Dieu vient régner au milieu des hommes. La réponse demandée tient en deux mouvements : se convertir, c'est-à-dire se tourner de nouveau vers Dieu, et croire à l'Évangile, la Bonne Nouvelle. L'Église voit dans cette annonce du Royaume le cœur de la mission de Jésus, ouverte à tous et d'abord aux plus petits.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "541-546", "label": "Jésus annonce le Royaume de Dieu", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-mt5-beatitudes",
+    "reference": { "bookCode": "Mt", "bookName": "Matthieu", "chapter": 5, "verses": "1-12" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Mt/5",
+    "title": "Les Béatitudes",
+    "summary": "Jésus ouvre son grand enseignement en déclarant heureux ceux que le monde oublie.",
+    "context": "Ce passage ouvre le Sermon sur la montagne (chapitres 5 à 7 de Matthieu). Jésus s'assoit, comme un maître qui enseigne, entouré de ses disciples et de la foule venue de toute la région.",
+    "explanation": "Chaque béatitude commence par « Heureux » et renverse les évidences : sont déclarés heureux les pauvres de cœur, ceux qui pleurent, les doux, ceux qui ont faim et soif de justice, les artisans de paix. Ce ne sont pas des règles à appliquer, mais un portrait : celui de Jésus lui-même et de la vie à laquelle il appelle. Le Catéchisme y voit le cœur de la prédication de Jésus et une réponse au désir de bonheur que Dieu a mis dans le cœur de chaque personne.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "1716-1729", "label": "Les Béatitudes et le désir de bonheur", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-lc15-pere-misericordieux",
+    "reference": { "bookCode": "Lc", "bookName": "Luc", "chapter": 15, "verses": "11-32" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Lc/15",
+    "title": "Le père et ses deux fils",
+    "summary": "La parabole d'un père qui accueille sans condition le fils parti loin de lui.",
+    "context": "Jésus raconte trois paraboles (la brebis perdue, la pièce perdue, le fils perdu) en réponse aux pharisiens et aux scribes qui lui reprochent d'accueillir les pécheurs et de manger avec eux (Lc 15, 1-2).",
+    "explanation": "On parle souvent de la parabole du « fils prodigue », mais le personnage central est le père. Il laisse partir son fils, guette son retour, court à sa rencontre et lui rend sa dignité avant même qu'il ait fini de s'excuser. Le fils aîné, resté à la maison mais plein d'amertume, est lui aussi invité à entrer dans la fête. Le Catéchisme lit dans ce récit le chemin de la conversion et la miséricorde du Père.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "1439", "label": "La parabole du fils prodigue et la conversion", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" },
+      { "source": "CEC", "paragraphs": "1846-1848", "label": "La miséricorde et le péché", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-mt22-grand-commandement",
+    "reference": { "bookCode": "Mt", "bookName": "Matthieu", "chapter": 22, "verses": "34-40" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Mt/22",
+    "title": "Le plus grand commandement",
+    "summary": "Interrogé sur l'essentiel de la Loi, Jésus réunit l'amour de Dieu et l'amour du prochain.",
+    "context": "À Jérusalem, peu avant sa Passion, Jésus est mis à l'épreuve par plusieurs groupes religieux. Un docteur de la Loi lui demande quel est le plus grand commandement de la Loi de Moïse.",
+    "explanation": "Jésus répond en reliant deux passages de l'Ancien Testament : l'amour de Dieu (Deutéronome 6, 5) et l'amour du prochain (Lévitique 19, 18). Il ne les oppose pas, il les tient ensemble : toute la Loi et les Prophètes en dépendent. Pour l'Église, ces deux commandements résument les dix commandements.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "2055", "label": "Les deux commandements résument le Décalogue", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-jn13-lavement-pieds",
+    "reference": { "bookCode": "Jn", "bookName": "Jean", "chapter": 13, "verses": "1-15" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Jn/13",
+    "title": "Le lavement des pieds",
+    "summary": "Au dernier repas, Jésus se fait serviteur de ses disciples.",
+    "context": "Au début du récit de la Passion selon saint Jean, au cours du dernier repas avec ses disciples, Jésus se lève de table et accomplit un geste habituellement réservé aux serviteurs.",
+    "explanation": "Pierre refuse d'abord : il ne trouve pas normal que le maître le serve. Jésus explique que ce geste dit tout de sa mission : aimer jusqu'au bout, en se faisant serviteur. Il invite ses disciples à faire de même les uns pour les autres. L'Église refait ce geste lors de la messe du Jeudi saint.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "1337", "label": "Le dernier repas de Jésus et l'institution de l'Eucharistie", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-lc24-emmaus",
+    "reference": { "bookCode": "Lc", "bookName": "Luc", "chapter": 24, "verses": "13-35" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Lc/24",
+    "title": "Les disciples d'Emmaüs",
+    "summary": "Deux disciples découragés font route avec un inconnu : Jésus ressuscité.",
+    "context": "Le soir de Pâques, deux disciples quittent Jérusalem pour le village d'Emmaüs, abattus par la mort de Jésus. Un voyageur les rejoint sur la route ; ils ne le reconnaissent pas.",
+    "explanation": "Le récit avance comme un chemin : Jésus écoute leur tristesse, leur explique les Écritures, puis se fait reconnaître au moment où il rompt le pain, avant de disparaître. Ils repartent aussitôt vers Jérusalem pour annoncer la nouvelle. Ce passage décrit en raccourci la vie chrétienne : la Parole entendue, le pain partagé, puis le retour vers les autres.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "1329", "label": "La fraction du pain", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" },
+      { "source": "CEC", "paragraphs": "638-658", "label": "La résurrection du Christ", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-jn3-amour-du-monde",
+    "reference": { "bookCode": "Jn", "bookName": "Jean", "chapter": 3, "verses": "16-17" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Jn/3",
+    "title": "L'amour de Dieu pour le monde",
+    "summary": "Deux versets qui résument la foi chrétienne : Dieu donne son Fils pour sauver.",
+    "context": "Ces versets concluent l'entretien nocturne entre Jésus et Nicodème, un pharisien, membre du conseil des Juifs, venu l'interroger discrètement.",
+    "explanation": "En une phrase, l'évangéliste résume la foi chrétienne : l'initiative vient de Dieu, qui aime le monde au point de donner son Fils. Le but n'est pas de juger ou de condamner, mais de sauver et de donner la vie éternelle. Ce passage est l'un des plus cités du Nouveau Testament, parce qu'il dit l'essentiel en peu de mots.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "456-460", "label": "Pourquoi le Fils de Dieu s'est fait homme", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-1co13-charite",
+    "reference": { "bookCode": "1Co", "bookName": "1re lettre aux Corinthiens", "chapter": 13, "verses": "1-13" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/1Co/13",
+    "title": "L'hymne à la charité",
+    "summary": "Saint Paul décrit l'amour par ce qu'il fait, et le place au-dessus de tout.",
+    "context": "Saint Paul écrit aux chrétiens de Corinthe, une communauté vivante mais divisée, qui se dispute au sujet des dons spirituels. Avant de parler de ces dons, il leur montre un chemin qui les dépasse tous (1 Co 12, 31).",
+    "explanation": "Paul décrit l'amour (la charité, agapè en grec) par ce qu'il fait concrètement : il patiente, rend service, ne cherche pas son intérêt, ne garde pas rancune. Sans lui, même les plus grands talents ne servent à rien. Le passage se termine sur la foi, l'espérance et la charité, que l'Église appelle les vertus théologales ; la charité est la plus grande des trois.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "1822-1829", "label": "La charité, vertu théologale", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-lc10-bon-samaritain",
+    "reference": { "bookCode": "Lc", "bookName": "Luc", "chapter": 10, "verses": "25-37" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Lc/10",
+    "title": "Le bon Samaritain",
+    "summary": "Qui est mon prochain ? Jésus répond par l'histoire d'un étranger qui s'arrête.",
+    "context": "Un docteur de la Loi demande à Jésus ce qu'il faut faire pour avoir la vie éternelle, puis qui est son prochain. À l'époque, Juifs et Samaritains entretenaient une hostilité ancienne.",
+    "explanation": "Un prêtre et un lévite passent à côté de l'homme blessé ; c'est un Samaritain, membre d'un peuple méprisé par les auditeurs de Jésus, qui s'arrête et prend soin de lui. Jésus renverse la question : il ne s'agit pas de savoir qui mérite d'être mon prochain, mais de me faire proche de celui qui souffre. Ce récit nourrit depuis toujours l'engagement des chrétiens auprès des personnes blessées.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "2443-2449", "label": "L'amour pour les pauvres", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-mi6-ce-que-dieu-attend",
+    "reference": { "bookCode": "Mi", "bookName": "Michée", "chapter": 6, "verses": "6-8" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Mi/6",
+    "title": "Ce que Dieu attend",
+    "summary": "Un prophète rappelle que la foi se vit dans la justice et l'humilité.",
+    "context": "Michée prophétise au VIIIe siècle avant Jésus-Christ, dans le royaume de Juda, à une époque où les puissants exploitent les plus faibles. Le peuple se demande quelles offrandes pourraient plaire à Dieu.",
+    "explanation": "Le prophète répond que Dieu ne réclame pas des sacrifices toujours plus grands, mais une manière de vivre : agir selon le droit, aimer la fidélité et la bonté, marcher humblement avec lui. La relation à Dieu ne se sépare pas de la justice concrète envers les autres.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "1807", "label": "La justice, vertu cardinale", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-mt6-ne-vous-inquietez-pas",
+    "reference": { "bookCode": "Mt", "bookName": "Matthieu", "chapter": 6, "verses": "25-34" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Mt/6",
+    "title": "Les oiseaux du ciel et les lis des champs",
+    "summary": "Jésus invite à ne pas se laisser écraser par l'inquiétude du lendemain.",
+    "context": "Toujours dans le Sermon sur la montagne, Jésus s'adresse à des gens simples, souvent pauvres, pour qui la nourriture et le vêtement sont des soucis de chaque jour.",
+    "explanation": "Jésus ne méprise pas les besoins concrets : il affirme que le Père les connaît. Il invite à regarder la création, à ne pas laisser le souci du lendemain écraser aujourd'hui, et à chercher d'abord le Royaume de Dieu et sa justice. Le Catéchisme parle ici d'un abandon confiant à la Providence : non pas de la passivité, mais une liberté intérieure.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "305", "label": "L'abandon confiant à la Providence", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-mt6-prier-dans-le-secret",
+    "reference": { "bookCode": "Mt", "bookName": "Matthieu", "chapter": 6, "verses": "5-8" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Mt/6",
+    "title": "Prier dans le secret",
+    "summary": "La prière n'est pas une performance : elle est une relation de confiance.",
+    "context": "Dans le Sermon sur la montagne, Jésus parle de trois pratiques religieuses de son temps : l'aumône, la prière et le jeûne. Il met en garde contre la tentation de les accomplir pour être vu.",
+    "explanation": "Jésus invite à entrer dans sa chambre, fermer la porte et prier le Père qui est présent dans le secret. Prier ne consiste pas à accumuler les mots : le Père sait déjà ce dont nous avons besoin. La prière est d'abord une relation, un cœur à cœur confiant.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "2607-2615", "label": "Jésus enseigne à prier", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-mt6-notre-pere",
+    "reference": { "bookCode": "Mt", "bookName": "Matthieu", "chapter": 6, "verses": "9-13" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Mt/6",
+    "title": "Le Notre Père",
+    "summary": "La prière que Jésus a transmise à ses disciples.",
+    "context": "Au centre du Sermon sur la montagne, juste après avoir invité à prier dans le secret, Jésus donne à ses disciples les mots d'une prière. Luc en rapporte une version plus courte (Lc 11, 2-4).",
+    "explanation": "Le Notre Père commence par tourner le regard vers Dieu, appelé Père, puis présente les besoins essentiels : le pain de chaque jour, le pardon reçu et donné, la protection face à l'épreuve et au mal. Tertullien, auteur chrétien des IIe-IIIe siècles, y voyait le résumé de tout l'Évangile. C'est la prière que tous les chrétiens ont en commun.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "2759-2865", "label": "La prière du Seigneur : le Notre Père", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-lc11-apprendre-a-prier",
+    "reference": { "bookCode": "Lc", "bookName": "Luc", "chapter": 11, "verses": "1-13" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Lc/11",
+    "title": "Une demande des disciples",
+    "summary": "Demander, chercher, frapper : Jésus encourage une prière persévérante.",
+    "context": "Luc montre souvent Jésus en prière. Ici, un disciple qui vient de le voir prier lui demande de leur apprendre à prier, comme Jean le Baptiste l'avait fait pour ses propres disciples.",
+    "explanation": "Jésus répond en trois temps : une prière (une version brève du Notre Père), la petite histoire d'un ami qui insiste en pleine nuit, puis une promesse : demander, chercher, frapper. Le Père donne à ceux qui le prient le meilleur des dons, l'Esprit Saint. La prière est présentée comme une démarche patiente, confiante et persévérante.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "2613", "label": "Les paraboles de Jésus sur la prière", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-1s3-appel-samuel",
+    "reference": { "bookCode": "1S", "bookName": "1er livre de Samuel", "chapter": 3, "verses": "1-10" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/1S/3",
+    "title": "L'appel de Samuel",
+    "summary": "Un enfant apprend, avec l'aide d'un ancien, à reconnaître la voix de Dieu.",
+    "context": "Samuel est un jeune garçon confié au service du sanctuaire de Silo, auprès du prêtre Éli. Le récit précise qu'à cette époque la parole du Seigneur se faisait rare.",
+    "explanation": "Par trois fois, Samuel entend qu'on l'appelle et court vers Éli. C'est le vieux prêtre qui comprend que Dieu appelle l'enfant, et qui lui apprend à répondre en se disant prêt à écouter. Ce récit aide à découvrir la prière : avant de parler à Dieu, apprendre à l'écouter, souvent avec l'aide des autres.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "2559-2565", "label": "Qu'est-ce que la prière ?", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-1th5-rendre-grace",
+    "reference": { "bookCode": "1Th", "bookName": "1re lettre aux Thessaloniciens", "chapter": 5, "verses": "16-18" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/1Th/5",
+    "title": "Joie, prière et action de grâce",
+    "summary": "Trois conseils brefs de saint Paul pour vivre chaque jour avec Dieu.",
+    "context": "La première lettre aux Thessaloniciens est sans doute le plus ancien écrit du Nouveau Testament (vers l'an 50). Paul la conclut par quelques conseils brefs adressés à une jeune communauté.",
+    "explanation": "En trois courtes phrases, Paul relie la joie, la prière continuelle et l'action de grâce. Prier sans cesse ne veut pas dire réciter des prières toute la journée, mais vivre en présence de Dieu. Rendre grâce en toute circonstance ne nie pas les difficultés : c'est reconnaître que Dieu reste présent au milieu d'elles.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "2638", "label": "La prière d'action de grâce", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" },
+      { "source": "CEC", "paragraphs": "2742-2745", "label": "Prier sans cesse", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-lc17-dix-lepreux",
+    "reference": { "bookCode": "Lc", "bookName": "Luc", "chapter": 17, "verses": "11-19" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Lc/17",
+    "title": "Les dix lépreux",
+    "summary": "Dix hommes sont guéris ; un seul revient dire merci.",
+    "context": "En route vers Jérusalem, Jésus passe entre la Samarie et la Galilée. La lèpre obligeait alors les malades à vivre à l'écart des villages.",
+    "explanation": "Dix hommes sont guéris en chemin, mais un seul revient remercier Jésus : un Samaritain, un étranger. Jésus souligne ce retour : la gratitude fait passer d'un bienfait reçu à une rencontre personnelle. Le verbe grec employé pour son remerciement a donné le mot « eucharistie », qui signifie action de grâce.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "2637-2638", "label": "La prière d'action de grâce", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-ph4-joie-paix",
+    "reference": { "bookCode": "Ph", "bookName": "Lettre aux Philippiens", "chapter": 4, "verses": "4-7" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Ph/4",
+    "title": "La joie et la paix",
+    "summary": "Écrite depuis une prison, une lettre qui invite pourtant à la joie.",
+    "context": "Paul écrit aux chrétiens de Philippes, une communauté qu'il aime particulièrement, alors qu'il est lui-même en prison. Sa lettre est pourtant traversée par la joie.",
+    "explanation": "La joie dont parle Paul ne dépend pas des circonstances : elle vient de la proximité du Seigneur. Il invite à confier à Dieu toutes ses demandes, avec action de grâce, plutôt que de se laisser ronger par l'inquiétude. La paix de Dieu, écrit-il, garde alors le cœur et la pensée.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "2629-2633", "label": "La prière de demande", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-lc1-magnificat",
+    "reference": { "bookCode": "Lc", "bookName": "Luc", "chapter": 1, "verses": "46-55" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Lc/1",
+    "title": "Le chant de Marie",
+    "summary": "Le Magnificat, chant de joie de Marie qui célèbre la fidélité de Dieu.",
+    "context": "Enceinte de Jésus, Marie rend visite à sa cousine Élisabeth. Accueillie par une bénédiction, elle répond par un chant de louange, appelé Magnificat d'après son premier mot en latin.",
+    "explanation": "Marie exprime une joie profonde, enracinée en Dieu. Elle chante ce qu'il a fait pour elle, une jeune femme humble, puis élargit le regard : Dieu renverse les puissants, élève les humbles, comble les affamés et reste fidèle à sa promesse. L'Église chante ce cantique chaque soir, à l'office des vêpres.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "2619", "label": "Le cantique de Marie", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-rm8-rien-ne-separe",
+    "reference": { "bookCode": "Rm", "bookName": "Lettre aux Romains", "chapter": 8, "verses": "31-39" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Rm/8",
+    "title": "Plus fort que tout",
+    "summary": "Saint Paul affirme que rien ne peut séparer de l'amour de Dieu.",
+    "context": "Au terme d'une longue réflexion sur la vie nouvelle donnée par l'Esprit, Paul conclut le chapitre 8 de sa lettre aux Romains par un cri de confiance.",
+    "explanation": "Paul passe en revue tout ce qui pourrait sembler plus fort que l'amour de Dieu : la détresse, la persécution, le danger, la mort même. Sa réponse est claire : rien ne pourra séparer de l'amour de Dieu manifesté dans le Christ Jésus. Ce texte ne promet pas une vie sans épreuves, mais une présence qui ne fait jamais défaut.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "1817-1821", "label": "L'espérance, vertu théologale", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-mc9-pere-qui-doute",
+    "reference": { "bookCode": "Mc", "bookName": "Marc", "chapter": 9, "verses": "14-29" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Mc/9",
+    "title": "Un père qui doute",
+    "summary": "Un père croit et doute à la fois, et le dit simplement à Jésus.",
+    "context": "Au pied de la montagne de la Transfiguration, un père amène à Jésus son fils gravement malade. Les disciples n'ont pas réussi à le guérir.",
+    "explanation": "Quand Jésus lui dit que tout est possible à celui qui croit, le père répond par une prière très honnête : il croit, et demande en même temps de l'aide pour son manque de foi. Jésus ne lui fait aucun reproche et guérit l'enfant. Le doute n'empêche pas la foi : il peut devenir une prière.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "153-165", "label": "Les caractéristiques de la foi", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-jn20-thomas",
+    "reference": { "bookCode": "Jn", "bookName": "Jean", "chapter": 20, "verses": "24-29" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Jn/20",
+    "title": "Thomas, le disciple qui voulait voir",
+    "summary": "Jésus ressuscité accueille le doute de Thomas.",
+    "context": "Le soir de Pâques, Jésus ressuscité est apparu aux disciples réunis, mais Thomas était absent. Il refuse de croire sans voir et sans toucher les plaies de Jésus.",
+    "explanation": "Huit jours plus tard, Jésus revient et invite Thomas à toucher ses plaies. Thomas fait alors l'une des plus fortes professions de foi de l'Évangile : il reconnaît en Jésus son Seigneur et son Dieu. Jésus ajoute une parole pour tous ceux qui viendront après : heureux ceux qui croient sans avoir vu. Accueilli par Jésus, le doute de Thomas devient un chemin.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "641-644", "label": "Les apparitions du Ressuscité", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-ep4-colere",
+    "reference": { "bookCode": "Ep", "bookName": "Lettre aux Éphésiens", "chapter": 4, "verses": "26-32" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Ep/4",
+    "title": "Traverser la colère",
+    "summary": "Reconnaître sa colère sans la laisser devenir rancune.",
+    "context": "Dans la seconde partie de la lettre aux Éphésiens, l'auteur décrit concrètement la vie nouvelle des baptisés, dans leurs relations de chaque jour.",
+    "explanation": "Le texte ne dit pas que toute colère est mauvaise : il demande de ne pas la laisser conduire au mal et de ne pas la garder jusqu'au coucher du soleil. Il invite à renoncer à l'amertume et aux paroles qui blessent, et à se pardonner mutuellement comme Dieu pardonne dans le Christ. La colère peut être reconnue et traversée sans devenir rancune.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "2302-2303", "label": "La colère et la paix du cœur", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-mt18-pardonner",
+    "reference": { "bookCode": "Mt", "bookName": "Matthieu", "chapter": 18, "verses": "21-35" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Mt/18",
+    "title": "Pardonner sans compter",
+    "summary": "Combien de fois pardonner ? Jésus répond par une parabole.",
+    "context": "Pierre demande à Jésus combien de fois il faut pardonner à son frère, en proposant un chiffre qui lui semble déjà généreux : sept fois.",
+    "explanation": "Jésus répond par un nombre qui signifie « sans limite », puis raconte l'histoire d'un serviteur à qui son maître remet une dette immense, et qui refuse ensuite de remettre une petite dette à son compagnon. Le pardon reçu de Dieu appelle à pardonner à son tour. Pardonner ne signifie pas nier le mal subi : c'est un chemin, parfois long, que Dieu peut accompagner.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "2838-2845", "label": "Le pardon dans le Notre Père", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-is43-appele-par-son-nom",
+    "reference": { "bookCode": "Is", "bookName": "Isaïe", "chapter": 43, "verses": "1-5" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Is/43",
+    "title": "Appelé par son nom",
+    "summary": "Une parole de Dieu à un peuple qui se croit abandonné.",
+    "context": "Ce passage s'adresse au peuple d'Israël exilé à Babylone, au VIe siècle avant Jésus-Christ. Loin de sa terre, il se sent abandonné et sans avenir.",
+    "explanation": "Dieu parle comme quelqu'un qui connaît chacun personnellement : il a façonné son peuple et l'appelle par son nom. Il ne promet pas l'absence d'épreuves (le texte parle de traverser les eaux et le feu), mais sa présence au cœur même de l'épreuve. Les chrétiens lisent aussi ce texte comme une parole adressée à chacun : tu comptes pour Dieu.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "218-221", "label": "Dieu est Amour", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-jos1-courage",
+    "reference": { "bookCode": "Jos", "bookName": "Josué", "chapter": 1, "verses": "1-9" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Jos/1",
+    "title": "Un nouveau départ",
+    "summary": "Au moment de prendre la relève de Moïse, Josué reçoit une promesse.",
+    "context": "Moïse vient de mourir. Josué reçoit la mission de conduire le peuple d'Israël dans la Terre promise : une tâche immense, devant laquelle il pourrait se sentir écrasé.",
+    "explanation": "Dieu répète plusieurs fois à Josué d'être fort et courageux. Ce courage ne repose pas sur ses propres forces, mais sur une promesse : Dieu sera avec lui partout où il ira. Dans la Bible, le courage n'est pas l'absence de peur ; c'est avancer avec confiance malgré elle.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "1808", "label": "La force, vertu cardinale", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-jn16-courage",
+    "reference": { "bookCode": "Jn", "bookName": "Jean", "chapter": 16, "verses": "29-33" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Jn/16",
+    "title": "La paix au milieu des épreuves",
+    "summary": "Avant son arrestation, Jésus donne sa paix à ses disciples.",
+    "context": "Ces paroles concluent le long discours de Jésus à ses disciples au soir du dernier repas, juste avant son arrestation. Il annonce qu'ils vont se disperser.",
+    "explanation": "Jésus ne cache pas que ses disciples connaîtront des difficultés dans le monde. Mais il leur donne sa paix et les invite à garder courage, parce qu'il a vaincu le monde. Il affirme aussi qu'il n'est pas seul : le Père est avec lui. Le courage chrétien s'appuie sur cette victoire déjà acquise.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "1808", "label": "La force, vertu cardinale", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-1r19-elie-epuise",
+    "reference": { "bookCode": "1R", "bookName": "1er livre des Rois", "chapter": 19, "verses": "1-8" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/1R/19",
+    "title": "Élie à bout de forces",
+    "summary": "Un prophète épuisé est relevé avec douceur.",
+    "context": "Le prophète Élie vient de mener un combat éprouvant contre les prophètes de Baal. Menacé de mort par la reine Jézabel, il fuit seul dans le désert.",
+    "explanation": "Épuisé, Élie s'assoit sous un arbuste et demande à mourir. Un ange le touche, lui donne à manger et à boire, le laisse se reposer, puis revient une seconde fois : le chemin est encore long. Dieu ne lui adresse aucun reproche ; il prend soin de son corps et de sa fatigue avant de le remettre en marche. Ce récit rejoint tous ceux qui sont à bout de forces.",
+    "teaching": [],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)", "notes": "Pas de référence au Catéchisme associée pour l'instant." }
+  },
+  {
+    "id": "p-mt11-repos",
+    "reference": { "bookCode": "Mt", "bookName": "Matthieu", "chapter": 11, "verses": "28-30" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Mt/11",
+    "title": "Une invitation au repos",
+    "summary": "Jésus s'adresse à ceux qui sont fatigués et chargés.",
+    "context": "Jésus vient de rendre grâce à son Père d'avoir révélé ses mystères aux tout-petits. Il s'adresse alors à ceux qui peinent sous un fardeau, y compris celui des nombreuses prescriptions religieuses de son temps.",
+    "explanation": "Jésus se présente comme doux et humble de cœur. Il ne promet pas une vie sans charges, mais un joug léger : l'image d'un lien qui unit à lui et qui aide à porter. Le repos qu'il offre est intérieur : être accueilli tel qu'on est, et apprendre de lui une autre manière de vivre.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "459", "label": "Le Christ, modèle de sainteté", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-jn14-presence-promise",
+    "reference": { "bookCode": "Jn", "bookName": "Jean", "chapter": 14, "verses": "15-21" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Jn/14",
+    "title": "Une présence promise",
+    "summary": "Jésus promet à ses disciples qu'ils ne resteront pas seuls.",
+    "context": "Au cours du dernier repas, Jésus prépare ses disciples à son départ. Ils s'inquiètent : que deviendront-ils sans lui ?",
+    "explanation": "Jésus promet un autre Défenseur, l'Esprit de vérité, qui demeurera auprès d'eux. Il assure qu'il ne les laissera pas seuls et qu'il reviendra vers eux. Pour les chrétiens, cette promesse s'accomplit dans le don de l'Esprit Saint : personne n'est jamais complètement seul.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "729", "label": "Jésus promet l'Esprit Saint", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-lm3-esperance",
+    "reference": { "bookCode": "Lm", "bookName": "Lamentations", "chapter": 3, "verses": "21-26" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Lm/3",
+    "title": "L'espérance au cœur de la détresse",
+    "summary": "Au milieu des larmes, le souvenir de la fidélité de Dieu.",
+    "context": "Le livre des Lamentations pleure la destruction de Jérusalem en 587 avant Jésus-Christ. Au milieu de ces plaintes, ce passage fait surgir une parole d'espérance.",
+    "explanation": "Après avoir décrit sa douleur, l'auteur se rappelle ce qui lui rend courage : la fidélité de Dieu ne s'épuise pas, ses bontés se renouvellent chaque matin. L'espérance biblique n'est pas un optimisme naïf ; elle naît souvent au plus profond de l'épreuve et apprend à attendre en silence.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "1817-1821", "label": "L'espérance, vertu théologale", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-mt28-envoi",
+    "reference": { "bookCode": "Mt", "bookName": "Matthieu", "chapter": 28, "verses": "16-20" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Mt/28",
+    "title": "L'envoi des disciples",
+    "summary": "Les derniers mots de Jésus dans l'Évangile de Matthieu : un envoi et une promesse.",
+    "context": "Ce sont les derniers versets de l'Évangile selon saint Matthieu. Les onze disciples retrouvent Jésus ressuscité sur une montagne de Galilée ; certains, précise le texte, ont encore des doutes.",
+    "explanation": "Jésus envoie ses disciples vers toutes les nations, pour baptiser au nom du Père, du Fils et du Saint-Esprit, et pour enseigner ce qu'il leur a transmis. L'Évangile se termine sur une promesse : il est avec eux tous les jours, jusqu'à la fin du monde. La formule du baptême exprime la foi en un seul Dieu, Père, Fils et Esprit Saint : la Trinité.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "232-237", "label": "Au nom du Père, du Fils et du Saint-Esprit", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-1co15-resurrection",
+    "reference": { "bookCode": "1Co", "bookName": "1re lettre aux Corinthiens", "chapter": 15, "verses": "1-8" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/1Co/15",
+    "title": "Le cœur de l'annonce",
+    "summary": "L'un des plus anciens résumés de la foi chrétienne.",
+    "context": "Vers l'an 55, Paul rappelle aux Corinthiens l'Évangile qu'il leur a annoncé et qu'il avait lui-même reçu. C'est l'un des plus anciens résumés de la foi chrétienne.",
+    "explanation": "Paul transmet l'essentiel : le Christ est mort pour nos péchés, il a été mis au tombeau, il est ressuscité le troisième jour, et il est apparu à Pierre, aux Douze, à plus de cinq cents frères, à Jacques, puis à Paul lui-même. La résurrection n'est pas un détail : Paul explique un peu plus loin que sans elle la foi chrétienne serait vide (1 Co 15, 14).",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "638-658", "label": "La résurrection du Christ", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-ac2-premiere-communaute",
+    "reference": { "bookCode": "Ac", "bookName": "Actes des Apôtres", "chapter": 2, "verses": "42-47" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Ac/2",
+    "title": "La première communauté",
+    "summary": "Le portrait des premiers chrétiens de Jérusalem.",
+    "context": "Après la Pentecôte, le livre des Actes des Apôtres décrit la vie des premiers chrétiens à Jérusalem.",
+    "explanation": "Quatre piliers structurent leur vie : l'enseignement des Apôtres, la communion fraternelle, la fraction du pain et les prières. Ils partagent leurs biens selon les besoins de chacun et vivent dans la joie et la simplicité. Ce portrait, en partie idéal, sert depuis toujours de repère à l'Église pour rester fidèle à ses origines.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "949", "label": "La communion dans la foi", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" },
+      { "source": "CEC", "paragraphs": "2624", "label": "La prière de l'Église naissante", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-lc22-dernier-repas",
+    "reference": { "bookCode": "Lc", "bookName": "Luc", "chapter": 22, "verses": "14-20" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Lc/22",
+    "title": "Le dernier repas",
+    "summary": "La veille de sa mort, Jésus donne un sens nouveau au pain et à la coupe.",
+    "context": "La veille de sa mort, Jésus célèbre avec ses apôtres le repas de la Pâque juive, qui fait mémoire de la libération d'Égypte.",
+    "explanation": "Jésus prend le pain et la coupe et leur donne un sens nouveau : son corps donné, son sang versé pour la nouvelle Alliance. Il demande à ses disciples de refaire ce geste en mémoire de lui. C'est l'origine de l'Eucharistie, que l'Église présente comme la source et le sommet de toute la vie chrétienne.",
+    "teaching": [
+      { "source": "CEC", "paragraphs": "1322-1327", "label": "L'Eucharistie, source et sommet de la vie de l'Église", "url": "https://www.vatican.va/archive/ccc/index_fr.htm" }
+    ],
+    "text": null,
+    "editorial": { "status": "valide", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)" }
+  },
+  {
+    "id": "p-ps23-berger",
+    "reference": { "bookCode": "Ps", "bookName": "Psaume", "chapter": 22, "chapterLabel": "22 (23)", "verses": "1-6" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Ps/22",
+    "title": "Le psaume du berger",
+    "summary": "Dieu présenté comme un berger qui guide et protège.",
+    "context": "Ce psaume attribué à David est l'un des plus connus de la Bible. Il est numéroté 22 dans la tradition liturgique (grecque) et 23 dans la tradition hébraïque.",
+    "explanation": "Le psalmiste se décrit comme une brebis conduite par un berger attentif : vers le repos, à travers les ravins obscurs, jusqu'à une table préparée. La confiance exprimée ici ne nie pas le danger ; elle repose sur une présence.",
+    "teaching": [],
+    "text": null,
+    "editorial": { "status": "a_verifier", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)", "notes": "Numérotation à confirmer : vérifier que aelf.org/bible/Ps/22 affiche bien ce psaume avant de valider." }
+  },
+  {
+    "id": "p-ps139-tu-me-connais",
+    "reference": { "bookCode": "Ps", "bookName": "Psaume", "chapter": 138, "chapterLabel": "138 (139)", "verses": "1-18" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Ps/138",
+    "title": "Connu de Dieu",
+    "summary": "Un psaume sur un Dieu qui connaît chacun intimement.",
+    "context": "Psaume numéroté 138 dans la tradition liturgique (grecque) et 139 dans la tradition hébraïque.",
+    "explanation": "Le psalmiste découvre qu'il ne peut aller nulle part où Dieu ne soit déjà, et qu'il a été connu dès le sein de sa mère.",
+    "teaching": [],
+    "text": null,
+    "editorial": { "status": "a_verifier", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)", "notes": "Numérotation et découpage des versets à confirmer sur aelf.org ; explication à compléter." }
+  },
+  {
+    "id": "p-ps51-miserere",
+    "reference": { "bookCode": "Ps", "bookName": "Psaume", "chapter": 50, "chapterLabel": "50 (51)", "verses": "3-14" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Ps/50",
+    "title": "La prière du pardon",
+    "summary": "Le Miserere, grande prière pour demander pardon.",
+    "context": "Psaume numéroté 50 dans la tradition liturgique (grecque) et 51 dans la tradition hébraïque.",
+    "explanation": "Une prière de demande de pardon, qui compte sur la tendresse de Dieu plutôt que sur ses propres mérites.",
+    "teaching": [],
+    "text": null,
+    "editorial": { "status": "a_verifier", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)", "notes": "Numérotation à confirmer sur aelf.org ; contexte historique et référence au Catéchisme à compléter." }
+  },
+  {
+    "id": "p-qo3-un-temps-pour-tout",
+    "reference": { "bookCode": "Qo", "bookName": "Qohéleth (Ecclésiaste)", "chapter": 3, "verses": "1-8" },
+    "translation": "AELF",
+    "sourceUrl": "https://www.aelf.org/bible/Qo/3",
+    "title": "Un temps pour chaque chose",
+    "summary": "Fiche à compléter.",
+    "context": "Fiche à compléter : contexte du livre de Qohéleth à rédiger et à faire relire.",
+    "explanation": "Fiche à compléter : explication pédagogique à rédiger et à faire relire avant publication.",
+    "teaching": [],
+    "text": null,
+    "editorial": { "status": "brouillon", "updatedAt": "2026-10-21", "reviewer": "Équipe éditoriale (relecture initiale)", "notes": "Brouillon : non publié." }
+  }
+]
