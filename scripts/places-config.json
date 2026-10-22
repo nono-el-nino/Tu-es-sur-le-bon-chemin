@@ -1,0 +1,103 @@
+{
+  "_doc": "Configuration éditoriale des lieux. Coordonnées, scores et contours viennent d'OpenBible.info (CC BY 4.0) via scripts/build-places.py. Chaque lien passage → lieu cite un verset où le lieu est nommé (vérifié par les tests).",
+  "places": {
+    "a15257a": { "slug": "jerusalem", "name": "Jérusalem" },
+    "a9cf1e8": { "slug": "galilee", "name": "Galilée" },
+    "a282dce": { "slug": "samarie", "name": "Samarie" },
+    "a149f13": { "slug": "judee", "name": "Judée" },
+    "af5884f": { "slug": "nazareth", "name": "Nazareth" },
+    "af2161c": { "slug": "capharnaum", "name": "Capharnaüm" },
+    "a91b732": { "slug": "bethsaide", "name": "Bethsaïde" },
+    "a593a48": { "slug": "corazine", "name": "Corazine" },
+    "aaf03fa": { "slug": "jericho", "name": "Jéricho" },
+    "ae7274b": { "slug": "emmaus", "name": "Emmaüs" },
+    "aa4680a": { "slug": "silo", "name": "Silo" },
+    "a6ac675": { "slug": "moresheth", "name": "Moresheth" },
+    "ad2f6c2": { "slug": "bersabee", "name": "Bersabée" },
+    "a9bb03e": { "slug": "horeb", "name": "Horeb" },
+    "ae686c9": { "slug": "jourdain", "name": "Jourdain" },
+    "a730058": { "slug": "liban", "name": "Liban" },
+    "a62dec4": { "slug": "euphrate", "name": "Euphrate" },
+    "aa805fb": { "slug": "mediterranee", "name": "Grande Mer (Méditerranée)" },
+    "af301ca": { "slug": "egypte", "name": "Égypte" },
+    "ac5a1ec": { "slug": "koush", "name": "Koush" },
+    "a217d18": { "slug": "babylone", "name": "Babylone" },
+    "a6f437a": { "slug": "corinthe", "name": "Corinthe" },
+    "a5feb15": { "slug": "ephese", "name": "Éphèse" },
+    "afa9d8e": { "slug": "thessalonique", "name": "Thessalonique" },
+    "a49e1d0": { "slug": "philippes", "name": "Philippes" },
+    "afc8e7a": { "slug": "rome", "name": "Rome" }
+  },
+  "links": {
+    "p-mc1-royaume": [{ "place": "galilee", "role": "nomme", "osis": "Mark.1.14" }],
+    "p-mt5-beatitudes": [{ "place": "galilee", "role": "scene", "osis": "Matt.4.23" }],
+    "p-mt6-ne-vous-inquietez-pas": [{ "place": "galilee", "role": "scene", "osis": "Matt.4.23" }],
+    "p-mt6-prier-dans-le-secret": [{ "place": "galilee", "role": "scene", "osis": "Matt.4.23" }],
+    "p-mt6-notre-pere": [{ "place": "galilee", "role": "scene", "osis": "Matt.4.23" }],
+    "p-mt11-repos": [
+      { "place": "corazine", "role": "contexte", "osis": "Matt.11.21" },
+      { "place": "bethsaide", "role": "contexte", "osis": "Matt.11.21" },
+      { "place": "capharnaum", "role": "contexte", "osis": "Matt.11.23" }
+    ],
+    "p-mt18-pardonner": [{ "place": "capharnaum", "role": "scene", "osis": "Matt.17.24" }],
+    "p-mt22-grand-commandement": [{ "place": "jerusalem", "role": "scene", "osis": "Matt.21.10" }],
+    "p-mt28-envoi": [{ "place": "galilee", "role": "nomme", "osis": "Matt.28.16" }],
+    "p-lc1-magnificat": [
+      { "place": "nazareth", "role": "origine", "osis": "Luke.1.26" },
+      { "place": "judee", "role": "scene", "osis": "Luke.1.39" }
+    ],
+    "p-lc10-bon-samaritain": [
+      { "place": "jerusalem", "role": "nomme", "osis": "Luke.10.30" },
+      { "place": "jericho", "role": "nomme", "osis": "Luke.10.30" }
+    ],
+    "p-lc17-dix-lepreux": [
+      { "place": "jerusalem", "role": "nomme", "osis": "Luke.17.11" },
+      { "place": "samarie", "role": "nomme", "osis": "Luke.17.11" },
+      { "place": "galilee", "role": "nomme", "osis": "Luke.17.11" }
+    ],
+    "p-lc22-dernier-repas": [{ "place": "jerusalem", "role": "scene", "osis": "Luke.22.10" }],
+    "p-lc24-emmaus": [
+      { "place": "jerusalem", "role": "nomme", "osis": "Luke.24.13" },
+      { "place": "emmaus", "role": "nomme", "osis": "Luke.24.13" }
+    ],
+    "p-jn3-amour-du-monde": [{ "place": "jerusalem", "role": "scene", "osis": "John.2.23" }],
+    "p-jn13-lavement-pieds": [{ "place": "jerusalem", "role": "scene", "osis": "John.12.12" }],
+    "p-jn14-presence-promise": [{ "place": "jerusalem", "role": "scene", "osis": "John.12.12" }],
+    "p-jn16-courage": [{ "place": "jerusalem", "role": "scene", "osis": "John.12.12" }],
+    "p-jn20-thomas": [{ "place": "jerusalem", "role": "scene", "osis": "John.19.20" }],
+    "p-ac2-premiere-communaute": [{ "place": "jerusalem", "role": "scene", "osis": "Acts.2.5" }],
+    "p-rm8-rien-ne-separe": [{ "place": "rome", "role": "destinataires", "osis": "Rom.1.7" }],
+    "p-1co13-charite": [
+      { "place": "corinthe", "role": "destinataires", "osis": "1Cor.1.2" },
+      { "place": "ephese", "role": "redaction", "osis": "1Cor.16.8" }
+    ],
+    "p-1co15-resurrection": [
+      { "place": "corinthe", "role": "destinataires", "osis": "1Cor.1.2" },
+      { "place": "ephese", "role": "redaction", "osis": "1Cor.16.8" }
+    ],
+    "p-ep4-colere": [{ "place": "ephese", "role": "destinataires", "osis": "Eph.1.1", "note": "La mention « à Éphèse » manque dans plusieurs manuscrits anciens : la lettre a pu circuler entre plusieurs Églises." }],
+    "p-ph4-joie-paix": [{ "place": "philippes", "role": "destinataires", "osis": "Phil.1.1" }],
+    "p-1th5-rendre-grace": [{ "place": "thessalonique", "role": "destinataires", "osis": "1Thess.1.1" }],
+    "p-jos1-courage": [
+      { "place": "jourdain", "role": "nomme", "osis": "Josh.1.2" },
+      { "place": "liban", "role": "nomme", "osis": "Josh.1.4" },
+      { "place": "euphrate", "role": "nomme", "osis": "Josh.1.4" },
+      { "place": "mediterranee", "role": "nomme", "osis": "Josh.1.4" }
+    ],
+    "p-1s3-appel-samuel": [{ "place": "silo", "role": "scene", "osis": "1Sam.3.21" }],
+    "p-1r19-elie-epuise": [
+      { "place": "bersabee", "role": "nomme", "osis": "1Kgs.19.3" },
+      { "place": "horeb", "role": "nomme", "osis": "1Kgs.19.8" }
+    ],
+    "p-is43-appele-par-son-nom": [
+      { "place": "egypte", "role": "nomme", "osis": "Isa.43.3" },
+      { "place": "koush", "role": "nomme", "osis": "Isa.43.3" },
+      { "place": "babylone", "role": "contexte", "osis": "Isa.43.14", "note": "Le même verset 3 nomme aussi Seba, non cartographiée : son identification est discutée." }
+    ],
+    "p-mi6-ce-que-dieu-attend": [
+      { "place": "moresheth", "role": "origine", "osis": "Mic.1.1" },
+      { "place": "jerusalem", "role": "contexte", "osis": "Mic.1.1" }
+    ],
+    "p-lm3-esperance": [{ "place": "jerusalem", "role": "contexte", "osis": "Lam.1.7" }]
+  }
+}
