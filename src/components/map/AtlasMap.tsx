@@ -13,7 +13,8 @@ const NE_ATTRIB = '<a href="https://www.naturalearthdata.com/">Natural Earth</a>
 const AWMC_ATTRIB = '<a href="https://awmc.unc.edu/">AWMC</a> (ODbL)';
 const OPENBIBLE_ATTRIB = '<a href="https://www.openbible.info/geo/">OpenBible.info</a> (CC BY 4.0)';
 
-// « Aujourd'hui » : tuiles OpenStreetMap (villes et frontières actuelles), adoucies en CSS.
+// « Aujourd'hui » : carte vectorielle OpenFreeMap aux noms français (voir frenchBase.ts) ;
+// repli sur les tuiles OpenStreetMap (noms locaux) si WebGL manque.
 // « À l'époque » : fond Natural Earth intégré à l'app (terres, lacs, fleuves), sans aucun nom moderne.
 const OSM_TILES = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
 
@@ -94,7 +95,7 @@ type Props = {
 export default function AtlasMap({ places, mode, era, roads, selectedId, onSelect, fitKey }: Props) {
   const el = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
-  const base = useRef<L.TileLayer | null>(null);
+  const base = useRef<L.Layer | null>(null);
   const natural = useRef<L.GeoJSON | null>(null);
   const eraLayer = useRef<L.GeoJSON | null>(null);
   const roadLayer = useRef<L.GeoJSON | null>(null);
@@ -147,16 +148,31 @@ export default function AtlasMap({ places, mode, era, roads, selectedId, onSelec
     };
   }, []);
 
-  // Fond de carte : tuiles actuelles seulement en mode « Aujourd'hui »
+  // Fond « Aujourd'hui » : carte vectorielle aux noms français (OpenFreeMap).
+  // Repli sur les tuiles OpenStreetMap si WebGL ou OpenFreeMap sont indisponibles.
   useEffect(() => {
     const m = map.current;
     if (!m) return;
     base.current?.remove();
     base.current = null;
     el.current?.setAttribute("data-mode", mode);
-    if (mode === "today") {
+    if (mode !== "today") return;
+    let cancelled = false;
+    const fallback = () => {
+      if (cancelled || map.current !== m) return;
       base.current = L.tileLayer(OSM_TILES, { attribution: OSM_ATTRIB, maxZoom: 19, className: "tiles-today" }).addTo(m);
-    }
+    };
+    import("./frenchBase")
+      .then(async ({ frenchBaseLayer, webglAvailable }) => {
+        if (!webglAvailable()) return fallback();
+        const layer = await frenchBaseLayer();
+        if (cancelled || map.current !== m) return;
+        base.current = layer.addTo(m);
+      })
+      .catch(fallback);
+    return () => {
+      cancelled = true;
+    };
   }, [mode]);
 
   // Contours des régions et tracés des fleuves (OpenBible)

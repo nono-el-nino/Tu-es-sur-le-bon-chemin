@@ -36,10 +36,10 @@
   },
   {
     "id": "fonds-carte",
-    "name": "Fonds de carte : OpenStreetMap et Natural Earth",
-    "url": "https://www.openstreetmap.org/copyright",
-    "role": "Villes et frontières actuelles (fond « Aujourd’hui », tuiles OpenStreetMap) ; terres, lacs et fleuves sans noms modernes (fond « À l’époque », Natural Earth).",
-    "rights": "© contributeurs OpenStreetMap (ODbL) ; Natural Earth : domaine public. Les frontières actuelles sont indicatives."
+    "name": "Fonds de carte : OpenFreeMap (OpenStreetMap) et Natural Earth",
+    "url": "https://openfreemap.org",
+    "role": "Villes, régions et frontières actuelles avec leurs noms en français (fond « Aujourd’hui », OpenFreeMap) ; terres, lacs et fleuves sans noms modernes (fond « À l’époque », Natural Earth).",
+    "rights": "Données © contributeurs OpenStreetMap (ODbL), tuiles OpenFreeMap / OpenMapTiles ; Natural Earth : domaine public. Les frontières actuelles sont indicatives."
   },
   {
     "id": "aelf-structure",
