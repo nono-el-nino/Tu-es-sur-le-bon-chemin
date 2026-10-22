@@ -239,7 +239,7 @@ export default function AtlasMap({ places, mode, era, roads, selectedId, onSelec
     if (!m || places.length === 0) return;
     const all = L.latLngBounds(places.map((p) => [p.lat, p.lon] as [number, number]));
     const core = places.filter((p) => HOLY_LAND.contains([p.lat, p.lon]));
-    const target = core.length >= 3 && core.length / places.length >= 0.6 ? L.latLngBounds(core.map((p) => [p.lat, p.lon] as [number, number])) : all;
+    const target = core.length >= 3 && core.length / places.length >= 0.5 ? L.latLngBounds(core.map((p) => [p.lat, p.lon] as [number, number])) : all;
     if (places.length === 1) m.setView(all.getCenter(), 8);
     else m.fitBounds(target, { padding: [28, 28], maxZoom: 9 });
     // eslint-disable-next-line react-hooks/exhaustive-deps

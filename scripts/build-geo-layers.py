@@ -68,8 +68,42 @@ def in_bbox(g, bbox):
     return any(x0 <= p[0] <= x1 and y0 <= p[1] <= y1 for p in pts(g["coordinates"]))
 
 
+def point_in(ring, x, y):
+    ins = False
+    j = len(ring) - 1
+    for i in range(len(ring)):
+        xi, yi = ring[i][:2]
+        xj, yj = ring[j][:2]
+        if (yi > y) != (yj > y) and x < (xj - xi) * (y - yi) / ((yj - yi) or 1e-12) + xi:
+            ins = not ins
+        j = i
+    return ins
+
+
+def dissolve(features):
+    """Fusionne les petites pièces qui chevauchent un autre polygone du même fichier
+    (au moins 2/3 de leurs sommets à l'intérieur) : artefacts de numérisation qui
+    dessineraient sinon une double teinte et une frontière intérieure inexistante."""
+    polys = [f for f in features if f.get("geometry") and f["geometry"]["type"] == "Polygon"]
+    drop = set()
+    for f in polys:
+        ring = f["geometry"]["coordinates"][0]
+        for g in polys:
+            if g is f or id(g) in drop:
+                continue
+            outer = g["geometry"]["coordinates"][0]
+            if len(outer) <= len(ring):
+                continue
+            inside = sum(point_in(outer, *p[:2]) for p in ring)
+            if inside >= 2 * len(ring) / 3:
+                drop.add(id(f))
+                break
+    return [f for f in features if id(f) not in drop]
+
+
 def build(src, out, eps, keep=lambda p: True, bbox=None, min_area=0.0):
     d = json.load(open(os.path.join(SRC, src), encoding="utf-8"))
+    d["features"] = dissolve(d["features"])
     feats = []
     for f in d["features"]:
         g = f.get("geometry")
