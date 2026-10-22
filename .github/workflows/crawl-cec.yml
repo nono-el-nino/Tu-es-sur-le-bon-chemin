@@ -13,13 +13,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: SAVE_RAW=1 node scripts/crawl-cec.mjs > crawl.log 2>&1 || true
+      - run: SAVE_RAW=1 node scripts/crawl-cec.mjs > crawl.txt 2>&1 || true
       - name: Publier les pages brutes sur une branche temporaire
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898333+github-actions[bot]@users.noreply.github.com"
           git checkout --orphan ccc-raw
           git rm -rfq --cached .
-          git add raw crawl.log
+          git add -f raw crawl.txt
           git commit -qm "Pages brutes du Catéchisme (temporaire)"
           git push -f origin ccc-raw
