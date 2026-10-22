@@ -23,7 +23,7 @@ export function webglAvailable() {
   }
 }
 
-let stylePromise: Promise<{ layers: StyleLayer[] }> | null = null;
+let stylePromise: Promise<{ layers: StyleLayer[]; sources?: Record<string, { attribution?: string }> }> | null = null;
 
 export async function frenchBaseLayer(): Promise<L.Layer> {
   stylePromise ??= fetch(STYLE_URL).then((r) => {

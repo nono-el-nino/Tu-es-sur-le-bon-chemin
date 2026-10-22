@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { frenchLabels } from "../src/components/map/frenchLabels";
+import { frenchLabels, type StyleLayer } from "../src/components/map/frenchLabels";
 
 describe("fond « Aujourd'hui » en français", () => {
   it("affiche le nom français, sinon la transcription latine, sinon le nom local", () => {
@@ -16,5 +16,12 @@ describe("fond « Aujourd'hui » en français", () => {
     expect(style.layers[1].layout!["text-field"]).toEqual(expected);
     // les numéros de routes ne sont pas modifiés
     expect(style.layers[2].layout!["text-field"]).toEqual(["get", "ref"]);
+    // noms du fond éclaircis
+    expect((style.layers[0] as StyleLayer).paint!["text-color"]).toBe("#7a8794");
+  });
+
+  it("retire la mention de source anglaise du style", () => {
+    const style = frenchLabels({ layers: [], sources: { openmaptiles: { attribution: "Data from OpenStreetMap" } } });
+    expect(style.sources!.openmaptiles.attribution).toBeUndefined();
   });
 });
