@@ -1,7 +1,7 @@
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useEffect, useRef } from "react";
-import { confidenceOf, type Place } from "../../content/places";
+import { confidenceOf, passagesForPlace, type Place } from "../../content/places";
 
 import { eras, type Era, type MapMode } from "./layers";
 
@@ -48,11 +48,11 @@ const altIcon = (label: string) =>
     iconAnchor: [6, 6],
   });
 
-/** Rang d'affichage des étiquettes : localités sûres d'abord, régions ensuite. */
+/** Rang d'affichage des étiquettes : localités sûres d'abord, régions ensuite ; à égalité, le lieu le plus cité. */
 const rank = (p: Place) => {
   const lvl = confidenceOf(p).level;
   const kind = p.kind === "ville" ? 0 : p.kind === "region" ? 2 : 1;
-  return kind * 10 + (lvl === "sure" ? 0 : lvl === "probable" ? 1 : 2);
+  return (kind * 10 + (lvl === "sure" ? 0 : lvl === "probable" ? 1 : 2)) * 1000 - passagesForPlace(p.id).length;
 };
 
 /**
@@ -62,18 +62,21 @@ const rank = (p: Place) => {
  */
 function declutter(m: L.Map, items: { place: Place; marker: L.Marker }[], selectedId?: string | null) {
   const placed: { x0: number; y0: number; x1: number; y1: number }[] = [];
-  const pins = items.map(({ place }) => m.latLngToContainerPoint([place.lat, place.lon]));
-  const sorted = items.map((it, i) => ({ ...it, pt: pins[i] })).sort((a, b) => (a.place.id === selectedId ? -1 : b.place.id === selectedId ? 1 : rank(a.place) - rank(b.place)));
+  const sorted = items
+    .map((it) => ({ ...it, pt: m.latLngToContainerPoint([it.place.lat, it.place.lon]) }))
+    .sort((a, b) => (a.place.id === selectedId ? -1 : b.place.id === selectedId ? 1 : rank(a.place) - rank(b.place)));
+  const before: L.Point[] = []; // repères des lieux plus prioritaires
   for (const { place, marker, pt } of sorted) {
     const label = marker.getElement()?.querySelector<HTMLElement>(".atlas-label");
     if (!label) continue;
     const w = label.offsetWidth || place.name.length * 7;
     const box = { x0: pt.x + 10, y0: pt.y - 10, x1: pt.x + 14 + w, y1: pt.y + 8 };
     const hitsLabel = placed.some((b) => box.x0 < b.x1 && box.x1 > b.x0 && box.y0 < b.y1 && box.y1 > b.y0);
-    const hitsPin = pins.some((q) => q !== pt && q.x > box.x0 - 6 && q.x < box.x1 && q.y > box.y0 - 2 && q.y < box.y1 + 2);
+    const hitsPin = before.some((q) => q.x > box.x0 - 6 && q.x < box.x1 && q.y > box.y0 - 2 && q.y < box.y1 + 2);
     const show = place.id === selectedId || (!hitsLabel && !hitsPin);
     label.style.visibility = show ? "visible" : "hidden";
     if (show) placed.push(box);
+    before.push(pt);
   }
 }
 
