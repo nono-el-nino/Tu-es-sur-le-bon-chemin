@@ -44,8 +44,13 @@ for (const b of books) {
   b.chapters = [];
   for (const id of ids) {
     const html = id === b.first ? first : await get(`/bible/${b.code}/${id}`);
-    const verses = html ? new Set([...html.matchAll(/<span class="(?:verse_number|text-danger)">\s*(\d+[a-zA-Z]?)\s*<\/span>/g)].map((m) => m[1])).size : null;
-    b.chapters.push({ id, verses });
+    // verses : nombre de versets ; last : dernier numéro ; missing : numéros absents
+    // (ex. Mt 18, 11, absent des meilleurs manuscrits et non traduit).
+    const labels = html ? [...new Set([...html.matchAll(/<span class="(?:verse_number|text-danger)">\s*(\d+[a-zA-Z]?)\s*<\/span>/g)].map((m) => m[1]))] : [];
+    const nums = new Set(labels.map((l) => parseInt(l, 10)));
+    const last = nums.size ? Math.max(...nums) : null;
+    const missing = last ? Array.from({ length: last }, (_, i) => i + 1).filter((n) => !nums.has(n)) : [];
+    b.chapters.push({ id, verses: labels.length, last, ...(missing.length ? { missing } : {}) });
     await new Promise((r) => setTimeout(r, 80));
   }
   console.log(b.code, b.name, b.chapters.length, "chapitres", b.chapters.reduce((a, c) => a + (c.verses ?? 0), 0), "versets", "|", b.chapters.map((c) => c.id).join(","));
