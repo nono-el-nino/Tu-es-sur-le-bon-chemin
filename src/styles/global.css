@@ -979,8 +979,7 @@ textarea:focus {
 }
 /* Noms masqués quand la carte est très dézoomée, pour rester lisible */
 .atlas-map[data-zoom="3"] .atlas-label,
-.atlas-map[data-zoom="4"] .atlas-label,
-.atlas-map[data-zoom="5"] .atlas-label {
+.atlas-map[data-zoom="4"] .atlas-label {
   display: none;
 }
 

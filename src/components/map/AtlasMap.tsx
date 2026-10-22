@@ -245,7 +245,8 @@ export default function AtlasMap({ places, mode, era, roads, selectedId, onSelec
         title: p.name,
         alt: p.name,
         riseOnHover: true,
-        zIndexOffset: p.id === selectedId ? 1000 : 0,
+        // les lieux prioritaires passent au premier plan (leur étiquette n'est pas recouverte)
+        zIndexOffset: p.id === selectedId ? 1_000_000 : 500_000 - rank(p) * 20,
       });
       marker.on("click", (e) => {
         L.DomEvent.stopPropagation(e);
