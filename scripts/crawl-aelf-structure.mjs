@@ -20,30 +20,36 @@ const get = async (path) => {
 const decode = (s) => s.replace(/&#039;|&rsquo;/g, "’").replace(/&amp;/g, "&").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
 
 const index = await get("/bible");
-// Liens de livres dans l'ordre de l'index : href="/bible/Gn/1">Genèse<
+// Livres dans l'ordre de l'index : <a href="/bible/Gn/1" title="Accéder à : Livre de la Genèse">
 const books = [];
-for (const m of index.matchAll(/href="\/bible\/([0-9A-Za-z]+)\/([0-9A-Za-z]+)"[^>]*>([\s\S]*?)<\/a>/g)) {
-  const [, code, , label] = m;
-  if (books.some((b) => b.code === code)) continue;
-  const name = decode(label);
-  if (!name || /^\d+[AB]?$/.test(name)) continue;
-  books.push({ code, name });
+for (const m of index.matchAll(/href="\/bible\/([0-9A-Za-z]+)\/([0-9A-Za-z]+)"\s+title="Accéder à : ([^"]+)"/g)) {
+  const [, code, first, title] = m;
+  if (!books.some((b) => b.code === code)) books.push({ code, name: decode(title), first });
 }
-console.log(books.length, "livres :", books.map((b) => b.code).join(" "));
+// Les psaumes sont listés un par un : title="Accéder au psaume 9B"
+const psalms = [...new Set([...index.matchAll(/href="\/bible\/Ps\/([0-9A-Za-z]+)"\s+title="Accéder au psaume/g)].map((m) => m[1]))];
+if (psalms.length && !books.some((b) => b.code === "Ps")) {
+  const at = books.findIndex((b) => b.code === "Pr");
+  books.splice(at < 0 ? books.length : at, 0, { code: "Ps", name: "Livre des Psaumes", first: psalms[0], ids: psalms });
+}
+console.log(books.length, "livres :", books.map((b) => b.code).join(" "), "| psaumes :", psalms.length);
 
 const NT = new Set("Mt Mc Lc Jn Ac Rm 1Co 2Co Ga Ep Ph Col 1Th 2Th 1Tm 2Tm Tt Phm He Jc 1P 2P 1Jn 2Jn 3Jn Jude Ap".split(" "));
 for (const b of books) {
-  const first = await get(`/bible/${b.code}/1`) ?? (await get(`/bible/${b.code}/0`));
-  const ids = [...new Set([...first.matchAll(new RegExp(`href="/bible/${b.code}/([0-9A-Za-z]+)"`, "g"))].map((m) => m[1]))];
+  const first = await get(`/bible/${b.code}/${b.first}`);
+  let ids = b.ids ?? [...new Set([...first.matchAll(new RegExp(`href="/bible/${b.code}/([0-9A-Za-z]+)"`, "g"))].map((m) => m[1]))];
+  if (!ids.includes(b.first)) ids = [b.first, ...ids];
   b.testament = NT.has(b.code) ? "NT" : "AT";
   b.chapters = [];
   for (const id of ids) {
-    const html = id === "1" ? first : await get(`/bible/${b.code}/${id}`);
+    const html = id === b.first ? first : await get(`/bible/${b.code}/${id}`);
     const verses = html ? new Set([...html.matchAll(/class="verse_number">\s*([^<\s]+)\s*</g)].map((m) => m[1])).size : null;
     b.chapters.push({ id, verses });
     await new Promise((r) => setTimeout(r, 80));
   }
-  console.log(b.code, b.name, b.chapters.length, "chapitres", b.chapters.reduce((a, c) => a + (c.verses ?? 0), 0), "versets");
+  console.log(b.code, b.name, b.chapters.length, "chapitres", b.chapters.reduce((a, c) => a + (c.verses ?? 0), 0), "versets", "|", b.chapters.map((c) => c.id).join(","));
+  delete b.first;
+  delete b.ids;
 }
 mkdirSync("scripts/data", { recursive: true });
 writeFileSync("scripts/data/aelf-structure.json", JSON.stringify({ source: "https://www.aelf.org/bible", retrievedAt: new Date().toISOString().slice(0, 10), books }, null, 1) + "\n");
