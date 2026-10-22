@@ -5,11 +5,13 @@ import { content, randomPassage, type Passage } from "../content";
 import { DiscoveryCard } from "../components/DiscoveryCard";
 import { TopicIcon } from "../components/Icon";
 import { useUserData } from "../lib/useUserData";
+import { MapPanel } from "../components/map/MapPanel";
 
 const modes = [
   { id: "humeur", label: "Mon humeur" },
   { id: "surprise", label: "Surprends-moi" },
   { id: "theme", label: "Thèmes" },
+  { id: "carte", label: "Carte" },
 ] as const;
 type Mode = (typeof modes)[number]["id"];
 
@@ -35,6 +37,9 @@ export function Explorer() {
       {mode === "humeur" && <MoodGrid />}
       {mode === "surprise" && <Surprise />}
       {mode === "theme" && <ThemeList />}
+      {mode === "carte" && (
+        <MapPanel passageId={params.get("passage") ?? undefined} onClearPassage={() => setParams({ mode: "carte" }, { replace: true })} />
+      )}
     </div>
   );
 }

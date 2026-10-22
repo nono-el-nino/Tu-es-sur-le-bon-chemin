@@ -877,3 +877,385 @@ textarea:focus {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* ---------- Carte des lieux ---------- */
+
+.map-frame {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  background: var(--ivory-2);
+}
+.atlas-map {
+  height: min(62dvh, 520px);
+  min-height: 320px;
+  width: 100%;
+  background: #eef0ec;
+  font-family: var(--font-body);
+}
+.map-loading {
+  display: grid;
+  place-items: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+.atlas-map .leaflet-control-attribution {
+  font-size: 10px;
+  background: rgba(255, 253, 248, 0.85);
+}
+.atlas-map .leaflet-control-zoom a {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  color: var(--blue);
+}
+
+.atlas-marker {
+  background: none;
+  border: 0;
+}
+.atlas-pin {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  border: 2.5px solid #fff;
+  background: var(--terracotta-ink);
+  box-shadow: 0 1px 4px rgba(35, 61, 86, 0.45);
+  vertical-align: middle;
+  flex: none;
+}
+.atlas-pin.level-probable {
+  background: var(--terracotta);
+}
+.atlas-pin.level-debattue,
+.atlas-pin.level-incertaine {
+  background: #fff;
+  border: 2.5px dashed var(--terracotta-ink);
+}
+.atlas-pin.level-zone,
+.atlas-pin.kind-region {
+  background: var(--turquoise-soft);
+  border: 2px dashed var(--turquoise-ink);
+  border-radius: 4px;
+}
+.atlas-pin.kind-fleuve,
+.atlas-pin.kind-mer {
+  background: var(--turquoise);
+}
+.atlas-pin.selected {
+  transform: scale(1.35);
+  box-shadow: 0 0 0 5px rgba(216, 120, 89, 0.35), 0 1px 4px rgba(35, 61, 86, 0.45);
+}
+.atlas-pin.alt {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border: 2px solid #8796a5;
+  box-shadow: none;
+}
+.atlas-label {
+  position: absolute;
+  left: 20px;
+  top: -3px;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blue);
+  text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff;
+  pointer-events: none;
+}
+.atlas-label em {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+.atlas-label.alt {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  left: 15px;
+}
+/* Noms masqués quand la carte est très dézoomée, pour rester lisible */
+.atlas-map[data-zoom="3"] .atlas-label {
+  display: none;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--blue);
+}
+.filter-chip[aria-pressed="true"] {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--ivory);
+}
+.filter-chip[aria-pressed="true"] .muted {
+  color: rgba(248, 245, 237, 0.75);
+}
+.filter-chip .atlas-pin {
+  width: 12px;
+  height: 12px;
+  border-width: 2px;
+}
+
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  color: var(--text-muted);
+}
+.map-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.map-legend .atlas-pin {
+  width: 12px;
+  height: 12px;
+  border-width: 2px;
+}
+.legend-zone,
+.legend-era {
+  display: inline-block;
+  width: 16px;
+  height: 11px;
+  border-radius: 3px;
+  border: 1.5px dashed var(--turquoise-ink);
+  background: rgba(89, 169, 158, 0.15);
+}
+.legend-era {
+  border: 1.5px solid #8a6a1f;
+  background: rgba(235, 203, 121, 0.45);
+}
+.legend-era.era-herode {
+  border-color: #b0533a;
+  background: rgba(216, 120, 89, 0.3);
+}
+
+.focus-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 6px 6px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--terracotta-soft);
+}
+
+.place-facts {
+  margin: 0;
+  display: grid;
+  gap: 4px;
+}
+.place-facts dt {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+.place-facts dd {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.score-bar {
+  display: inline-block;
+  width: 80px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--ivory-2);
+  overflow: hidden;
+}
+.score-bar > span {
+  display: block;
+  height: 100%;
+  background: var(--terracotta-ink);
+}
+.conf-sure {
+  background: var(--turquoise-soft);
+  color: var(--turquoise-ink);
+}
+.conf-probable {
+  background: var(--sable-soft);
+  color: var(--sable-ink);
+}
+.conf-debattue,
+.conf-incertaine {
+  background: var(--terracotta-soft);
+  color: var(--terracotta-ink);
+}
+.conf-zone {
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+.place-occurrence {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--ivory);
+  text-decoration: none;
+}
+.place-occurrence.current {
+  outline: 2px solid var(--terracotta);
+}
+
+/* Lieux d'une fiche */
+.place-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 1px solid var(--line);
+}
+.place-row:first-of-type {
+  border-top: 0;
+}
+
+/* ---------- Couverture de la Bible ---------- */
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.kpi {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.kpi strong {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  line-height: 1.1;
+}
+.kpi strong small {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+}
+.kpi span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.cov-books {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line);
+}
+.cov-book {
+  border-bottom: 1px solid var(--line);
+}
+.cov-book > summary,
+.cov-book:not(.has) {
+  display: grid;
+  grid-template-columns: 7.2rem 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 0;
+  min-height: 34px;
+}
+.cov-book > summary {
+  cursor: pointer;
+  list-style: none;
+}
+.cov-book > summary::-webkit-details-marker {
+  display: none;
+}
+.cov-name {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cov-book.has .cov-name {
+  color: var(--blue);
+  font-weight: 700;
+}
+.cov-cells {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+.cov-cell {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 1.5px;
+  background: #e6dfcd;
+}
+.cov-cell.on {
+  background: var(--turquoise-ink);
+}
+.cov-count {
+  font-size: 0.72rem;
+  font-weight: 700;
+  min-width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: var(--turquoise-soft);
+  color: var(--turquoise-ink);
+}
+.cov-list {
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0 0 0 7.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.85rem;
+}
+.cov-list a {
+  text-decoration: none;
+}
+.cov-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+}
+.cov-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+@media (max-width: 380px) {
+  .cov-book > summary,
+  .cov-book:not(.has) {
+    grid-template-columns: 5.8rem 1fr auto;
+  }
+  .cov-list {
+    padding-left: 0;
+  }
+}
+
+/* Fonds : tuiles actuelles adoucies dans la palette de l'app ; mer du fond naturel */
+.atlas-map .tiles-today {
+  filter: grayscale(0.75) sepia(0.18) brightness(1.04) contrast(0.92);
+}
+.atlas-map[data-mode="ancient"] {
+  background: #dce8ea;
+}

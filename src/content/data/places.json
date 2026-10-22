@@ -1,0 +1,920 @@
+{
+ "_source": "OpenBible.info Bible Geocoding Data (CC BY 4.0) — https://github.com/openbibleinfo/Bible-Geocoding-Data. Généré par scripts/build-places.py ; ne pas modifier à la main.",
+ "places": [
+  {
+   "id": "babylone",
+   "name": "Babylone",
+   "openbible": {
+    "id": "a217d18",
+    "name": "Babylon 1",
+    "url": "https://www.openbible.info/geo/ancient/a217d18/"
+   },
+   "kind": "ville",
+   "lat": 32.54333,
+   "lon": 44.42222,
+   "identification": {
+    "site": "Babylon",
+    "score": 1000,
+    "via": null
+   },
+   "alternatives": [],
+   "links": {
+    "wikidata": "https://www.wikidata.org/wiki/Q5684"
+   }
+  },
+  {
+   "id": "bersabee",
+   "name": "Bersabée",
+   "openbible": {
+    "id": "ad2f6c2",
+    "name": "Beersheba 1",
+    "url": "https://www.openbible.info/geo/ancient/ad2f6c2/"
+   },
+   "kind": "ville",
+   "lat": 31.24472,
+   "lon": 34.84083,
+   "identification": {
+    "site": "Tel Beer Sheva",
+    "score": 823,
+    "via": null
+   },
+   "alternatives": [],
+   "links": {
+    "pleiades": "https://pleiades.stoa.org/places/687846",
+    "wikidata": "https://www.wikidata.org/wiki/Q534596"
+   }
+  },
+  {
+   "id": "bethsaide",
+   "name": "Bethsaïde",
+   "openbible": {
+    "id": "a91b732",
+    "name": "Bethsaida 1",
+    "url": "https://www.openbible.info/geo/ancient/a91b732/"
+   },
+   "kind": "ville",
+   "lat": 32.91038,
+   "lon": 35.63096,
+   "identification": {
+    "site": "At Tell",
+    "score": 466,
+    "via": null
+   },
+   "alternatives": [
+    {
+     "site": "Al Araj",
+     "score": 172,
+     "lat": 32.89353,
+     "lon": 35.619
+    },
+    {
+     "site": "El Mess’adiyye",
+     "score": 53,
+     "lat": 32.88422,
+     "lon": 35.63077
+    }
+   ],
+   "links": {
+    "dare": "https://imperium.ahlfeldt.se/places/33272",
+    "wikidata": "https://www.wikidata.org/wiki/Q501773"
+   }
+  },
+  {
+   "id": "capharnaum",
+   "name": "Capharnaüm",
+   "openbible": {
+    "id": "af2161c",
+    "name": "Capernaum",
+    "url": "https://www.openbible.info/geo/ancient/af2161c/"
+   },
+   "kind": "ville",
+   "lat": 32.88111,
+   "lon": 35.575,
+   "identification": {
+    "site": "Tell Hum",
+    "score": 842,
+    "via": null
+   },
+   "alternatives": [],
+   "links": {
+    "pleiades": "https://pleiades.stoa.org/places/678231",
+    "dare": "https://imperium.ahlfeldt.se/places/33337",
+    "wikidata": "https://www.wikidata.org/wiki/Q59174"
+   }
+  },
+  {
+   "id": "corazine",
+   "name": "Corazine",
+   "openbible": {
+    "id": "a593a48",
+    "name": "Chorazin",
+    "url": "https://www.openbible.info/geo/ancient/a593a48/"
+   },
+   "kind": "ville",
+   "lat": 32.91139,
+   "lon": 35.56389,
+   "identification": {
+    "site": "Khirbet Karraza",
+    "score": 786,
+    "via": null
+   },
+   "alternatives": [],
+   "links": {
+    "pleiades": "https://pleiades.stoa.org/places/678091",
+    "dare": "https://imperium.ahlfeldt.se/places/33283",
+    "wikidata": "https://www.wikidata.org/wiki/Q2456076"
+   }
+  },
+  {
+   "id": "corinthe",
+   "name": "Corinthe",
+   "openbible": {
+    "id": "a6f437a",
+    "name": "Corinth",
+    "url": "https://www.openbible.info/geo/ancient/a6f437a/"
+   },
+   "kind": "ville",
+   "lat": 37.90579,
+   "lon": 22.87874,
+   "identification": {
+    "site": "Corinth",
+    "score": 1000,
+    "via": null
+   },
+   "alternatives": [],
+   "links": {
+    "pleiades": "https://pleiades.stoa.org/places/570182",
+    "dare": "https://imperium.ahlfeldt.se/places/17070",
+    "wikidata": "https://www.wikidata.org/wiki/Q1363688"
+   }
+  },
+  {
+   "id": "egypte",
+   "name": "Égypte",
+   "openbible": {
+    "id": "af301ca",
+    "name": "Egypt",
+    "url": "https://www.openbible.info/geo/ancient/af301ca/"
+   },
+   "kind": "region",
+   "lat": 30.12944,
+   "lon": 31.3075,
+   "identification": {
+    "site": null,
+    "score": 1000,
+    "via": null
+   },
+   "alternatives": [],
+   "links": {
+    "wikidata": "https://www.wikidata.org/wiki/Q11768"
+   }
+  },
+  {
+   "id": "emmaus",
+   "name": "Emmaüs",
+   "openbible": {
+    "id": "ae7274b",
+    "name": "Emmaus",
+    "url": "https://www.openbible.info/geo/ancient/ae7274b/"
+   },
+   "kind": "ville",
+   "lat": 31.79289,
+   "lon": 35.16419,
+   "identification": {
+    "site": "Qalunya",
+    "score": 338,
+    "via": null
+   },
+   "alternatives": [
+    {
+     "site": "Emmaus Nicopolis",
+     "score": 240,
+     "lat": 31.8393,
+     "lon": 34.98946
+    },
+    {
+     "site": "El Qubeibeh",
+     "score": 60,
+     "lat": 31.83993,
+     "lon": 35.13685
+    }
+   ],
+   "links": {
+    "wikidata": "https://www.wikidata.org/wiki/Q165887"
+   }
+  },
+  {
+   "id": "ephese",
+   "name": "Éphèse",
+   "openbible": {
+    "id": "a5feb15",
+    "name": "Ephesus",
+    "url": "https://www.openbible.info/geo/ancient/a5feb15/"
+   },
+   "kind": "ville",
+   "lat": 37.93912,
+   "lon": 27.3407,
+   "identification": {
+    "site": "Ephesus",
+    "score": 1000,
+    "via": null
+   },
+   "alternatives": [],
+   "links": {
+    "dare": "https://imperium.ahlfeldt.se/places/21155",
+    "wikidata": "https://www.wikidata.org/wiki/Q47611"
+   }
+  },
+  {
+   "id": "euphrate",
+   "name": "Euphrate",
+   "openbible": {
+    "id": "a62dec4",
+    "name": "Euphrates",
+    "url": "https://www.openbible.info/geo/ancient/a62dec4/"
+   },
+   "kind": "fleuve",
+   "lat": 31.0043,
+   "lon": 47.442,
+   "identification": {
+    "site": "Euphrates River",
+    "score": 1000,
+    "via": null
+   },
+   "alternatives": [],
+   "links": {
+    "pleiades": "https://pleiades.stoa.org/places/912849",
+    "wikidata": "https://www.wikidata.org/wiki/Q34589"
+   }
+  },
+  {
+   "id": "galilee",
+   "name": "Galilée",
+   "openbible": {
+    "id": "a9cf1e8",
+    "name": "Galilee 1",
+    "url": "https://www.openbible.info/geo/ancient/a9cf1e8/"
+   },
+   "kind": "region",
+   "lat": 32.76,
+   "lon": 35.527,
+   "identification": {
+    "site": "Galilee",
+    "score": 1000,
+    "via": null
+   },
+   "alternatives": [],
+   "links": {
+    "pleiades": "https://pleiades.stoa.org/places/678145",
+    "wikidata": "https://www.wikidata.org/wiki/Q83241"
+   }
+  },
+  {
+   "id": "horeb",
+   "name": "Horeb",
+   "openbible": {
+    "id": "a9bb03e",
+    "name": "Mount Horeb",
+    "url": "https://www.openbible.info/geo/ancient/a9bb03e/"
+   },
+   "kind": "montagne",
+   "lat": 28.53972,
+   "lon": 33.97333,
+   "identification": {
+    "site": "Jebel Musa",
+    "score": 465,
+    "via": "Mount Sinai"
+   },
+   "alternatives": [
+    {
+     "site": "Har Karkom",
+     "score": 103,
+     "lat": 30.28333,
+     "lon": 34.75
+    },
+    {
+     "site": "Jebel Sin Bishar",
+     "score": 89,
+     "lat": 29.671,
+     "lon": 32.961
+    },
+    {
+     "site": "Ras es Safsafeh",
+     "score": 55,
+     "lat": 28.55556,
+     "lon": 33.96722
+    }
+   ],
+   "links": {
+    "wikidata": "https://www.wikidata.org/wiki/Q1420926"
+   }
+  },
+  {
+   "id": "jericho",
+   "name": "Jéricho",
+   "openbible": {
+    "id": "aaf03fa",
+    "name": "Jericho 2",
+    "url": "https://www.openbible.info/geo/ancient/aaf03fa/"
+   },
+   "kind": "ville",
+   "lat": 31.85187,
+   "lon": 35.43624,
+   "identification": {
+    "site": "Tell el Alayiq",
+    "score": 1000,
+    "via": null
+   },
+   "alternatives": [],
+   "links": {
+    "wikidata": "https://www.wikidata.org/wiki/Q5687"
+   }
+  },
+  {
+   "id": "jerusalem",
+   "name": "Jérusalem",
+   "openbible": {
+    "id": "a15257a",
+    "name": "Jerusalem",
+    "url": "https://www.openbible.info/geo/ancient/a15257a/"
+   },
+   "kind": "ville",
+   "lat": 31.77667,
+   "lon": 35.23417,
+   "identification": {
+    "site": "Jerusalem",
+    "score": 1000,
+    "via": null
+   },
+   "alternatives": [],
+   "links": {
+    "wikidata": "https://www.wikidata.org/wiki/Q1218"
+   }
+  },
+  {
+   "id": "jourdain",
+   "name": "Jourdain",
+   "openbible": {
+    "id": "ae686c9",
+    "name": "Jordan",
+    "url": "https://www.openbible.info/geo/ancient/ae686c9/"
+   },
+   "kind": "fleuve",
+   "lat": 31.76139,
+   "lon": 35.55833,
+   "identification": {
+    "site": "Jordan River",
+    "score": 1000,
+    "via": null
+   },
+   "alternatives": [],
+   "links": {
+    "pleiades": "https://pleiades.stoa.org/places/687932",
+    "wikidata": "https://www.wikidata.org/wiki/Q40059"
+   }
+  },
+  {
+   "id": "judee",
+   "name": "Judée",
+   "openbible": {
+    "id": "a149f13",
+    "name": "Judea 1",
+    "url": "https://www.openbible.info/geo/ancient/a149f13/"
+   },
+   "kind": "region",
+   "lat": 31.77667,
+   "lon": 35.23417,
+   "identification": {
+    "site": null,
+    "score": 1000,
+    "via": null
+   },
+   "alternatives": [],
+   "links": {
+    "pleiades": "https://pleiades.stoa.org/places/981527",
+    "wikidata": "https://www.wikidata.org/wiki/Q1003997"
+   }
+  },
+  {
+   "id": "koush",
+   "name": "Koush",
+   "openbible": {
+    "id": "ac5a1ec",
+    "name": "Cush 1",
+    "url": "https://www.openbible.info/geo/ancient/ac5a1ec/"
+   },
+   "kind": "region",
+   "lat": 16.93514,
+   "lon": 33.75075,
+   "identification": {
+    "site": "Meroe",
+    "score": 1000,
+    "via": null
+   },
+   "alternatives": [],
+   "links": {
+    "wikidata": "https://www.wikidata.org/wiki/Q241790"
+   }
+  },
+  {
+   "id": "liban",
+   "name": "Liban",
+   "openbible": {
+    "id": "a730058",
+    "name": "Lebanon",
+    "url": "https://www.openbible.info/geo/ancient/a730058/"
+   },
+   "kind": "region",
+   "lat": 33.54,
+   "lon": 35.58361,
+   "identification": {
+    "site": "Jezzine",
+    "score": 1000,
+    "via": null
+   },
+   "alternatives": [],
+   "links": {
+    "wikidata": "https://www.wikidata.org/wiki/Q5867373"
+   }
+  },
+  {
+   "id": "mediterranee",
+   "name": "Grande Mer (Méditerranée)",
+   "openbible": {
+    "id": "aa805fb",
+    "name": "Great Sea",
+    "url": "https://www.openbible.info/geo/ancient/aa805fb/"
+   },
+   "kind": "mer",
+   "lat": 31.80482,
+   "lon": 34.17035,
+   "identification": {
+    "site": "Mediterranean Sea",
+    "score": 1000,
+    "via": null
+   },
+   "alternatives": [],
+   "links": {
+    "pleiades": "https://pleiades.stoa.org/places/1043",
+    "wikidata": "https://www.wikidata.org/wiki/Q4918"
+   }
+  },
+  {
+   "id": "moresheth",
+   "name": "Moresheth",
+   "openbible": {
+    "id": "a6ac675",
+    "name": "Moresheth-gath",
+    "url": "https://www.openbible.info/geo/ancient/a6ac675/"
+   },
+   "kind": "ville",
+   "lat": 31.63336,
+   "lon": 34.91661,
+   "identification": {
+    "site": "Tel Goded",
+    "score": 467,
+    "via": null
+   },
+   "alternatives": [],
+   "links": {
+    "wikidata": "https://www.wikidata.org/wiki/Q7056545"
+   }
+  },
+  {
+   "id": "nazareth",
+   "name": "Nazareth",
+   "openbible": {
+    "id": "af5884f",
+    "name": "Nazareth",
+    "url": "https://www.openbible.info/geo/ancient/af5884f/"
+   },
+   "kind": "ville",
+   "lat": 32.70214,
+   "lon": 35.29769,
+   "identification": {
+    "site": "Nazareth",
+    "score": 1000,
+    "via": null
+   },
+   "alternatives": [],
+   "links": {
+    "wikidata": "https://www.wikidata.org/wiki/Q430776"
+   }
+  },
+  {
+   "id": "philippes",
+   "name": "Philippes",
+   "openbible": {
+    "id": "a49e1d0",
+    "name": "Philippi",
+    "url": "https://www.openbible.info/geo/ancient/a49e1d0/"
+   },
+   "kind": "ville",
+   "lat": 41.01207,
+   "lon": 24.28458,
+   "identification": {
+    "site": "Philippi",
+    "score": 1000,
+    "via": null
+   },
+   "alternatives": [],
+   "links": {
+    "dare": "https://imperium.ahlfeldt.se/places/21892",
+    "wikidata": "https://www.wikidata.org/wiki/Q379652"
+   }
+  },
+  {
+   "id": "rome",
+   "name": "Rome",
+   "openbible": {
+    "id": "afc8e7a",
+    "name": "Rome",
+    "url": "https://www.openbible.info/geo/ancient/afc8e7a/"
+   },
+   "kind": "ville",
+   "lat": 41.8922,
+   "lon": 12.4852,
+   "identification": {
+    "site": "Rome",
+    "score": 1000,
+    "via": null
+   },
+   "alternatives": [],
+   "links": {
+    "pleiades": "https://pleiades.stoa.org/places/423025",
+    "wikidata": "https://www.wikidata.org/wiki/Q220"
+   }
+  },
+  {
+   "id": "samarie",
+   "name": "Samarie",
+   "openbible": {
+    "id": "a282dce",
+    "name": "Samaria 2",
+    "url": "https://www.openbible.info/geo/ancient/a282dce/"
+   },
+   "kind": "region",
+   "lat": 32.27611,
+   "lon": 35.195,
+   "identification": {
+    "site": null,
+    "score": 1000,
+    "via": null
+   },
+   "alternatives": [],
+   "links": {
+    "wikidata": "https://www.wikidata.org/wiki/Q1294629"
+   }
+  },
+  {
+   "id": "silo",
+   "name": "Silo",
+   "openbible": {
+    "id": "aa4680a",
+    "name": "Shiloh",
+    "url": "https://www.openbible.info/geo/ancient/aa4680a/"
+   },
+   "kind": "ville",
+   "lat": 32.0557,
+   "lon": 35.28954,
+   "identification": {
+    "site": "Khirbet Seilun",
+    "score": 1000,
+    "via": null
+   },
+   "alternatives": [],
+   "links": {
+    "wikidata": "https://www.wikidata.org/wiki/Q985542"
+   }
+  },
+  {
+   "id": "thessalonique",
+   "name": "Thessalonique",
+   "openbible": {
+    "id": "afa9d8e",
+    "name": "Thessalonica",
+    "url": "https://www.openbible.info/geo/ancient/afa9d8e/"
+   },
+   "kind": "ville",
+   "lat": 40.63777,
+   "lon": 22.94577,
+   "identification": {
+    "site": "Thessaloniki",
+    "score": 1000,
+    "via": null
+   },
+   "alternatives": [],
+   "links": {
+    "wikidata": "https://www.wikidata.org/wiki/Q17151"
+   }
+  }
+ ],
+ "links": {
+  "p-mc1-royaume": [
+   {
+    "place": "galilee",
+    "role": "nomme",
+    "osis": "Mark.1.14"
+   }
+  ],
+  "p-mt5-beatitudes": [
+   {
+    "place": "galilee",
+    "role": "scene",
+    "osis": "Matt.4.23"
+   }
+  ],
+  "p-mt6-ne-vous-inquietez-pas": [
+   {
+    "place": "galilee",
+    "role": "scene",
+    "osis": "Matt.4.23"
+   }
+  ],
+  "p-mt6-prier-dans-le-secret": [
+   {
+    "place": "galilee",
+    "role": "scene",
+    "osis": "Matt.4.23"
+   }
+  ],
+  "p-mt6-notre-pere": [
+   {
+    "place": "galilee",
+    "role": "scene",
+    "osis": "Matt.4.23"
+   }
+  ],
+  "p-mt11-repos": [
+   {
+    "place": "corazine",
+    "role": "contexte",
+    "osis": "Matt.11.21"
+   },
+   {
+    "place": "bethsaide",
+    "role": "contexte",
+    "osis": "Matt.11.21"
+   },
+   {
+    "place": "capharnaum",
+    "role": "contexte",
+    "osis": "Matt.11.23"
+   }
+  ],
+  "p-mt18-pardonner": [
+   {
+    "place": "capharnaum",
+    "role": "scene",
+    "osis": "Matt.17.24"
+   }
+  ],
+  "p-mt22-grand-commandement": [
+   {
+    "place": "jerusalem",
+    "role": "scene",
+    "osis": "Matt.21.10"
+   }
+  ],
+  "p-mt28-envoi": [
+   {
+    "place": "galilee",
+    "role": "nomme",
+    "osis": "Matt.28.16"
+   }
+  ],
+  "p-lc1-magnificat": [
+   {
+    "place": "nazareth",
+    "role": "origine",
+    "osis": "Luke.1.26"
+   },
+   {
+    "place": "judee",
+    "role": "scene",
+    "osis": "Luke.1.39"
+   }
+  ],
+  "p-lc10-bon-samaritain": [
+   {
+    "place": "jerusalem",
+    "role": "nomme",
+    "osis": "Luke.10.30"
+   },
+   {
+    "place": "jericho",
+    "role": "nomme",
+    "osis": "Luke.10.30"
+   }
+  ],
+  "p-lc17-dix-lepreux": [
+   {
+    "place": "jerusalem",
+    "role": "nomme",
+    "osis": "Luke.17.11"
+   },
+   {
+    "place": "samarie",
+    "role": "nomme",
+    "osis": "Luke.17.11"
+   },
+   {
+    "place": "galilee",
+    "role": "nomme",
+    "osis": "Luke.17.11"
+   }
+  ],
+  "p-lc22-dernier-repas": [
+   {
+    "place": "jerusalem",
+    "role": "scene",
+    "osis": "Luke.22.10"
+   }
+  ],
+  "p-lc24-emmaus": [
+   {
+    "place": "jerusalem",
+    "role": "nomme",
+    "osis": "Luke.24.13"
+   },
+   {
+    "place": "emmaus",
+    "role": "nomme",
+    "osis": "Luke.24.13"
+   }
+  ],
+  "p-jn3-amour-du-monde": [
+   {
+    "place": "jerusalem",
+    "role": "scene",
+    "osis": "John.2.23"
+   }
+  ],
+  "p-jn13-lavement-pieds": [
+   {
+    "place": "jerusalem",
+    "role": "scene",
+    "osis": "John.12.12"
+   }
+  ],
+  "p-jn14-presence-promise": [
+   {
+    "place": "jerusalem",
+    "role": "scene",
+    "osis": "John.12.12"
+   }
+  ],
+  "p-jn16-courage": [
+   {
+    "place": "jerusalem",
+    "role": "scene",
+    "osis": "John.12.12"
+   }
+  ],
+  "p-jn20-thomas": [
+   {
+    "place": "jerusalem",
+    "role": "scene",
+    "osis": "John.19.20"
+   }
+  ],
+  "p-ac2-premiere-communaute": [
+   {
+    "place": "jerusalem",
+    "role": "scene",
+    "osis": "Acts.2.5"
+   }
+  ],
+  "p-rm8-rien-ne-separe": [
+   {
+    "place": "rome",
+    "role": "destinataires",
+    "osis": "Rom.1.7"
+   }
+  ],
+  "p-1co13-charite": [
+   {
+    "place": "corinthe",
+    "role": "destinataires",
+    "osis": "1Cor.1.2"
+   },
+   {
+    "place": "ephese",
+    "role": "redaction",
+    "osis": "1Cor.16.8"
+   }
+  ],
+  "p-1co15-resurrection": [
+   {
+    "place": "corinthe",
+    "role": "destinataires",
+    "osis": "1Cor.1.2"
+   },
+   {
+    "place": "ephese",
+    "role": "redaction",
+    "osis": "1Cor.16.8"
+   }
+  ],
+  "p-ep4-colere": [
+   {
+    "place": "ephese",
+    "role": "destinataires",
+    "osis": "Eph.1.1",
+    "note": "La mention « à Éphèse » manque dans plusieurs manuscrits anciens : la lettre a pu circuler entre plusieurs Églises."
+   }
+  ],
+  "p-ph4-joie-paix": [
+   {
+    "place": "philippes",
+    "role": "destinataires",
+    "osis": "Phil.1.1"
+   }
+  ],
+  "p-1th5-rendre-grace": [
+   {
+    "place": "thessalonique",
+    "role": "destinataires",
+    "osis": "1Thess.1.1"
+   }
+  ],
+  "p-jos1-courage": [
+   {
+    "place": "jourdain",
+    "role": "nomme",
+    "osis": "Josh.1.2"
+   },
+   {
+    "place": "liban",
+    "role": "nomme",
+    "osis": "Josh.1.4"
+   },
+   {
+    "place": "euphrate",
+    "role": "nomme",
+    "osis": "Josh.1.4"
+   },
+   {
+    "place": "mediterranee",
+    "role": "nomme",
+    "osis": "Josh.1.4"
+   }
+  ],
+  "p-1s3-appel-samuel": [
+   {
+    "place": "silo",
+    "role": "scene",
+    "osis": "1Sam.3.21"
+   }
+  ],
+  "p-1r19-elie-epuise": [
+   {
+    "place": "bersabee",
+    "role": "nomme",
+    "osis": "1Kgs.19.3"
+   },
+   {
+    "place": "horeb",
+    "role": "nomme",
+    "osis": "1Kgs.19.8"
+   }
+  ],
+  "p-is43-appele-par-son-nom": [
+   {
+    "place": "egypte",
+    "role": "nomme",
+    "osis": "Isa.43.3"
+   },
+   {
+    "place": "koush",
+    "role": "nomme",
+    "osis": "Isa.43.3"
+   },
+   {
+    "place": "babylone",
+    "role": "contexte",
+    "osis": "Isa.43.14",
+    "note": "Le même verset 3 nomme aussi Seba, non cartographiée : son identification est discutée."
+   }
+  ],
+  "p-mi6-ce-que-dieu-attend": [
+   {
+    "place": "moresheth",
+    "role": "origine",
+    "osis": "Mic.1.1"
+   },
+   {
+    "place": "jerusalem",
+    "role": "contexte",
+    "osis": "Mic.1.1"
+   }
+  ],
+  "p-lm3-esperance": [
+   {
+    "place": "jerusalem",
+    "role": "contexte",
+    "osis": "Lam.1.7"
+   }
+  ]
+ }
+}

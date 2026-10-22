@@ -9,7 +9,7 @@ const walk = (v) => {
   else if (Array.isArray(v)) v.forEach(walk);
   else if (v && typeof v === "object") Object.values(v).forEach(walk);
 };
-["passages.json", "topics.json", "parcours.json", "sources.json"].forEach((f) => walk(read(f)));
+["passages.json", "topics.json", "parcours.json", "sources.json", "places.json"].forEach((f) => walk(read(f)));
 
 let failed = 0;
 for (const url of [...urls].sort()) {
