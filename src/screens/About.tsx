@@ -1,6 +1,9 @@
 import { BookOpen, ExternalLink, Landmark, Lightbulb } from "lucide-react";
+import { lazy, Suspense } from "react";
 import { content } from "../content";
 import { PageHeader } from "../components/Layout";
+
+const BibleCoverage = lazy(() => import("../components/coverage/BibleCoverage"));
 
 export function About() {
   return (
@@ -50,6 +53,17 @@ export function About() {
         <p className="small muted">
           Catalogue actuel : {content.passages.length} passages, {content.moods.length} humeurs, {content.themes.length} thèmes, {content.parcours.length} parcours.
         </p>
+      </section>
+
+      <section className="stack" aria-labelledby="couverture">
+        <h2 id="couverture">Ce que couvrent les fiches</h2>
+        <p>
+          La Bible compte 73 livres. Chaque fiche est relue avant publication : le catalogue reste donc volontairement réduit pour l'instant. La couverture
+          s'élargira à chaque nouvelle version de l'application.
+        </p>
+        <Suspense fallback={<p className="muted small">Chargement…</p>}>
+          <BibleCoverage />
+        </Suspense>
       </section>
 
       <section className="stack">

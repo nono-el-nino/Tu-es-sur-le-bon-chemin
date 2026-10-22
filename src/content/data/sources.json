@@ -1,5 +1,51 @@
 [
-  { "id": "aelf", "name": "AELF — Bible, traduction officielle liturgique", "url": "https://www.aelf.org/bible", "role": "Texte biblique de référence (Écriture).", "rights": "Texte protégé (© AELF). Il n'est pas reproduit dans l'application : seules la référence et un lien vers le chapitre sur aelf.org sont affichés. Toute reproduction nécessite une autorisation écrite de l'AELF." },
-  { "id": "cec", "name": "Catéchisme de l'Église catholique", "url": "https://www.vatican.va/archive/ccc/index_fr.htm", "role": "Enseignement officiel de l'Église.", "rights": "Texte protégé (© Libreria Editrice Vaticana). L'application cite uniquement les numéros de paragraphes et renvoie au site du Saint-Siège." },
-  { "id": "redaction", "name": "Explications pédagogiques de l'application", "url": "https://www.aelf.org/bible", "role": "Contextes et explications rédigés par l'équipe éditoriale.", "rights": "Ces textes ne sont pas un enseignement officiel de l'Église. Ils s'appuient sur les sources ci-dessus et portent un statut éditorial (brouillon, à vérifier, validé)." }
+  {
+    "id": "aelf",
+    "name": "AELF — Bible, traduction officielle liturgique",
+    "url": "https://www.aelf.org/bible",
+    "role": "Texte biblique de référence (Écriture).",
+    "rights": "Texte protégé (© AELF). Il n'est pas reproduit dans l'application : seules la référence et un lien vers le chapitre sur aelf.org sont affichés. Toute reproduction nécessite une autorisation écrite de l'AELF."
+  },
+  {
+    "id": "cec",
+    "name": "Catéchisme de l'Église catholique",
+    "url": "https://www.vatican.va/archive/ccc/index_fr.htm",
+    "role": "Enseignement officiel de l'Église.",
+    "rights": "Texte protégé (© Libreria Editrice Vaticana). L'application cite uniquement les numéros de paragraphes et renvoie au site du Saint-Siège."
+  },
+  {
+    "id": "redaction",
+    "name": "Explications pédagogiques de l'application",
+    "url": "https://www.aelf.org/bible",
+    "role": "Contextes et explications rédigés par l'équipe éditoriale.",
+    "rights": "Ces textes ne sont pas un enseignement officiel de l'Église. Ils s'appuient sur les sources ci-dessus et portent un statut éditorial (brouillon, à vérifier, validé)."
+  },
+  {
+    "id": "openbible-geo",
+    "name": "OpenBible.info — Bible Geocoding Data",
+    "url": "https://www.openbible.info/geo/",
+    "role": "Localisation des lieux bibliques et niveau de confiance de chaque identification (synthèse de plus de 70 atlas, dictionnaires et commentaires).",
+    "rights": "Données sous licence Creative Commons BY 4.0. Contours des régions et tracés des fleuves : © OpenStreetMap (ODbL)."
+  },
+  {
+    "id": "awmc",
+    "name": "Ancient World Mapping Center (Université de Caroline du Nord)",
+    "url": "https://awmc.unc.edu/",
+    "role": "Étendue des empires perse et romain, royaume d’Hérode, voies romaines, d’après le Barrington Atlas of the Greek and Roman World.",
+    "rights": "Données sous licence ODbL 1.0, simplifiées pour l’affichage."
+  },
+  {
+    "id": "fonds-carte",
+    "name": "Fonds de carte OpenStreetMap / CARTO",
+    "url": "https://www.openstreetmap.org/copyright",
+    "role": "Villes et frontières actuelles (fond « Aujourd’hui »), relief sans noms modernes (fond « À l’époque »).",
+    "rights": "© contributeurs OpenStreetMap (ODbL), © CARTO. Les frontières actuelles sont indicatives."
+  },
+  {
+    "id": "aelf-structure",
+    "name": "Structure de la Bible AELF",
+    "url": "https://www.aelf.org/bible",
+    "role": "Découpage en livres, chapitres et versets utilisé pour mesurer la couverture des fiches.",
+    "rights": "Seuls des comptages sont utilisés ; aucun texte n’est reproduit."
+  }
 ]

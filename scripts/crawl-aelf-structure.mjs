@@ -20,9 +20,10 @@ const get = async (path) => {
 const decode = (s) => s.replace(/&#039;|&rsquo;/g, "’").replace(/&amp;/g, "&").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
 
 const index = await get("/bible");
-// Livres dans l'ordre de l'index : <a href="/bible/Gn/1" title="Accéder à : Livre de la Genèse">
+// Livres dans l'ordre de l'index : <a href="/bible/Gn/1" title="Accéder à : Livre de la Genèse"> (espace insécable avant « : »)
+// Versets : <span class="verse_number">01</span>, ou <span class="text-danger">01</span> dans les psaumes.
 const books = [];
-for (const m of index.matchAll(/href="\/bible\/([0-9A-Za-z]+)\/([0-9A-Za-z]+)"\s+title="Accéder à : ([^"]+)"/g)) {
+for (const m of index.matchAll(/href="\/bible\/([0-9A-Za-z]+)\/([0-9A-Za-z]+)"\s+title="Accéder à\s*:\s*([^"]+)"/g)) {
   const [, code, first, title] = m;
   if (!books.some((b) => b.code === code)) books.push({ code, name: decode(title), first });
 }
@@ -43,7 +44,7 @@ for (const b of books) {
   b.chapters = [];
   for (const id of ids) {
     const html = id === b.first ? first : await get(`/bible/${b.code}/${id}`);
-    const verses = html ? new Set([...html.matchAll(/class="verse_number">\s*([^<\s]+)\s*</g)].map((m) => m[1])).size : null;
+    const verses = html ? new Set([...html.matchAll(/<span class="(?:verse_number|text-danger)">\s*(\d+[a-zA-Z]?)\s*<\/span>/g)].map((m) => m[1])).size : null;
     b.chapters.push({ id, verses });
     await new Promise((r) => setTimeout(r, 80));
   }

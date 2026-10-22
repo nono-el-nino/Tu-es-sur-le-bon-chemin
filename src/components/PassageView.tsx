@@ -5,6 +5,7 @@ import { FavoriteButton } from "./DiscoveryCard";
 import { Landscape } from "./Illustrations";
 import { PedagogyBlock, ScriptureBlock, TeachingBlock } from "./Layers";
 import { NoteEditor } from "./NoteEditor";
+import { PlacesBlock } from "./PlacesBlock";
 import { StatusBadge } from "./StatusBadge";
 import { TopicIcon } from "./Icon";
 import { useToast } from "./Toast";
@@ -43,6 +44,8 @@ export function PassageView({ passage, eyebrow, animate }: { passage: Passage; e
       </PedagogyBlock>
 
       <TeachingBlock teaching={passage.teaching} />
+
+      <PlacesBlock passageId={passage.id} />
 
       <NoteEditor target={{ type: "passage", id: passage.id }} />
 
