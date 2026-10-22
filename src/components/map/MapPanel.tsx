@@ -132,7 +132,7 @@ function Legend({ mode, era }: { mode: MapMode; era: Era | null }) {
         <i className="atlas-pin level-debattue" /> Débattue
       </span>
       <span>
-        <i className="legend-zone" /> Région (contour approximatif)
+        <i className="legend-zone" /> Région (zone retenue par la majorité des sources)
       </span>
       {mode === "ancient" && era && (
         <span>

@@ -48,6 +48,35 @@ const altIcon = (label: string) =>
     iconAnchor: [6, 6],
   });
 
+/** Rang d'affichage des étiquettes : localités sûres d'abord, régions ensuite. */
+const rank = (p: Place) => {
+  const lvl = confidenceOf(p).level;
+  const kind = p.kind === "ville" ? 0 : p.kind === "region" ? 2 : 1;
+  return kind * 10 + (lvl === "sure" ? 0 : lvl === "probable" ? 1 : 2);
+};
+
+/**
+ * Évite les étiquettes qui se chevauchent : on les place dans l'ordre de priorité
+ * (lieu sélectionné, puis localités les plus sûres) et on masque celles qui gênent.
+ * Elles réapparaissent en zoomant.
+ */
+function declutter(m: L.Map, items: { place: Place; marker: L.Marker }[], selectedId?: string | null) {
+  const placed: { x0: number; y0: number; x1: number; y1: number }[] = [];
+  const pins = items.map(({ place }) => m.latLngToContainerPoint([place.lat, place.lon]));
+  const sorted = items.map((it, i) => ({ ...it, pt: pins[i] })).sort((a, b) => (a.place.id === selectedId ? -1 : b.place.id === selectedId ? 1 : rank(a.place) - rank(b.place)));
+  for (const { place, marker, pt } of sorted) {
+    const label = marker.getElement()?.querySelector<HTMLElement>(".atlas-label");
+    if (!label) continue;
+    const w = label.offsetWidth || place.name.length * 7;
+    const box = { x0: pt.x + 10, y0: pt.y - 10, x1: pt.x + 14 + w, y1: pt.y + 8 };
+    const hitsLabel = placed.some((b) => box.x0 < b.x1 && box.x1 > b.x0 && box.y0 < b.y1 && box.y1 > b.y0);
+    const hitsPin = pins.some((q) => q !== pt && q.x > box.x0 - 6 && q.x < box.x1 && q.y > box.y0 - 2 && q.y < box.y1 + 2);
+    const show = place.id === selectedId || (!hitsLabel && !hitsPin);
+    label.style.visibility = show ? "visible" : "hidden";
+    if (show) placed.push(box);
+  }
+}
+
 type Props = {
   places: Place[];
   mode: MapMode;
@@ -69,8 +98,11 @@ export default function AtlasMap({ places, mode, era, roads, selectedId, onSelec
   const contourLayer = useRef<L.GeoJSON | null>(null);
   const markerLayer = useRef<L.LayerGroup | null>(null);
   const altLayer = useRef<L.LayerGroup | null>(null);
+  const markers = useRef<{ place: Place; marker: L.Marker }[]>([]);
   const onSelectRef = useRef(onSelect);
   onSelectRef.current = onSelect;
+  const selectedRef = useRef(selectedId);
+  selectedRef.current = selectedId;
 
   // Création de la carte
   useEffect(() => {
@@ -103,6 +135,7 @@ export default function AtlasMap({ places, mode, era, roads, selectedId, onSelec
     m.on("click", () => onSelectRef.current(null));
     const syncZoom = () => el.current?.setAttribute("data-zoom", String(m.getZoom()));
     m.on("zoomend", syncZoom);
+    m.on("zoomend moveend", () => declutter(m, markers.current, selectedRef.current));
     syncZoom();
     map.current = m;
     return () => {
@@ -200,8 +233,9 @@ export default function AtlasMap({ places, mode, era, roads, selectedId, onSelec
     const layer = markerLayer.current;
     if (!layer) return;
     layer.clearLayers();
+    markers.current = [];
     for (const p of places) {
-      const label = mode === "today" && p.identification.site && p.kind === "ville" && p.identification.site !== p.openbible.name ? `${p.name} <em>· ${p.identification.site}</em>` : p.name;
+      const label = p.name;
       const marker = L.marker([p.lat, p.lon], {
         icon: pinIcon(p, p.id === selectedId, label),
         keyboard: true,
@@ -216,7 +250,9 @@ export default function AtlasMap({ places, mode, era, roads, selectedId, onSelec
       });
       marker.on("keypress", () => onSelectRef.current(p.id));
       layer.addLayer(marker);
+      markers.current.push({ place: p, marker });
     }
+    if (map.current) declutter(map.current, markers.current, selectedId);
   }, [places, selectedId, mode]);
 
   // Autres localisations proposées pour le lieu sélectionné

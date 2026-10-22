@@ -116,7 +116,21 @@ for pid, meta in cfg["places"].items():
     if kind in ("region", "river") and os.path.exists(gpath):
         g = json.load(open(gpath, encoding="utf-8"))
         feats = g.get("features", [g])
-        shapes = [f["geometry"] for f in feats if f.get("geometry") and f["geometry"]["type"] != "Point"]
+        shapes = []
+        for f in feats:
+            g2 = f.get("geometry")
+            if not g2 or g2["type"] == "Point":
+                continue
+            props = f.get("properties") or {}
+            if props.get("role") == "isobands" and g2["type"] == "MultiPolygon":
+                # Bandes de confiance emboîtées (de min_confidence à max_confidence %) :
+                # on garde la bande la plus proche de 50 % (au moins la moitié des sources).
+                n = len(g2["coordinates"])
+                lo, hi = props.get("min_confidence", 10), props.get("max_confidence", 90)
+                conf = [lo + (hi - lo) * i / max(1, n - 1) for i in range(n)]
+                k = min(range(n), key=lambda i: abs(conf[i] - 50))
+                g2 = {"type": "Polygon", "coordinates": g2["coordinates"][k]}
+            shapes.append(g2)
         if shapes:
             geometry = simplify(shapes[0] if len(shapes) == 1 else {"type": "MultiLineString", "coordinates": [s["coordinates"] for s in shapes]}, 0.006 if kind == "river" else 0.01)
     places.append({
