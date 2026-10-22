@@ -1,6 +1,7 @@
 // Remplace chaque lien vers le Catéchisme par la page vatican.va qui contient
 // le premier paragraphe cité. S'appuie sur scripts/data/cec-pages.json
 // (produit par scripts/crawl-cec.mjs). Usage : node scripts/apply-cec-links.mjs
+// Relancer le relevé : node scripts/crawl-cec.mjs (accès Internet nécessaire).
 import { readFileSync, writeFileSync } from "node:fs";
 import { cecPageFor } from "./cec-map.mjs";
 

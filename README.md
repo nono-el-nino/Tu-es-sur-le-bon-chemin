@@ -69,7 +69,10 @@ Aperçu éditorial : `VITE_EDITORIAL_PREVIEW=true npm run dev`.
   Indique-la dans le champ `reviewer`.
 - **Liens** : les liens suivent le format `https://www.aelf.org/bible/{Livre}/{chapitre}`. Ils n'ont pas pu être testés depuis l'environnement de développement.
   Lance `npm run check-links`. Le workflow GitHub le fait aussi, à titre informatif. Vérifie ensuite à l'œil quelques pages.
-- Les références au Catéchisme renvoient à l'index officiel (`vatican.va/archive/ccc/index_fr.htm`) avec le numéro de paragraphe.
+- **Liens vers le Catéchisme** : chaque référence ouvre la page de vatican.va qui contient le premier paragraphe cité.
+  - Exemple : CEC § 1716 → `…/archive/FRA0013/__P5C.HTM#:~:text=1716`.
+  - Le fragment `#:~:text=` fait défiler la page jusqu'au paragraphe et le surligne (Safari 16.1+, Chrome). Les autres navigateurs ouvrent simplement la bonne page.
+  - La correspondance paragraphe → page est dans `scripts/data/cec-pages.json`. Elle a été relevée sur vatican.va et couvre les 2865 paragraphes.
 
 ## Modifier les contenus
 
@@ -83,6 +86,10 @@ Tout est dans `src/content/data/`, indépendamment de l'interface :
 | `sources.json` | Sources et mentions de droits affichées dans « Sources et méthode » |
 
 Le schéma est dans `src/content/schema.ts` (zod). Il est vérifié au démarrage de l'app et par `npm test`.
+
+**Ajouter une référence au Catéchisme :** renseigne `paragraphs` (ex. `"1822-1829"`) et `label`, puis lance `node scripts/apply-cec-links.mjs`. Le script remplit `url` avec la bonne page. `npm test` vérifie que chaque lien correspond à son paragraphe.
+
+Si vatican.va réorganise ses pages, relance le relevé avec `node scripts/crawl-cec.mjs` (accès Internet nécessaire), puis `apply-cec-links`.
 
 **Ajouter un passage :**
 

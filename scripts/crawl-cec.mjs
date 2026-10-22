@@ -35,7 +35,6 @@ while (queue.length && seen.size < MAX) {
     continue;
   }
   const base = html.match(/<base\s+href\s*=\s*"?([^"\s>]+)/i)?.[1];
-  if (pages.length < 4) console.log("BASE", url, base, "LINKS", [...html.matchAll(/href\s*=\s*"?([^"\s>]+)/gi)].slice(0, 15).map((m) => m[1]).join(" "));
   for (const m of html.matchAll(/href\s*=\s*"?([^"\s>]+)"?/gi)) {
     try {
       const u = new URL(m[1], base ? new URL(base, url) : url);
@@ -45,26 +44,27 @@ while (queue.length && seen.size < MAX) {
       if (allowed(u) && !seen.has(u.href)) queue.push(u.href);
     } catch {}
   }
-  const title = (html.match(/<title>([\s\S]*?)<\/title>/i)?.[1] ?? "").replace(/\s+/g, " ").trim();
-  // Numéros de paragraphes : en gras en début de paragraphe (« <b>1716</b> »).
-  const nums = [...html.matchAll(/<b>\s*(?:<[^>]+>\s*)*(\d{1,4})\s*(?:<\/[^>]+>\s*)*<\/b>/gi)].map((m) => Number(m[1])).filter((n) => n >= 1 && n <= 2865);
-  const anchors = [...html.matchAll(/<a\s+name\s*=\s*"?([^"\s>]+)"?/gi)].map((m) => m[1]).slice(0, 40);
   if (process.env.SAVE_RAW) {
     mkdirSync("raw", { recursive: true });
     writeFileSync(`raw/${new URL(url).pathname.split("/").pop()}`, html);
   }
-  pages.push({ url, title, nums: [...new Set(nums)], anchors });
-  if (pages.length <= 3 || (nums.length === 0 && pages.length < 15)) {
-    console.log("---", url, "|", title, "| nums:", nums.length, "| anchors:", anchors.slice(0, 8).join(","));
-    console.log(html.replace(/\s+/g, " ").slice(0, 1200));
-  }
+  pages.push({ url, html });
   await new Promise((r) => setTimeout(r, 60));
 }
 
-const withNums = pages.filter((p) => p.nums.length > 0);
-const covered = new Set(withNums.flatMap((p) => p.nums));
-console.log(`\n${pages.length} pages lues, ${withNums.length} avec paragraphes, ${covered.size} numéros distincts couverts.`);
-const sample = withNums.slice(0, 5).map((p) => `${p.url} ${Math.min(...p.nums)}-${Math.max(...p.nums)} anchors:${p.anchors.slice(0, 5)}`);
-console.log(sample.join("\n"));
+// Les paragraphes sont publiés dans les pages __P*.HTM, au format « <p>1716 Les béatitudes… ».
+const parsed = [];
+for (const { url, html } of pages) {
+  if (!/\/__P[^/]*\.HTM$/i.test(url)) continue;
+  const nums = [...html.matchAll(/<p[^>]*>\s*(?:<[^>]+>\s*)*(\d{1,4})(?=\s|<|&)/gi)].map((m) => Number(m[1])).filter((n) => n >= 1 && n <= 2865);
+  if (!nums.length) continue;
+  const text = html.replace(/<head[\s\S]*?<\/head>/i, "").replace(/<[^>]+>/g, " ").replace(/&[a-z]+;|&#\d+;/gi, " ");
+  const firstHit = (n) => text.search(new RegExp(`(^|[^\\d])${n}([^\\d]|$)`));
+  const paraHit = (n) => text.search(new RegExp(`(^|[^\\d])${n}\\s+\\S`));
+  parsed.push({ url, first: nums[0], last: nums[nums.length - 1], textFragmentUnsafe: nums.filter((n) => firstHit(n) < paraHit(n)) });
+}
+parsed.sort((a, b) => a.first - b.first);
+const covered = parsed.reduce((acc, p) => acc + p.last - p.first + 1, 0);
+console.log(`${pages.length} pages lues, ${parsed.length} pages de paragraphes, ${covered} paragraphes couverts.`);
 mkdirSync("scripts/data", { recursive: true });
-writeFileSync("scripts/data/cec-pages.json", JSON.stringify(withNums.map(({ url, title, nums, anchors }) => ({ url, title, nums, anchors })), null, 1));
+writeFileSync("scripts/data/cec-pages.json", JSON.stringify(parsed, null, 1) + "\n");
