@@ -8,15 +8,14 @@ import { eras, type Era, type MapMode } from "./layers";
 // Terre sainte au sens large : de la Galilée au Néguev.
 const HOLY_LAND = L.latLngBounds([30.8, 34.2], [33.5, 36.0]);
 
-const TILE_ATTRIB =
-  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>';
+const OSM_ATTRIB = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+const NE_ATTRIB = '<a href="https://www.naturalearthdata.com/">Natural Earth</a>';
 const AWMC_ATTRIB = '<a href="https://awmc.unc.edu/">AWMC</a> (ODbL)';
 const OPENBIBLE_ATTRIB = '<a href="https://www.openbible.info/geo/">OpenBible.info</a> (CC BY 4.0)';
 
-const tiles = {
-  today: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
-  ancient: "https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png",
-};
+// « Aujourd'hui » : tuiles OpenStreetMap (villes et frontières actuelles), adoucies en CSS.
+// « À l'époque » : fond Natural Earth intégré à l'app (terres, lacs, fleuves), sans aucun nom moderne.
+const OSM_TILES = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
 
 // Les couches sont des fichiers statiques de public/geo, chargés à la demande puis gardés en mémoire.
 const cache = new Map<string, Promise<GeoJSON.FeatureCollection>>();
@@ -64,6 +63,7 @@ export default function AtlasMap({ places, mode, era, roads, selectedId, onSelec
   const el = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
   const base = useRef<L.TileLayer | null>(null);
+  const natural = useRef<L.GeoJSON | null>(null);
   const eraLayer = useRef<L.GeoJSON | null>(null);
   const roadLayer = useRef<L.GeoJSON | null>(null);
   const contourLayer = useRef<L.GeoJSON | null>(null);
@@ -80,6 +80,24 @@ export default function AtlasMap({ places, mode, era, roads, selectedId, onSelec
     L.control.zoom({ position: "bottomright", zoomInTitle: "Zoomer", zoomOutTitle: "Dézoomer" }).addTo(m);
     m.attributionControl.setPrefix(false);
     m.attributionControl.addAttribution(OPENBIBLE_ATTRIB);
+    // Le fond naturel est sous les tuiles : il reste visible hors ligne ou si les tuiles ne chargent pas.
+    m.createPane("naturel").style.zIndex = "150";
+    loadGeo("fond-naturel.json")
+      .then((fc) => {
+        if (map.current !== m) return;
+        natural.current = L.geoJSON(fc, {
+          pane: "naturel",
+          interactive: false,
+          style: (f) =>
+            f?.properties?.t === "terre"
+              ? { stroke: true, color: "#C9BFA6", weight: 0.8, fillColor: "#F4EFE2", fillOpacity: 1 }
+              : f?.properties?.t === "lac"
+                ? { color: "#A9C6CB", weight: 0.8, fillColor: "#D7E6E8", fillOpacity: 1 }
+                : { color: "#9DBFC4", weight: 1.2, opacity: 0.9 },
+          attribution: NE_ATTRIB,
+        }).addTo(m);
+      })
+      .catch(() => {});
     markerLayer.current = L.layerGroup().addTo(m);
     altLayer.current = L.layerGroup().addTo(m);
     m.on("click", () => onSelectRef.current(null));
@@ -93,13 +111,16 @@ export default function AtlasMap({ places, mode, era, roads, selectedId, onSelec
     };
   }, []);
 
-  // Fond de carte : aujourd'hui (noms et frontières actuels) ou antiquité (fond sans noms modernes)
+  // Fond de carte : tuiles actuelles seulement en mode « Aujourd'hui »
   useEffect(() => {
     const m = map.current;
     if (!m) return;
     base.current?.remove();
-    base.current = L.tileLayer(tiles[mode], { attribution: TILE_ATTRIB, subdomains: "abcd", maxZoom: 19, detectRetina: true }).addTo(m);
-    base.current.bringToBack();
+    base.current = null;
+    el.current?.setAttribute("data-mode", mode);
+    if (mode === "today") {
+      base.current = L.tileLayer(OSM_TILES, { attribution: OSM_ATTRIB, maxZoom: 19, className: "tiles-today" }).addTo(m);
+    }
   }, [mode]);
 
   // Contours des régions et tracés des fleuves (OpenBible)
@@ -146,7 +167,6 @@ export default function AtlasMap({ places, mode, era, roads, selectedId, onSelec
           attribution: AWMC_ATTRIB,
         }).addTo(m);
         eraLayer.current.bringToBack();
-        base.current?.bringToBack();
       })
       .catch(() => {});
     return () => {

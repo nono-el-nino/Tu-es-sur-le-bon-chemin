@@ -1253,3 +1253,11 @@ textarea:focus {
     padding-left: 0;
   }
 }
+
+/* Fonds : tuiles actuelles adoucies dans la palette de l'app ; mer du fond naturel */
+.atlas-map .tiles-today {
+  filter: grayscale(0.75) sepia(0.18) brightness(1.04) contrast(0.92);
+}
+.atlas-map[data-mode="ancient"] {
+  background: #dce8ea;
+}

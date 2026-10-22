@@ -113,7 +113,7 @@ export function MapPanel({ passageId, onClearPassage }: { passageId?: string; on
       <p className="layer-note">
         Localisations : <a href="https://www.openbible.info/geo/">OpenBible.info</a> (CC BY 4.0), synthèse de plus de 70 atlas, dictionnaires et
         commentaires. Périodes et voies romaines : <a href="https://awmc.unc.edu/">Ancient World Mapping Center</a> (ODbL), d'après le Barrington Atlas.
-        Fond : © OpenStreetMap, © CARTO. Les frontières actuelles sont indicatives.
+        Fonds : © contributeurs OpenStreetMap (aujourd'hui), Natural Earth (à l'époque). Les frontières actuelles sont indicatives.
       </p>
     </section>
   );

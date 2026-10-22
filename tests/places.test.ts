@@ -90,7 +90,7 @@ describe("lieux : liens avec les fiches", () => {
 });
 
 describe("couches cartographiques", () => {
-  for (const f of ["lieux-contours", "empire-perse", "royaume-herode", "empire-romain-117", "voies-romaines"]) {
+  for (const f of ["fond-naturel", "lieux-contours", "empire-perse", "royaume-herode", "empire-romain-117", "voies-romaines"]) {
     it(`${f}.json est une collection GeoJSON valide`, () => {
       const path = `public/geo/${f}.json`;
       expect(existsSync(path)).toBe(true);
