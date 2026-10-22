@@ -79,7 +79,10 @@ Aperçu éditorial : `VITE_EDITORIAL_PREVIEW=true npm run dev`.
 Dans Explorer → Carte, et depuis chaque fiche (« Voir sur la carte »).
 
 - **Deux fonds**, via le sélecteur « Aujourd'hui / À l'époque » :
-  - *Aujourd'hui* : villes et frontières actuelles (tuiles OpenStreetMap, adoucies en CSS). Les frontières sont indicatives.
+  - *Aujourd'hui* : villes, régions et frontières actuelles, avec leurs noms en français. C'est une carte vectorielle [OpenFreeMap](https://openfreemap.org), gratuite et sans clé, construite sur les données OpenStreetMap.
+    - Chaque étiquette affiche `name:fr`, sinon la transcription latine (`name:latin`).
+    - Sans WebGL, l'app se rabat sur les tuiles OpenStreetMap standard (noms locaux).
+    - Les frontières sont indicatives.
   - *À l'époque* : un fond intégré à l'app (terres, lacs, fleuves de Natural Earth), sans aucun nom moderne, avec au choix l'Empire perse (vers 500 av. J.-C.), le royaume d'Hérode (vers 4 av. J.-C.), l'Empire romain (117 apr. J.-C.) et les voies romaines. Ce fond fonctionne aussi hors ligne.
 - **Filtres** : Ancien Testament, Évangiles, Actes et lettres ; masquer ou afficher les localisations débattues.
 - **Fiche d'un lieu** :
@@ -95,7 +98,7 @@ Dans Explorer → Carte, et depuis chaque fiche (« Voir sur la carte »).
 | --- | --- | --- |
 | Localisations, scores de confiance, contours des régions, tracés des fleuves | [OpenBible.info Bible Geocoding Data](https://github.com/openbibleinfo/Bible-Geocoding-Data), synthèse de plus de 70 atlas, dictionnaires et commentaires | CC BY 4.0 (géométries OSM : ODbL) |
 | Empires perse et romain, royaume d'Hérode, voies romaines | [Ancient World Mapping Center](https://github.com/AWMC/geodata), d'après le *Barrington Atlas of the Greek and Roman World* | ODbL 1.0 |
-| Fond « Aujourd'hui » | Tuiles © contributeurs OpenStreetMap ([politique d'usage](https://operations.osmfoundation.org/policies/tiles/)) | ODbL |
+| Fond « Aujourd'hui » | [OpenFreeMap](https://openfreemap.org) (OpenMapTiles), données © contributeurs OpenStreetMap ; affiché avec [MapLibre GL](https://maplibre.org) | ODbL |
 | Fond « À l'époque » | [Natural Earth](https://www.naturalearthdata.com/) 1:10m | Domaine public |
 
 Niveaux affichés, d'après le score de l'identification la mieux notée :
@@ -125,7 +128,7 @@ python3 scripts/build-base-layer.py /tmp/ne           # → public/geo/fond-natu
 
 Les fichiers de `public/geo/` dérivés d'AWMC et d'OpenStreetMap restent sous licence ODbL.
 
-Les tuiles OpenStreetMap conviennent à un usage modéré. Si l'audience grandit, il faudra passer à un fournisseur de tuiles dédié : la politique d'usage d'OpenStreetMap l'impose au-delà d'un trafic léger. Seule l'adresse `OSM_TILES` de `AtlasMap.tsx` serait à changer.
+OpenFreeMap est gratuit et n'impose pas de quota. Le moteur MapLibre (220 Ko compressés) n'est chargé qu'à l'ouverture de la carte. Le style et la langue des étiquettes se règlent dans `src/components/map/frenchLabels.ts` et `frenchBase.ts`.
 
 ## Couverture de la Bible
 
