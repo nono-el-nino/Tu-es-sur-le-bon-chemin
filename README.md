@@ -4,7 +4,7 @@ Application mobile (PWA) pour découvrir, comprendre et approfondir la foi catho
 un passage biblique selon ce que l'on ressent, des parcours pédagogiques courts et un carnet personnel.
 
 - **Accueil** : découverte du jour, « De quoi as-tu besoin aujourd'hui ? », reprise du parcours en cours.
-- **Explorer** : par humeur (10), « Surprends-moi » (tirage au hasard), par thème (8).
+- **Explorer** : par humeur (10), « Surprends-moi » (tirage au hasard), par thème (8), et **carte** des lieux bibliques.
 - **Parcours** : 3 itinéraires de 5 étapes (objectif, référence, explication, Catéchisme, réflexion, quiz, validation manuelle).
 - **Carnet** : favoris, notes privées, parcours, thèmes explorés. Modification et suppression possibles.
 
@@ -62,17 +62,78 @@ Aperçu éditorial : `VITE_EDITORIAL_PREVIEW=true npm run dev`.
 ### État actuel du catalogue
 
 - **35 passages validés**, plus 4 fiches non publiées : 3 psaumes `a_verifier` et 1 `brouillon`.
-  - Les psaumes restent `a_verifier` parce que la numérotation dans les URL d'aelf.org (grecque ou hébraïque) n'a pas pu être confirmée.
+  - La numérotation des psaumes est confirmée : `aelf.org/bible/Ps/22` est bien le psaume du berger (numérotation liturgique). Les fiches psaumes restent `a_verifier` en attendant que leurs explications soient complétées et relues.
 - 10 humeurs, 8 thèmes publiés (« Marie » reste `a_verifier`), 3 parcours de 5 étapes.
 - **Relecture** : les références et les explications ont été rédigées et relues lors de la création, à partir des sources citées.
   Il faut une **relecture humaine compétente** (prêtre, catéchiste, théologien) avant toute diffusion large.
   Indique-la dans le champ `reviewer`.
-- **Liens** : les liens suivent le format `https://www.aelf.org/bible/{Livre}/{chapitre}`. Ils n'ont pas pu être testés depuis l'environnement de développement.
-  Lance `npm run check-links`. Le workflow GitHub le fait aussi, à titre informatif. Vérifie ensuite à l'œil quelques pages.
+- **Liens** : les liens suivent le format `https://www.aelf.org/bible/{Livre}/{chapitre}`. Le workflow GitHub les vérifie à chaque déploiement (`npm run check-links`).
+- **Références** : un test confronte chaque fiche à la structure de la Bible AELF : le chapitre doit exister et les versets ne doivent pas dépasser sa fin.
 - **Liens vers le Catéchisme** : chaque référence ouvre la page de vatican.va qui contient le premier paragraphe cité.
   - Exemple : CEC § 1716 → `…/archive/FRA0013/__P5C.HTM#:~:text=1716`.
   - Le fragment `#:~:text=` fait défiler la page jusqu'au paragraphe et le surligne (Safari 16.1+, Chrome). Les autres navigateurs ouvrent simplement la bonne page.
   - La correspondance paragraphe → page est dans `scripts/data/cec-pages.json`. Elle a été relevée sur vatican.va et couvre les 2865 paragraphes.
+
+## Carte des lieux
+
+Dans Explorer → Carte, et depuis chaque fiche (« Voir sur la carte »).
+
+- **Deux fonds**, via le sélecteur « Aujourd'hui / À l'époque » :
+  - *Aujourd'hui* : villes et frontières actuelles (OpenStreetMap / CARTO). Les frontières sont indicatives.
+  - *À l'époque* : le même relief, sans les noms modernes, avec au choix l'Empire perse (vers 500 av. J.-C.), le royaume d'Hérode (vers 4 av. J.-C.), l'Empire romain (117 apr. J.-C.) et les voies romaines.
+- **Filtres** : Ancien Testament, Évangiles, Actes et lettres ; masquer ou afficher les localisations débattues.
+- **Fiche d'un lieu** :
+  - le site identifié aujourd'hui (ex. Capharnaüm → Tell Hum) ;
+  - le niveau de confiance des spécialistes (score OpenBible sur 1000) ;
+  - les autres localisations proposées, dessinées en gris sur la carte ;
+  - les fiches concernées, avec le rôle du lieu et le verset de référence ;
+  - les liens vers OpenBible, Pleiades, DARE et Wikidata.
+
+### Sources et fiabilité
+
+| Donnée | Source | Licence |
+| --- | --- | --- |
+| Localisations, scores de confiance, contours des régions, tracés des fleuves | [OpenBible.info Bible Geocoding Data](https://github.com/openbibleinfo/Bible-Geocoding-Data), synthèse de plus de 70 atlas, dictionnaires et commentaires | CC BY 4.0 (géométries OSM : ODbL) |
+| Empires perse et romain, royaume d'Hérode, voies romaines | [Ancient World Mapping Center](https://github.com/AWMC/geodata), d'après le *Barrington Atlas of the Greek and Roman World* | ODbL 1.0 |
+| Fonds de carte | © OpenStreetMap, © CARTO | ODbL / conditions CARTO |
+
+Niveaux affichés, d'après le score de l'identification la mieux notée :
+- **sûre** : 800 ou plus ;
+- **probable** : de 500 à 799 ;
+- **débattue** : de 250 à 499 ;
+- **très incertaine** : moins de 250.
+
+Quand un lieu est un autre nom d'un autre (Horeb = Sinaï), les deux confiances sont multipliées.
+
+**Règles éditoriales** (`scripts/places-config.json`) :
+- Un lieu n'est relié à une fiche que si un verset le nomme : dans le passage (« nommé ») ou dans son contexte proche (« lieu de la scène », « destinataires de la lettre », « lieu de rédaction »…).
+- Les tests vérifient que ce verset nomme bien le lieu dans l'index d'OpenBible et qu'il appartient au même livre.
+- Les localisations purement traditionnelles, non nommées par le texte, ne sont pas cartographiées.
+- Seba (Is 43, 3) n'est pas cartographiée, son identification étant discutée.
+
+**Régénérer les données** :
+
+```bash
+git clone --depth 1 https://github.com/openbibleinfo/Bible-Geocoding-Data /tmp/openbible
+python3 scripts/build-places.py /tmp/openbible        # → src/content/data/places.json, public/geo/lieux-contours.json
+git clone --depth 1 https://github.com/AWMC/geodata /tmp/awmc
+python3 scripts/build-geo-layers.py /tmp/awmc         # → public/geo/empire-*.json, royaume-herode.json, voies-romaines.json
+```
+
+Les fichiers de `public/geo/` dérivés d'AWMC et d'OpenStreetMap restent sous licence ODbL.
+
+## Couverture de la Bible
+
+La page « Sources et méthode » montre ce que couvrent les fiches publiées :
+- chaque livre de la Bible (73) est une ligne, chaque chapitre un carré ;
+- un carré est coloré selon la part de ses versets couverte ;
+- des indicateurs donnent les fiches, versets, chapitres et livres couverts.
+
+Les comptages viennent de la structure de la Bible AELF (`src/content/data/bible-structure.json`) :
+- livres, chapitres, nombre de versets ;
+- dernier numéro de verset et numéros absents (ex. Mt 18, 11, non traduit).
+
+Ce fichier a été relevé sur aelf.org avec `node scripts/crawl-aelf-structure.mjs` (aucun texte n'est conservé). La Lettre de Jérémie, présentée à part par AELF, est comptée avec Baruch.
 
 ## Modifier les contenus
 
@@ -84,6 +145,8 @@ Tout est dans `src/content/data/`, indépendamment de l'interface :
 | `topics.json` | Humeurs (`kind: "humeur"`) et thèmes (`kind: "theme"`), avec la liste ordonnée des passages associés |
 | `parcours.json` | Parcours et étapes (objectif, passage, explication, CEC, réflexion, quiz) |
 | `sources.json` | Sources et mentions de droits affichées dans « Sources et méthode » |
+| `places.json` | Lieux et liens fiche → lieu (généré ; modifier `scripts/places-config.json` puis relancer `build-places.py`) |
+| `bible-structure.json` | Structure de la Bible AELF pour la couverture (généré) |
 
 Le schéma est dans `src/content/schema.ts` (zod). Il est vérifié au démarrage de l'app et par `npm test`.
 

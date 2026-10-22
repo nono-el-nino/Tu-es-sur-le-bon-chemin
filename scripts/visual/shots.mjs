@@ -1,0 +1,27 @@
+// Captures de contrôle de la carte, avec les vrais fonds de carte (exécuté sur GitHub Actions).
+import { chromium, devices } from "playwright";
+import { mkdirSync } from "node:fs";
+mkdirSync("shots", { recursive: true });
+const b = await chromium.launch();
+const page = await (await b.newContext({ ...devices["iPhone 13"] })).newPage();
+const errors = [];
+page.on("pageerror", (e) => errors.push(e.message));
+const failed = [];
+page.on("requestfailed", (r) => failed.push(r.url()));
+const base = "http://localhost:4173/";
+const wait = (ms) => page.waitForTimeout(ms);
+await page.goto(base + "#/explorer?mode=carte"); await wait(4000);
+await page.locator(".map-frame").screenshot({ path: "shots/1-aujourdhui.png" });
+await page.locator(".filter-chip", { hasText: "Emmaüs" }).click(); await wait(3000);
+await page.locator(".map-frame").screenshot({ path: "shots/2-emmaus.png" });
+await page.getByRole("tab", { name: "À l'époque" }).click(); await wait(500);
+await page.locator(".place-sheet .icon-btn").click(); await wait(500);
+await page.locator(".filter-chip", { hasText: "Voies romaines" }).click(); await wait(4000);
+await page.locator(".map-frame").screenshot({ path: "shots/3-herode-voies.png" });
+await page.locator(".filter-chip", { hasText: "Empire romain" }).click(); await page.locator(".filter-chip", { hasText: "Actes et lettres" }).click(); await wait(4000);
+await page.locator(".map-frame").screenshot({ path: "shots/4-empire-romain.png" });
+await page.goto(base + "#/explorer?mode=carte&passage=p-1r19-elie-epuise"); await wait(4000);
+await page.screenshot({ path: "shots/5-fiche-elie.png", fullPage: true });
+console.log("erreurs JS :", errors);
+console.log("requêtes en échec :", failed.length, failed.slice(0, 10));
+await b.close();
