@@ -1,51 +1,56 @@
 import { Link } from "react-router-dom";
 import { formatReference, type Passage } from "../content";
-import { toneForPassage, topicsForPassage } from "../lib/tones";
-import { FavoriteButton } from "./DiscoveryCard";
-import { Landscape } from "./Illustrations";
+import { topicsForPassage } from "../lib/tones";
+import { GarderButton } from "./DiscoveryCard";
 import { PedagogyBlock, ScriptureBlock, TeachingBlock } from "./Layers";
 import { NoteEditor } from "./NoteEditor";
-import { PlacesBlock } from "./PlacesBlock";
 import { StatusBadge } from "./StatusBadge";
-import { TopicIcon } from "./Icon";
+import { PlacesBlock } from "./PlacesBlock";
+import { Brume, BrumeAuDefilement } from "./arbre/Brume";
 import { useToast } from "./Toast";
 
 const dateFr = (iso: string) => new Date(iso + "T12:00:00").toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
 
-/** Fiche complète d'un passage, en mode lecture. */
-export function PassageView({ passage, eyebrow, animate }: { passage: Passage; eyebrow?: string; animate?: boolean }) {
-  const tone = toneForPassage(passage.id);
+/** Fiche d'un passage, en lecture : fond Ciel, aucun décor, aucune pluie. */
+export function PassageView({ passage, eyebrow, humeur }: { passage: Passage; eyebrow?: string; humeur?: string; animate?: boolean }) {
   const topics = topicsForPassage(passage.id);
   const toast = useToast();
 
   return (
-    <div className={`stack-lg ${animate ? "discovery-pop" : ""}`}>
-      <div className={`card discovery tone-${tone}`}>
-        <span className="art">
-          <Landscape seed={passage.id} tone={tone} />
-        </span>
-        <div className="body">
-          {eyebrow && <span className="eyebrow">{eyebrow}</span>}
+    <div className="stack-lg lecture">
+      <header className="stack" style={{ gap: "var(--s3)" }}>
+        <div className="spread">
           <span className="ref">{formatReference(passage)}</span>
-          <h1 style={{ fontSize: "1.7rem" }}>{passage.title}</h1>
-          <p className="muted">{passage.summary}</p>
-          <StatusBadge status={passage.editorial.status} />
+          {eyebrow && <span className="etiquette">{eyebrow}</span>}
         </div>
-        <FavoriteButton passageId={passage.id} className="save" onToggle={(s) => toast.show(s ? "Gardé dans ton carnet" : "Retiré du carnet")} />
-      </div>
+        <Brume as="h1" texte={passage.title} cle={passage.id} />
+        <Brume as="p" className="lead" texte={passage.summary} cle={`${passage.id}-r`} />
+        <StatusBadge status={passage.editorial.status} />
+        <div className="row">
+          <GarderButton passageId={passage.id} humeur={humeur} onToggle={(s) => toast.show(s ? "Gardé dans ton carnet" : "Retiré du carnet")} />
+        </div>
+      </header>
 
-      <ScriptureBlock passage={passage} />
+      <BrumeAuDefilement>
+        <ScriptureBlock passage={passage} />
+      </BrumeAuDefilement>
 
-      <PedagogyBlock>
-        <h3>Le contexte</h3>
-        <p>{passage.context}</p>
-        <h3>Pour comprendre</h3>
-        <p>{passage.explanation}</p>
-      </PedagogyBlock>
+      <BrumeAuDefilement>
+        <PedagogyBlock>
+          <h3>Le contexte</h3>
+          <p>{passage.context}</p>
+          <h3>Pour comprendre</h3>
+          <p>{passage.explanation}</p>
+        </PedagogyBlock>
+      </BrumeAuDefilement>
 
-      <TeachingBlock teaching={passage.teaching} />
+      <BrumeAuDefilement>
+        <TeachingBlock teaching={passage.teaching} />
+      </BrumeAuDefilement>
 
-      <PlacesBlock passageId={passage.id} />
+      <BrumeAuDefilement>
+        <PlacesBlock passageId={passage.id} />
+      </BrumeAuDefilement>
 
       <NoteEditor target={{ type: "passage", id: passage.id }} />
 
@@ -54,8 +59,8 @@ export function PassageView({ passage, eyebrow, animate }: { passage: Passage; e
           <span className="eyebrow">Ce passage dans</span>
           <div className="chip-row">
             {topics.map((t) => (
-              <Link key={t.id} to={t.kind === "humeur" ? `/explorer/humeur/${t.id}` : `/explorer/theme/${t.id}`} className={`chip tone-${t.tone}`}>
-                <TopicIcon name={t.icon} size={14} /> {t.label}
+              <Link key={t.id} to={t.kind === "humeur" ? `/explorer/humeur/${t.id}` : `/explorer/theme/${t.id}`} className="chip">
+                {t.label}
               </Link>
             ))}
           </div>
@@ -64,7 +69,7 @@ export function PassageView({ passage, eyebrow, animate }: { passage: Passage; e
 
       <p className="layer-note">
         Fiche éditoriale · statut : {passage.editorial.status === "valide" ? "validée" : passage.editorial.status.replace("_", " ")} · mise à jour le{" "}
-        {dateFr(passage.editorial.updatedAt)} · <Link to="/a-propos">sources et méthode</Link>
+        <span className="mono">{dateFr(passage.editorial.updatedAt)}</span> · <Link to="/a-propos">sources et méthode</Link>
         {passage.editorial.notes && passage.editorial.status !== "valide" ? ` · ${passage.editorial.notes}` : ""}
       </p>
       {toast.node}

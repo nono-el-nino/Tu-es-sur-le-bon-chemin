@@ -14,7 +14,7 @@ export function NoteEditor({ target, placeholder, label = "Ma réflexion" }: { t
 
   if (!editing) {
     return existing ? (
-      <div className="card card-pad stack">
+      <div className="card card-pad stack note-carte">
         <span className="eyebrow">{label}</span>
         <p style={{ whiteSpace: "pre-wrap" }}>{existing.text}</p>
         <div className="row">

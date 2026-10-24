@@ -13,6 +13,11 @@ import {
   toggleFavorite,
   upsertNote,
   forgetExplored,
+  needsOnboarding,
+  finishOnboarding,
+  setPrenom,
+  croissance,
+  visitStep,
 } from "../src/lib/store";
 
 function memoryStorage() {
@@ -94,5 +99,47 @@ describe("notes et thèmes explorés", () => {
     expect("joie" in d.explored).toBe(true);
     d = forgetExplored(d, "joie");
     expect("joie" in d.explored).toBe(false);
+  });
+});
+
+describe("refonte : données ajoutées sans rien casser", () => {
+  it("garde l'humeur avec le favori, sans l'exiger", () => {
+    let d = toggleFavorite(emptyData(), "p-a", "joie");
+    expect(d.favorites[0]).toMatchObject({ passageId: "p-a", humeur: "joie" });
+    d = toggleFavorite(d, "p-b");
+    expect(d.favorites[0].humeur).toBeUndefined();
+  });
+
+  it("relit d'anciennes données sans les nouveaux champs", () => {
+    const s = memoryStorage();
+    s.setItem(STORAGE_KEY, JSON.stringify({ version: 1, favorites: [{ passageId: "p-x", savedAt: "2026-01-01" }], notes: [], progress: {}, explored: {} }));
+    const d = load(s);
+    expect(isFavorite(d, "p-x")).toBe(true);
+    expect(needsOnboarding(d)).toBe(false); // déjà utilisateur : pas d'onboarding
+  });
+
+  it("onboarding : une seule fois, prénom facultatif", () => {
+    let d = emptyData();
+    expect(needsOnboarding(d)).toBe(true);
+    d = finishOnboarding(d, "  Noé ");
+    expect(d.prenom).toBe("Noé");
+    expect(needsOnboarding(d)).toBe(false);
+    expect(finishOnboarding(emptyData(), "").prenom).toBeUndefined();
+    expect(setPrenom(d, "").prenom).toBeUndefined();
+  });
+
+  it("la croissance de l'arbre suit les étapes faites", () => {
+    const parcours = [
+      { id: "a", steps: [{ id: "1" }, { id: "2" }] },
+      { id: "b", steps: [{ id: "1" }, { id: "2" }] },
+    ];
+    let d = setStepDone(emptyData(), "a", "1", true);
+    let c = croissance(d, parcours);
+    expect(c.progression).toBe(0.25);
+    expect(c.branches[0]).toBe(0.5);
+    expect(c.branches[1]).toBe(0);
+    d = visitStep(d, "b", "1");
+    c = croissance(d, parcours);
+    expect(c.branches[1]).toBeGreaterThan(0); // parcours commencé : la branche apparaît
   });
 });

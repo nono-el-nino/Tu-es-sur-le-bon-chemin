@@ -26,7 +26,7 @@ export function ScriptureBlock({ passage }: { passage: Passage }) {
           le site de l'AELF, au chapitre {passage.reference.chapterLabel ?? passage.reference.chapter}, versets {passage.reference.verses}.
         </p>
       )}
-      <a className="btn btn-dark" href={passage.sourceUrl} target="_blank" rel="noopener noreferrer">
+      <a className="btn btn-primary" href={passage.sourceUrl} target="_blank" rel="noopener noreferrer">
         Lire le texte sur AELF <ExternalLink size={16} aria-hidden="true" />
       </a>
     </section>
