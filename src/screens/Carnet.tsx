@@ -1,11 +1,12 @@
 import { Check, PenLine, Plus, Trash2, X } from "lucide-react";
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { content, formatReference } from "../content";
-import { DiscoveryCard } from "../components/DiscoveryCard";
-import { TopicIcon } from "../components/Icon";
+import { GarderButton } from "../components/DiscoveryCard";
+import { Gouttes } from "../components/Gouttes";
+import { couleurGoutte } from "../lib/meteo";
 import { useUserData } from "../lib/useUserData";
-import { deleteNote, forgetExplored, resetParcours, upsertNote, type Note } from "../lib/store";
+import { deleteNote, forgetExplored, resetParcours, setPrenom, upsertNote, type Note } from "../lib/store";
 
 const tabs = [
   { id: "favoris", label: "Favoris" },
@@ -23,7 +24,9 @@ export function Carnet() {
     <div className="screen">
       <header className="stack" style={{ gap: 6 }}>
         <span className="eyebrow">Carnet</span>
-        <h1>Mes découvertes</h1>
+        <h1>
+          Mes <em>découvertes</em>
+        </h1>
         <p className="small muted">Tout reste sur cet appareil. Aucun compte, aucune donnée envoyée.</p>
       </header>
 
@@ -40,7 +43,9 @@ export function Carnet() {
       {tab === "parcours" && <MyParcours />}
       {tab === "themes" && <Explored />}
 
-      <section className="stack" style={{ marginTop: 12 }}>
+      <Prenom />
+
+      <section className="stack" style={{ marginTop: "var(--s3)" }}>
         <Link to="/a-propos" className="btn btn-ghost btn-block">
           Sources, méthode et confidentialité
         </Link>
@@ -73,12 +78,28 @@ function Empty({ text, cta, to }: { text: string; cta: string; to: string }) {
 
 function Favorites() {
   const { data } = useUserData();
-  const items = data.favorites.map((f) => content.passagesById.get(f.passageId)).filter((p) => p !== undefined);
-  if (items.length === 0) return <Empty text="Aucun passage gardé pour l'instant. Touche le marque-page d'une carte pour la garder ici." cta="Explorer" to="/explorer" />;
+  const items = data.favorites.flatMap((f) => {
+    const p = content.passagesById.get(f.passageId);
+    return p ? [{ f, p }] : [];
+  });
+  if (items.length === 0) return <Empty text="Aucun passage gardé pour l'instant. Touche « Garder » sur un passage : une goutte tombera ici." cta="Explorer" to="/explorer" />;
   return (
-    <div className="stack">
-      {items.map((p) => (
-        <DiscoveryCard key={p.id} passage={p} compact />
+    <div className="card">
+      {items.map(({ f, p }) => (
+        <div key={p.id} className="list-row">
+          <span className="goutte goutte-carnet" aria-hidden="true" style={{ "--goutte-couleur": `var(${couleurGoutte(f.humeur)})` } as CSSProperties} />
+          <Link to={`/passage/${p.id}`} style={{ flex: 1, textDecoration: "none", color: "inherit", minHeight: 44 }} className="stack">
+            <span style={{ gap: 2, display: "flex", flexDirection: "column" }}>
+              <span className="ref-plain">{formatReference(p)}</span>
+              <span style={{ fontWeight: 600 }}>{p.title}</span>
+              <span className="legende">
+                <span className="mono">{new Date(f.savedAt).toLocaleDateString("fr-FR")}</span>
+                {f.humeur ? ` · ${content.moods.find((m) => m.id === f.humeur)?.label ?? ""}` : ""}
+              </span>
+            </span>
+          </Link>
+          <GarderButton passageId={p.id} variant="icone" />
+        </div>
       ))}
     </div>
   );
@@ -148,7 +169,7 @@ function Notes() {
               ) : (
                 <span className="eyebrow">{t.label}</span>
               )}
-              <span className="small muted">{new Date(n.updatedAt).toLocaleDateString("fr-FR")}</span>
+              <span className="mono legende">{new Date(n.updatedAt).toLocaleDateString("fr-FR")}</span>
             </div>
             {editing === n.id ? (
               editor
@@ -182,16 +203,14 @@ function MyParcours() {
         const done = p.steps.filter((s) => data.progress[p.id].completedStepIds.includes(s.id)).length;
         const finished = done === p.steps.length;
         return (
-          <article key={p.id} className={`card card-pad stack tone-${p.tone}`} style={{ gap: 8 }}>
+          <article key={p.id} className="card card-pad stack" style={{ gap: "var(--s3)" }}>
             <div className="spread">
               <Link to={`/parcours/${p.id}`} style={{ textDecoration: "none" }}>
                 <h3>{p.title}</h3>
               </Link>
-              <span className={`badge ${finished ? "badge-ok" : ""}`}>{finished ? "Terminé" : `${done}/${p.steps.length}`}</span>
+              <span className="badge mono">{finished ? "Terminé" : `${done}/${p.steps.length}`}</span>
             </div>
-            <div className="progress" aria-hidden="true">
-              <span style={{ width: `${(done / p.steps.length) * 100}%` }} />
-            </div>
+            <Gouttes faites={done} total={p.steps.length} label={`${done} étapes faites sur ${p.steps.length}`} />
             <button
               type="button"
               className="btn btn-quiet"
@@ -216,9 +235,9 @@ function Explored() {
   return (
     <div className="chip-row">
       {topics.map((t) => (
-        <span key={t.id} className={`chip tone-${t.tone}`}>
+        <span key={t.id} className="chip">
           <Link to={t.kind === "humeur" ? `/explorer/humeur/${t.id}` : `/explorer/theme/${t.id}`} className="row" style={{ gap: 6, textDecoration: "none" }}>
-            <TopicIcon name={t.icon} size={14} /> {t.label}
+            {t.label}
           </Link>
           <button type="button" aria-label={`Retirer ${t.label}`} onClick={() => update((d) => forgetExplored(d, t.id))} style={{ border: 0, background: "none", padding: 4, cursor: "pointer", display: "grid" }}>
             <X size={14} aria-hidden="true" />
@@ -226,5 +245,43 @@ function Explored() {
         </span>
       ))}
     </div>
+  );
+}
+
+function Prenom() {
+  const { data, update } = useUserData();
+  const [edit, setEdit] = useState(false);
+  const [val, setVal] = useState(data.prenom ?? "");
+  if (!edit)
+    return (
+      <div className="spread">
+        <span className="small muted">Prénom : {data.prenom ?? "non renseigné"}</span>
+        <button type="button" className="btn btn-quiet" onClick={() => (setVal(data.prenom ?? ""), setEdit(true))}>
+          Modifier
+        </button>
+      </div>
+    );
+  return (
+    <form
+      className="stack"
+      onSubmit={(e) => {
+        e.preventDefault();
+        update((d) => setPrenom(d, val));
+        setEdit(false);
+      }}
+    >
+      <label htmlFor="prenom-carnet" className="eyebrow">
+        Mon prénom · facultatif
+      </label>
+      <input id="prenom-carnet" type="text" maxLength={40} value={val} onChange={(e) => setVal(e.target.value)} autoFocus />
+      <div className="row">
+        <button type="submit" className="btn btn-primary">
+          Enregistrer
+        </button>
+        <button type="button" className="btn btn-quiet" onClick={() => setEdit(false)}>
+          Annuler
+        </button>
+      </div>
+    </form>
   );
 }
