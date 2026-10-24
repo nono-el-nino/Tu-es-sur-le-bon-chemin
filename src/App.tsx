@@ -1,6 +1,8 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
 import { Layout } from "./components/Layout";
-import { UserDataProvider } from "./lib/useUserData";
+import { UserDataProvider, useUserData } from "./lib/useUserData";
+import { needsOnboarding } from "./lib/store";
+import { Onboarding } from "./screens/Onboarding";
 import { Home } from "./screens/Home";
 import { Explorer } from "./screens/Explorer";
 import { MoodScreen, PassageScreen, ThemeScreen } from "./screens/TopicScreens";
@@ -14,6 +16,16 @@ import { NotFound } from "./screens/NotFound";
 export function App() {
   return (
     <UserDataProvider>
+      <Racine />
+    </UserDataProvider>
+  );
+}
+
+/** Premier lancement : l'onboarding, puis l'app. */
+function Racine() {
+  const { data } = useUserData();
+  if (needsOnboarding(data)) return <Onboarding />;
+  return (
       <HashRouter>
         <Routes>
           <Route element={<Layout />}>
@@ -31,6 +43,5 @@ export function App() {
           </Route>
         </Routes>
       </HashRouter>
-    </UserDataProvider>
   );
 }

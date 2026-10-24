@@ -8,6 +8,7 @@ import L from "leaflet";
 import "maplibre-gl/dist/maplibre-gl.css";
 import "@maplibre/maplibre-gl-leaflet";
 import { frenchLabels, type StyleLayer } from "./frenchLabels";
+import { token } from "../../lib/tokens";
 
 const STYLE_URL = "https://tiles.openfreemap.org/styles/positron";
 
@@ -30,7 +31,7 @@ export async function frenchBaseLayer(): Promise<L.Layer> {
     if (!r.ok) throw new Error("style");
     return r.json();
   });
-  const style = frenchLabels(structuredClone(await stylePromise));
+  const style = frenchLabels(structuredClone(await stylePromise), { texte: token("--carte-etiquette-fond"), halo: token("--nuage") });
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (L as any).maplibreGL({ style, attribution: OPENFREEMAP_ATTRIB, interactive: false });
 }

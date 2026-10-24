@@ -1,11 +1,13 @@
-import { Shuffle, ArrowRight } from "lucide-react";
+import { Shuffle } from "lucide-react";
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { content, randomPassage, type Passage } from "../content";
 import { DiscoveryCard } from "../components/DiscoveryCard";
-import { TopicIcon } from "../components/Icon";
 import { useUserData } from "../lib/useUserData";
 import { MapPanel } from "../components/map/MapPanel";
+import { Arbre } from "../components/arbre/Arbre";
+import { croissance } from "../lib/store";
+import { reducedMotion, tokenMs } from "../lib/tokens";
 
 const modes = [
   { id: "humeur", label: "Mon humeur" },
@@ -23,7 +25,9 @@ export function Explorer() {
     <div className="screen">
       <header className="stack" style={{ gap: 6 }}>
         <span className="eyebrow">Explorer</span>
-        <h1>Les Écritures au quotidien</h1>
+        <h1>
+          Les Écritures au <em>quotidien</em>
+        </h1>
       </header>
 
       <div className="segmented" role="tablist" aria-label="Mode de découverte">
@@ -49,12 +53,9 @@ function MoodGrid() {
   return (
     <section className="stack">
       <p className="muted">Choisis ce qui te ressemble aujourd'hui : un passage t'attend, avec son contexte.</p>
-      <div className="mood-grid">
+      <div className="pill-row">
         {content.moods.map((m) => (
-          <Link key={m.id} to={`/explorer/humeur/${m.id}`} className={`mood tone-${m.tone} ${data.explored[m.id] ? "explored" : ""}`}>
-            <span className="dot">
-              <TopicIcon name={m.icon} />
-            </span>
+          <Link key={m.id} to={`/explorer/humeur/${m.id}`} className="pill" aria-label={data.explored[m.id] ? `${m.label} (déjà exploré)` : m.label}>
             {m.label}
           </Link>
         ))}
@@ -64,31 +65,23 @@ function MoodGrid() {
 }
 
 function Surprise() {
+  const { data } = useUserData();
   const [p, setP] = useState<Passage | undefined>(() => randomPassage(content.passages));
-  const [k, setK] = useState(0);
+  const [averse, setAverse] = useState(0);
   if (!p) return <p className="muted">Aucun passage disponible pour l'instant.</p>;
+  // « Nouveau passage » : averse brève de 8 gouttes, puis le passage apparaît en brume
+  const relancer = () => {
+    setAverse((a) => a + 1);
+    window.setTimeout(() => setP((cur) => randomPassage(content.passages, cur?.id)), reducedMotion() ? 0 : tokenMs("--d-averse") / 2);
+  };
   return (
     <section className="stack-lg">
+      <Arbre {...croissance(data, content.parcours)} averse={averse} className="inline" label="Ton arbre ; touche-le pour faire pleuvoir un passage" onToucher={relancer} />
       <p className="muted">Un passage tiré au hasard parmi {content.passages.length} fiches vérifiées.</p>
-      <div key={k}>
-        <DiscoveryCard passage={p} animate />
-      </div>
-      <div className="row">
-        <button
-          type="button"
-          className="btn btn-primary"
-          style={{ flex: 1 }}
-          onClick={() => {
-            setP(randomPassage(content.passages, p.id));
-            setK((x) => x + 1);
-          }}
-        >
-          <Shuffle size={18} aria-hidden="true" /> Relancer
-        </button>
-        <Link to={`/passage/${p.id}`} className="btn btn-ghost" style={{ flex: 1 }}>
-          Approfondir <ArrowRight size={18} aria-hidden="true" />
-        </Link>
-      </div>
+      <DiscoveryCard key={p.id} passage={p} animate />
+      <button type="button" className="btn btn-primary btn-block" onClick={relancer}>
+        <Shuffle size={18} aria-hidden="true" /> Nouveau passage
+      </button>
     </section>
   );
 }
@@ -97,18 +90,13 @@ function ThemeList() {
   return (
     <section className="stack">
       {content.themes.map((t) => (
-        <Link key={t.id} to={`/explorer/theme/${t.id}`} className={`card card-pad card-link tone-${t.tone}`}>
-          <div className="row">
-            <span className="mood" style={{ border: 0, padding: 0, minHeight: 0, background: "none" }}>
-              <span className="dot">
-                <TopicIcon name={t.icon} />
-              </span>
-            </span>
-            <div style={{ flex: 1 }}>
-              <h3>{t.label}</h3>
+        <Link key={t.id} to={`/explorer/theme/${t.id}`} className="card card-pad card-link">
+          <div className="spread" style={{ alignItems: "flex-start" }}>
+            <div className="stack" style={{ gap: "var(--s1)" }}>
+              <h2 style={{ fontSize: "1.75rem" }}>{t.label}</h2>
               <p className="small muted">{t.description}</p>
             </div>
-            <span className="badge">{t.passageIds.length}</span>
+            <span className="ref">{t.passageIds.length}</span>
           </div>
         </Link>
       ))}

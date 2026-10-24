@@ -21,10 +21,15 @@ export type ParcoursProgress = {
 
 export type UserData = {
   version: 1;
-  favorites: { passageId: string; savedAt: string }[];
+  /** humeur : humeur choisie au moment de garder le passage (teinte de la goutte au carnet). */
+  favorites: { passageId: string; savedAt: string; humeur?: string }[];
   notes: Note[];
   progress: Record<string, ParcoursProgress>;
   explored: Record<string, string>; // topicId -> dernière visite
+  /** Prénom facultatif saisi à l'accueil. */
+  prenom?: string;
+  /** Date de fin de l'onboarding. */
+  onboardedAt?: string;
 };
 
 export const STORAGE_KEY = "bon-chemin:v1";
@@ -61,10 +66,44 @@ export function save(storage: KV | undefined, data: UserData) {
 
 export const isFavorite = (d: UserData, passageId: string) => d.favorites.some((f) => f.passageId === passageId);
 
-export function toggleFavorite(d: UserData, passageId: string): UserData {
+export function toggleFavorite(d: UserData, passageId: string, humeur?: string): UserData {
   return isFavorite(d, passageId)
     ? { ...d, favorites: d.favorites.filter((f) => f.passageId !== passageId) }
-    : { ...d, favorites: [{ passageId, savedAt: now() }, ...d.favorites] };
+    : { ...d, favorites: [{ passageId, savedAt: now(), ...(humeur ? { humeur } : {}) }, ...d.favorites] };
+}
+
+// --- Onboarding ---
+
+/** Les personnes qui utilisent déjà l'app (données présentes) ne revoient pas l'accueil. */
+export const needsOnboarding = (d: UserData) =>
+  !d.onboardedAt && d.favorites.length === 0 && d.notes.length === 0 && Object.keys(d.progress).length === 0 && Object.keys(d.explored).length === 0;
+
+export function finishOnboarding(d: UserData, prenom?: string): UserData {
+  const p = prenom?.trim().slice(0, 40);
+  return { ...d, onboardedAt: now(), ...(p ? { prenom: p } : {}) };
+}
+
+export function setPrenom(d: UserData, prenom: string): UserData {
+  const p = prenom.trim().slice(0, 40);
+  const next = { ...d };
+  if (p) next.prenom = p;
+  else delete next.prenom;
+  return next;
+}
+
+// --- Croissance de l'arbre ---
+
+/** Progression globale (0..1) et croissance de chaque branche (une par parcours). */
+export function croissance(d: UserData, parcours: { id: string; steps: { id: string }[] }[]) {
+  const parBranche = parcours.map((p) => {
+    const faites = p.steps.filter((s) => d.progress[p.id]?.completedStepIds.includes(s.id)).length;
+    return p.steps.length ? faites / p.steps.length : 0;
+  });
+  const total = parcours.reduce((n, p) => n + p.steps.length, 0);
+  const faites = parcours.reduce((n, p) => n + p.steps.filter((s) => d.progress[p.id]?.completedStepIds.includes(s.id)).length, 0);
+  // un parcours commencé fait déjà apparaître sa branche
+  const branches = parcours.map((p, i) => (p.id in d.progress ? Math.max(0.12, parBranche[i]) : 0));
+  return { progression: total ? faites / total : 0, branches };
 }
 
 export function upsertNote(d: UserData, target: Note["target"], text: string, noteId?: string): UserData {

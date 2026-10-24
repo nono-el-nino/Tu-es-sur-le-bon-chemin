@@ -1,0 +1,134 @@
+/* Couverture de la Bible — un carré par chapitre */
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s3);
+}
+.kpi {
+  background: var(--nuage);
+  border-radius: var(--radius-bloc);
+  box-shadow: var(--ombre-nuage-s);
+  padding: var(--s4);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.kpi strong {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.05;
+}
+.kpi strong small {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.875rem;
+  color: var(--ecorce-legende);
+}
+.kpi span {
+  font-size: 0.8125rem;
+  color: var(--ecorce-legende);
+}
+.cov-books {
+  display: flex;
+  flex-direction: column;
+}
+.cov-book {
+  border-bottom: 1px solid var(--brume);
+}
+.cov-book > summary,
+.cov-book:not(.has) {
+  display: grid;
+  grid-template-columns: 7.2rem 1fr auto;
+  align-items: center;
+  gap: var(--s2);
+  padding: var(--s2) 0;
+  min-height: 36px;
+}
+.cov-book > summary {
+  cursor: pointer;
+  list-style: none;
+  min-height: 44px;
+}
+.cov-book > summary::-webkit-details-marker {
+  display: none;
+}
+.cov-name {
+  font-size: 0.8125rem;
+  color: var(--ecorce-legende);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cov-book.has .cov-name {
+  color: var(--ecorce);
+  font-weight: 600;
+}
+.cov-cells {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+.cov-cell {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+  background: var(--brume);
+}
+.cov-cell.on {
+  background: var(--averse);
+}
+.cov-count {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  min-width: 24px;
+  height: 24px;
+  border-radius: var(--radius-pilule);
+  display: grid;
+  place-items: center;
+  background: var(--rosee);
+  color: var(--profondeur);
+}
+.cov-list {
+  list-style: none;
+  margin: 0 0 var(--s3);
+  padding: 0 0 0 7.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  font-size: 0.875rem;
+}
+.cov-list a {
+  text-decoration: none;
+  color: var(--ecorce);
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+}
+.cov-list a strong {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-weight: 500;
+  color: var(--source);
+  margin-right: var(--s1);
+}
+.cov-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2) var(--s4);
+}
+.cov-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+}
+@media (max-width: 380px) {
+  .cov-book > summary,
+  .cov-book:not(.has) {
+    grid-template-columns: 5.8rem 1fr auto;
+  }
+  .cov-list {
+    padding-left: 0;
+  }
+}
