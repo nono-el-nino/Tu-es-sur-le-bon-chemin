@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { confidenceOf, passagesForPlace, type Place } from "../../content/places";
 
 import { eras, type Era, type MapMode } from "./layers";
+import { token } from "../../lib/tokens";
 
 // Terre sainte au sens large : de la Galilée au Néguev.
 const HOLY_LAND = L.latLngBounds([30.8, 34.2], [33.5, 36.0]);
@@ -126,10 +127,10 @@ export default function AtlasMap({ places, mode, era, roads, selectedId, onSelec
           interactive: false,
           style: (f) =>
             f?.properties?.t === "terre"
-              ? { stroke: true, color: "#C9BFA6", weight: 0.8, fillColor: "#F4EFE2", fillOpacity: 1 }
+              ? { stroke: true, color: token("--carte-trait-terre"), weight: 0.8, fillColor: token("--carte-terre"), fillOpacity: 1 }
               : f?.properties?.t === "lac"
-                ? { color: "#A9C6CB", weight: 0.8, fillColor: "#D7E6E8", fillOpacity: 1 }
-                : { color: "#9DBFC4", weight: 1.2, opacity: 0.9 },
+                ? { color: token("--carte-trait-terre"), weight: 0.8, fillColor: token("--carte-lac"), fillOpacity: 1 }
+                : { color: token("--carte-fleuve"), weight: 1.2, opacity: 0.9 },
           attribution: NE_ATTRIB,
         }).addTo(m);
       })
@@ -189,8 +190,8 @@ export default function AtlasMap({ places, mode, era, roads, selectedId, onSelec
           filter: (f) => visible.has(f.properties?.id),
           style: (f) =>
             f?.geometry.type.includes("Line")
-              ? { color: "#2B7369", weight: 3, opacity: 0.75 }
-              : { color: "#2B7369", weight: 1.5, dashArray: "4 4", fillColor: "#59A99E", fillOpacity: 0.1 },
+              ? { color: token("--averse"), weight: 3, opacity: 0.8 }
+              : { color: token("--carte-region"), weight: 1.5, dashArray: "4 4", fillColor: token("--rosee"), fillOpacity: 0.3 },
           interactive: false,
         }).addTo(m);
         contourLayer.current.bringToBack();
@@ -214,7 +215,7 @@ export default function AtlasMap({ places, mode, era, roads, selectedId, onSelec
       .then((fc) => {
         if (cancelled) return;
         eraLayer.current = L.geoJSON(fc, {
-          style: { color: era === "herode" ? "#B0533A" : "#8A6A1F", weight: 1.5, fillColor: era === "herode" ? "#D87859" : "#EBCB79", fillOpacity: 0.22 },
+          style: { color: token("--carte-epoque-trait"), weight: 1.5, fillColor: token("--carte-epoque"), fillOpacity: 0.45 },
           interactive: false,
           attribution: AWMC_ATTRIB,
         }).addTo(m);
@@ -238,7 +239,7 @@ export default function AtlasMap({ places, mode, era, roads, selectedId, onSelec
     loadGeo("voies-romaines.json")
       .then((fc) => {
         if (cancelled) return;
-        roadLayer.current = L.geoJSON(fc, { style: { color: "#233D56", weight: 1.2, opacity: 0.55, dashArray: "3 3" }, interactive: false, attribution: AWMC_ATTRIB }).addTo(m);
+        roadLayer.current = L.geoJSON(fc, { style: { color: token("--carte-voie"), weight: 1.2, opacity: 0.6, dashArray: "3 3" }, interactive: false, attribution: AWMC_ATTRIB }).addTo(m);
       })
       .catch(() => {});
     return () => {
@@ -283,7 +284,7 @@ export default function AtlasMap({ places, mode, era, roads, selectedId, onSelec
     const p = places.find((x) => x.id === selectedId);
     if (!p) return;
     for (const a of p.alternatives) {
-      L.polyline([[p.lat, p.lon], [a.lat, a.lon]], { color: "#56677A", weight: 1, dashArray: "2 4", interactive: false }).addTo(layer);
+      L.polyline([[p.lat, p.lon], [a.lat, a.lon]], { color: token("--carte-hypothese"), weight: 1, dashArray: "2 4", interactive: false }).addTo(layer);
       L.marker([a.lat, a.lon], { icon: altIcon(a.site ?? "?"), interactive: false }).addTo(layer);
     }
   }, [places, selectedId]);

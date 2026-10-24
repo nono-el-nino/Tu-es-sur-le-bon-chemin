@@ -9,12 +9,12 @@ type Style = { layers: StyleLayer[]; sources?: Record<string, { attribution?: st
  * Les noms du fond sont éclaircis pour laisser les lieux bibliques au premier plan,
  * et la mention de source anglaise du style est retirée (l'app affiche la sienne, en français).
  */
-export function frenchLabels<T extends Style>(style: T): T {
+export function frenchLabels<T extends Style>(style: T, couleurs: { texte: string; halo: string }): T {
   for (const layer of style.layers) {
     const field = layer.layout?.["text-field"];
     if (layer.type === "symbol" && field && JSON.stringify(field).includes("name")) {
       layer.layout!["text-field"] = FRENCH_NAME;
-      layer.paint = { ...layer.paint, "text-color": "#7a8794", "text-halo-color": "#ffffff", "text-halo-width": 1.2 };
+      layer.paint = { ...layer.paint, "text-color": couleurs.texte, "text-halo-color": couleurs.halo, "text-halo-width": 1.2 };
     }
   }
   for (const src of Object.values(style.sources ?? {})) delete src.attribution;

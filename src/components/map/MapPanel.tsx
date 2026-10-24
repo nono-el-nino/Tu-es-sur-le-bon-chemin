@@ -16,6 +16,7 @@ import {
   type Place,
 } from "../../content/places";
 import { eras, type Era, type MapMode } from "./layers";
+import { Gouttes } from "../Gouttes";
 
 const AtlasMap = lazy(() => import("./AtlasMap"));
 
@@ -199,12 +200,12 @@ function PlaceSheet({ place: p, focusPassageId, onClose }: { place: Place; focus
         <dt>Fiabilité</dt>
         <dd>
           <span className={`badge conf-${conf.level}`}>{conf.label}</span>
+          {showScore && conf.score !== null && <Gouttes faites={Math.round(Math.max(0, conf.score) / 200)} total={5} label={`Confiance ${conf.score} sur 1000`} />}
           {showScore && conf.score !== null && (
-            <span className="score-bar" aria-label={`Confiance ${conf.score} sur 1000`}>
-              <span style={{ width: `${Math.max(0, conf.score) / 10}%` }} />
+            <span className="legende">
+              <span className="mono">{conf.score}/1000</span> selon OpenBible
             </span>
           )}
-          {showScore && conf.score !== null && <span className="small muted"> {conf.score}/1000 selon OpenBible</span>}
         </dd>
         {p.alternatives.length > 0 && (
           <>
@@ -220,7 +221,7 @@ function PlaceSheet({ place: p, focusPassageId, onClose }: { place: Place; focus
           {occurrences.map(({ passage, link }) => (
             <Link key={passage.id + link.osis} to={`/passage/${passage.id}`} className={`place-occurrence ${passage.id === focusPassageId ? "current" : ""}`}>
               <span>
-                <strong>{formatReference(passage)}</strong> · {passage.title}
+                <strong className="ref-plain">{formatReference(passage)}</strong> · {passage.title}
               </span>
               <span className="small muted">
                 {roleLabels[link.role]} ({formatOsis(link.osis)})
