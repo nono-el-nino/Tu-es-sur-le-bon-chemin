@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { confidenceOf, passagesForPlace, type Place } from "../../content/places";
 
 import { eras, type Era, type MapMode } from "./layers";
-import { token } from "../../lib/tokens";
+import { token, tokenMs } from "../../lib/tokens";
 
 // Terre sainte au sens large : de la Galilée au Néguev.
 const HOLY_LAND = L.latLngBounds([30.8, 34.2], [33.5, 36.0]);
@@ -309,9 +309,9 @@ export default function AtlasMap({ places, mode, era, roads, selectedId, onSelec
     if (!m || !p) return;
     if (p.alternatives.length > 0) {
       const b = L.latLngBounds([[p.lat, p.lon], ...p.alternatives.map((a) => [a.lat, a.lon] as [number, number])]);
-      m.flyToBounds(b, { padding: [60, 60], maxZoom: 11, duration: 0.6 });
+      m.flyToBounds(b, { padding: [60, 60], maxZoom: 11, duration: tokenMs("--d-camera") / 1000 });
     } else if (!m.getBounds().pad(-0.15).contains([p.lat, p.lon])) {
-      m.flyTo([p.lat, p.lon], Math.max(m.getZoom(), 7), { duration: 0.6 });
+      m.flyTo([p.lat, p.lon], Math.max(m.getZoom(), 7), { duration: tokenMs("--d-camera") / 1000 });
     }
   }, [selectedId, places]);
 

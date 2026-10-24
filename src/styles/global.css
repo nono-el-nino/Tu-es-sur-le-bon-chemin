@@ -386,11 +386,11 @@ button {
 .segmented {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--s2);
+  gap: var(--s1);
 }
 .segmented button {
   min-height: 44px;
-  padding: 0 var(--s4);
+  padding: 0 var(--s3);
   border: 0;
   border-radius: var(--radius-pilule);
   background: transparent;
@@ -549,15 +549,20 @@ button {
   border-radius: var(--radius-carte);
   padding-top: 0;
 }
+/* Cadre de l'arbre : même proportion que le dessin, pour que la pluie tombe au bon endroit */
+.arbre-cadre {
+  position: relative;
+  height: min(42dvh, 113vw, 600px);
+  aspect-ratio: 460 / 520;
+  margin: 0 auto;
+}
+.scene.inline .arbre-cadre {
+  height: 240px;
+}
 .scene .arbre {
   display: block;
   width: 100%;
-  height: auto;
-  max-height: 46dvh;
-  margin: 0 auto;
-}
-.scene.inline .arbre {
-  max-height: 260px;
+  height: 100%;
 }
 .scene button.toucher {
   position: absolute;
@@ -828,6 +833,9 @@ button {
 .etape.courante {
   background: var(--nuage);
   box-shadow: var(--ombre-nuage-s);
+}
+.etape.courante .repere {
+  background: var(--nuage);
 }
 
 /* ---------- Quiz ---------- */

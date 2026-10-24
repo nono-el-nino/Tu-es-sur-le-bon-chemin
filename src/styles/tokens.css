@@ -91,6 +91,8 @@
   --d-oscillation: 9s;
   --d-fondu: 200ms; /* remplace la brume en mouvement réduit */
   --d-toast: 2200ms;
+  --d-camera: 600ms; /* déplacement de la carte vers un lieu */
+  --d-brume-secours: 2500ms; /* au-delà, un bloc en attente de brume s'affiche quand même */
 }
 
 /* Navigateurs sans oklch (iOS < 15.4) : équivalents sRGB */

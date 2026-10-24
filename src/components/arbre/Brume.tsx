@@ -1,3 +1,4 @@
+import { tokenMs } from "../../lib/tokens";
 import { useEffect, useRef, useState, type CSSProperties, type ElementType, type ReactNode } from "react";
 
 /**
@@ -41,7 +42,12 @@ export function BrumeAuDefilement({ children, className = "" }: { children: Reac
       { rootMargin: "0px 0px -8% 0px" },
     );
     io.observe(el);
-    return () => io.disconnect();
+    // filet de sécurité : le contenu ne reste jamais caché
+    const t = window.setTimeout(() => setVu(true), tokenMs("--d-brume-secours"));
+    return () => {
+      io.disconnect();
+      window.clearTimeout(t);
+    };
   }, []);
   return (
     <div ref={ref} className={`${className} ${vu ? "brume-bloc" : "brume-attente"}`}>
