@@ -1111,3 +1111,10 @@ input[type="text"]:focus {
     transition: none;
   }
 }
+
+/* Icônes : trait de 1,75 px, bouts arrondis, couleur écorce par défaut */
+svg.lucide {
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

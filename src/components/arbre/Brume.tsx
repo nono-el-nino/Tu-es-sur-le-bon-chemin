@@ -5,7 +5,7 @@ import { useEffect, useRef, useState, type CSSProperties, type ElementType, type
  * décalé de --d-brume-pas). Réservée aux versets et aux titres, jamais aux boutons.
  * Changer `cle` rejoue l'apparition. En mouvement réduit : simple fondu.
  */
-export function Brume({ texte, as: Tag = "span", className, cle }: { texte: string; as?: ElementType; className?: string; cle?: string | number }) {
+export function Brume({ texte, as: Tag = "span", className, cle, emphase }: { texte: string; as?: ElementType; className?: string; cle?: string | number; /** mots mis en lumière (italique) */ emphase?: string[] }) {
   const mots = texte.split(/(\s+)/).filter((m) => m.length > 0);
   let i = 0;
   return (
@@ -16,7 +16,7 @@ export function Brume({ texte, as: Tag = "span", className, cle }: { texte: stri
           " "
         ) : (
           <span key={k} className="brume-mot" aria-hidden="true" style={{ "--i": i++ } as CSSProperties}>
-            {m}
+            {emphase?.includes(m.replace(/[^\p{L}'’-]/gu, "")) ? <em>{m}</em> : m}
           </span>
         ),
       )}
