@@ -215,9 +215,21 @@ tests/          contenu (schéma, sources, statuts, droits) et stockage (favoris
 
 ## Direction artistique
 
-« Atlas contemporain » : ivoire `#F8F5ED`, bleu profond `#233D56`, terracotta `#D87859`, turquoise `#59A99E`, sable `#EBCB79`.
+> Tu es l'arbre, la Parole est le ciel, et chaque passage est une goutte qui te fait grandir.
 
-- Les variantes plus foncées de ces couleurs (`--*-ink`) servent aux textes, pour garder un contraste AA.
-- Polices : Fraunces (titres éditoriaux) et Inter (texte), embarquées, donc disponibles hors ligne.
-- Illustrations SVG originales générées à partir de l'identifiant de chaque contenu : horizons, soleils, chemins pointillés, constellations.
-- Pas de croix omniprésentes, de parchemins ni de dorures.
+- **L'arbre** (`src/components/arbre/Arbre.tsx`, SVG) est l'utilisateur. C'est le seul élément sombre de l'écran. Il remplace les barres de progression : chaque parcours fait pousser une branche, chaque leçon terminée ajoute du nuage. La scène suit sa taille.
+- **Le nuage** est la Parole : couronne de l'arbre, cartes et surfaces, toujours sans contour.
+- **La goutte** est la rencontre. Elle tombe quand on garde un passage (vers l'onglet Carnet) ou qu'on termine une leçon, et laisse une onde.
+- **Mouvement**, quatre lois :
+  - *gravité* : la pluie et les gouttes ;
+  - *respiration* : chaque bulle a sa phase ;
+  - *brume* : titres et textes, mot à mot ;
+  - *croissance* : l'arbre grandit sans rebond.
+  `prefers-reduced-motion` coupe la pluie, la respiration et l'oscillation ; la brume devient un fondu.
+- **Météo de l'humeur** (`src/lib/meteo.ts`) : chaque humeur change la teinte du nuage et la densité de la pluie, de l'inquiétude (5 gouttes) à la joie (1 goutte).
+- **Tokens** : `src/styles/tokens.css` est le seul fichier où figurent couleurs et durées. Le code les lit avec `token()` et `tokenMs()` (`src/lib/tokens.ts`).
+- **Polices** intégrées à l'app (hors ligne) : Instrument Serif (titres, versets), Figtree (interface), JetBrains Mono (références, dates, numéros d'étape).
+- **Tests** (`tests/design-system.test.ts`) :
+  - aucune couleur ni durée codée en dur hors des tokens ;
+  - contrastes WCAG AA calculés à partir des tokens ;
+  - mode mouvement réduit complet.

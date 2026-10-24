@@ -18,7 +18,7 @@ for (const t of targets) {
   if (t.square) s = s.replace('rx="112"', 'rx="0"');
   await page.setViewportSize({ width: t.size, height: t.size });
   await page.setContent(
-    `<body style="margin:0;background:#F8F5ED;display:grid;place-items:center;width:${t.size}px;height:${t.size}px">` +
+    `<body style="margin:0;background:#EEF2F6;display:grid;place-items:center;width:${t.size}px;height:${t.size}px">` +
       `<div style="width:${inner}px;height:${inner}px">${s.replace("<svg ", `<svg width="${inner}" height="${inner}" `)}</div></body>`,
   );
   await page.screenshot({ path: `public/icons/${t.file}`, omitBackground: !t.square });

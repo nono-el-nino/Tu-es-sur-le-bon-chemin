@@ -3,7 +3,7 @@
  * - Fichiers statiques (JS, CSS, polices, images) : cache d'abord (noms versionnés par Vite).
  * Les liens externes (aelf.org, vatican.va) ne sont jamais mis en cache.
  */
-const CACHE = "bon-chemin-v1";
+const CACHE = "bon-chemin-v2";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE).then((c) => c.addAll(["./", "./index.html", "./manifest.webmanifest"])).then(() => self.skipWaiting()));

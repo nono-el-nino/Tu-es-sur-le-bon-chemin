@@ -164,8 +164,8 @@ export function Arbre({ progression, branches, pluie = 0, teinte = "--nuage-ombr
             <stop offset="0.48" style={{ stopColor: "var(--nuage)" }} />
             <stop offset="1" style={{ stopColor: `var(${teinte})`, transition: "stop-color var(--d-croissance) var(--ease-croissance)" }} />
           </radialGradient>
-          <filter id={`ombre-${id}`} x="-40%" y="-40%" width="180%" height="190%">
-            <feDropShadow dx="0" dy="9" stdDeviation="9" style={{ floodColor: "var(--ombre-bulle)" }} />
+          <filter id={`ombre-${id}`} x="-40%" y="-80%" width="180%" height="260%">
+            <feGaussianBlur stdDeviation="9" />
           </filter>
           <filter id={`flou-${id}`} x="-20%" y="-200%" width="140%" height="500%">
             <feGaussianBlur stdDeviation="5" />
@@ -202,7 +202,9 @@ export function Arbre({ progression, branches, pluie = 0, teinte = "--nuage-ombr
                   {/* L'amas reste droit malgré l'inclinaison de la branche */}
                   <g className="croit" style={{ transform: `translate(0px, ${-longueur}px)` }}>
                     <g transform={`rotate(${-b.angle})`}>
-                      <g className="croit" style={{ transform: `scale(${echelle})` }} filter={`url(#ombre-${id})`}>
+                      <g className="croit" style={{ transform: `scale(${echelle})` }}>
+                        {/* Ombre portée bleutée : statique (floutée une fois), sous les bulles qui respirent */}
+                        <ellipse cx={0} cy={UNITE * 0.95} rx={UNITE * 1.85} ry={UNITE * 0.5} style={{ fill: "var(--ombre-bulle)" }} filter={`url(#ombre-${id})`} />
                         {BULLES.map(([x, y, r], i) => (
                           <circle
                             key={i}
